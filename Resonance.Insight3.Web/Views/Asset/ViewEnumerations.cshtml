@@ -1,0 +1,32 @@
+﻿@model Resonance.Insight3.Web.ViewModels.Asset.AssetEnumeration
+
+@*@Html.ListBox("enumerated", new SelectList(Model.Values));*@
+
+<div id="enumerated-values" class="k-content">
+    <table id="enumerated-values-grid">
+        <thead>
+            <tr>
+                <th data-field="field">@Model.Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var s in Model.Values)
+            {
+                <text>
+            <tr>
+                <td>@Html.Raw(s)</td>
+            </tr>
+                </text>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $("#enumerated-values-grid").kendoGrid();
+        //{
+        //    height: 250
+        //});
+    });
+</script>

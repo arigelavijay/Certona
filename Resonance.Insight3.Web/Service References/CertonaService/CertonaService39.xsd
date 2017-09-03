@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Catalog" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" />
+  <xs:complexType name="GetCatalogDetailsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q1:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogDetailsRequest" nillable="true" type="tns:GetCatalogDetailsRequest" />
+  <xs:complexType name="GetCatalogItemRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q2:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountItemID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogItemRequest" nillable="true" type="tns:GetCatalogItemRequest" />
+  <xs:complexType name="GetCatalogItemsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q3:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SortColumns" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NameValueFilter" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NameValueOperator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IDValueFilter" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IDValueOperator" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StatusValueFilter" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+          <xs:element minOccurs="0" name="Page" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogItemsRequest" nillable="true" type="tns:GetCatalogItemsRequest" />
+  <xs:complexType name="GetCatalogRuleContextsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q4:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogRuleContextsRequest" nillable="true" type="tns:GetCatalogRuleContextsRequest" />
+  <xs:complexType name="GetCatalogByRuleRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q5:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RuleId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogByRuleRequest" nillable="true" type="tns:GetCatalogByRuleRequest" />
+  <xs:complexType name="GetCatalogMappingFromResonanceFieldRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q6:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResonanceField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogMappingFromResonanceFieldRequest" nillable="true" type="tns:GetCatalogMappingFromResonanceFieldRequest" />
+  <xs:complexType name="GetRecommendationTypesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q7:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRecommendationTypesRequest" nillable="true" type="tns:GetRecommendationTypesRequest" />
+</xs:schema>

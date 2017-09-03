@@ -1,0 +1,169 @@
+﻿@using System.ComponentModel
+@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Reporting.TrendsViewModel
+
+<script type="text/javascript">
+    var decimals = 0;
+    function RefreshData() {
+        var ID = "@Model.ID";
+        var nodeType = '@Model.NodeType';
+
+        var startDate = new Date($("#StartDate").val());
+        var endDate = new Date($("#EndDate").val());
+        
+        var yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        if (endDate > yesterday) {
+            ShowsysMessage("error", "The <i>To Date</i> must be no later than yesterday's date.");
+            return (false);
+        }
+
+        if (startDate <= endDate) {
+            var startYear = startDate.getFullYear();
+            var startMonth = startDate.getMonth() + 1; // 0 based
+            var startDay = startDate.getDate();
+            
+            var endYear = endDate.getFullYear();
+            var endMonth = endDate.getMonth() + 1; // 0 based
+            var endDay = endDate.getDate();
+            
+            $.ajax({
+                url: "@Url.Action("GetTrendsData","Reporting")",
+                cache: false,
+                type: 'GET',
+                data: { startYear: startYear, startMonth: startMonth, startDay: startDay, endYear: endYear, endMonth: endMonth, endDay: endDay, ID: ID, nodeType: nodeType },
+                success: function (data) {
+                    var dataSource = new kendo.data.DataSource({
+                        data: data
+                       , group: { field: "Group", dir: "asc" }
+                       , sort: { field: "Category", dir: "asc" }
+                    });
+                    $("#@Model.ChartName").data("kendoChart").setDataSource(dataSource);
+                }
+            });
+        } else {
+            ShowsysMessage("error", "The From Date must be earlier than the To Date.");
+
+            // Keep error message below in case User Experience wishes to use the modal dialog.
+            // var errorMessage = "<br/><a href=\"#blank\" onclick=\"closeConfirmWindow()\">Close Window</a>";
+            // displayErrorModal(errorMessage, 554, "Date Error");
+        }
+    }
+    
+    function startChange() {
+        var endPicker = $("#EndDate").data("kendoDatePicker"),
+            startDate = this.value();
+        
+        if (startDate) {
+            startDate = new Date(startDate);
+            startDate.setDate(startDate.getDate());
+            endPicker.min(startDate);
+        }
+    }
+
+    function endChange() {
+        var startPicker = $("#StartDate").data("kendoDatePicker"),
+            endDate = this.value();
+        
+        if (endDate) {
+            endDate = new Date(endDate);
+            endDate.setDate(endDate.getDate() - 1);
+            startPicker.max(endDate);
+        }
+    }
+
+    function onTrendsDataBound(e) {
+        var chart = $("#@Model.ChartName").data("kendoChart");
+        $.each(chart.options.series, function () {
+            var obj = this;
+            if (obj.color === "#0012F1" || obj.color === "#2D37B4" || obj.color === "#A62800" || obj.color === "#A62375") {
+                obj.tooltip.color = "white";
+            } else {
+                obj.tooltip.color = obj.labels.color;
+            }            
+        });
+    }
+    
+</script>
+<div id="email-settings" style="height:28px; white-space: nowrap;">
+    <div style="float:left; margin-top: 8px;">
+        <span class="bold">Metric:</span>&#160;<span class="hotspot" data-hotspot="@this.InfoPanelResources("recommendationdemand")">@this.SharedResources("recommendationdemand")</span>
+    </div>
+    
+    <div style="float:left; margin-left:25px; margin-top:8px;"><span class="bold">From:</span></div>
+    <div style="float:left; margin-left:5px; margin-top:-1px;">
+        @(Html.Kendo().DatePicker()
+              .Name("StartDate")
+              .Value(Model.StartDate)
+              .Max(DateTime.Today.AddDays(-1))
+              .Events(e => e.Change("startChange"))
+              .HtmlAttributes(new { style = "width:105px; height:1.75em;" })
+              )
+    </div>
+    <div style="float:left; margin-left:10px; margin-top:8px;"><span class="bold">To:</span></div>
+    <div style="float:left; margin-left:5px; margin-top:-1px;">
+        @(Html.Kendo().DatePicker()
+              .Name("EndDate")
+              .Value(Model.EndDate)
+              .Min(Model.StartDate)
+              .Max(DateTime.Today.AddDays(-1))
+              .Events(e => e.Change("endChange"))
+              .HtmlAttributes(new { style = "width:105px; height:1.75em;" })
+              )
+   </div>
+    <div style="float:left; margin-left:5px; margin-top:-2px;"><button class="insight-submit-btn" onclick="RefreshData()">Update</button></div>
+    <span style="float:left; margin-left:5px; margin-top:8px;" class="hotspot" data-hotspot="@this.InfoPanelResources("reportinglastupdated")">@Model.ReportingLastUpdated</span>
+    <div style="clear:both;"></div>
+</div>
+<div style="clear:both;"></div>
+<div id="trends_chart" class="chart-wrapper">
+    @(Html.Kendo().Chart()
+          .Name(@Model.ChartName)          
+          .SeriesColors(@Model.SeriesColors)
+          .Legend(legend => legend
+                                .Position(ChartLegendPosition.Right)
+          )          
+          .ChartArea(chartArea => chartArea
+                                      .Background("transparent")
+          )
+          .DataSource(ds => ds.Read(read => read.Action("GetTrendsModel", "Reporting", new { startYear=@Model.StartDate.Year, startMonth=@Model.StartDate.Month, startDay=@Model.StartDate.Day, 
+                                                                                             endYear=@Model.EndDate.Year, endMonth=@Model.EndDate.Month, endDay=@Model.EndDate.Day, ID=Model.ID, nodeType=@Model.NodeType }))
+                                .Group(group => group.Add("Group", typeof (string), ListSortDirection.Ascending))
+                                .Sort(sort => sort.Add("Category").Ascending())
+                                )
+                                
+                                
+          .Series(series => series.Line(typeof (double), "Data").MissingValues(ChartLineMissingValues.Gap).GroupNameTemplate("#= group.value #"))
+          .CategoryAxis(axis => { 
+                                    axis.Axis.Member = "Category";
+                                    axis.Labels(x => x.Rotation(-90));
+                                })
+          .ValueAxis(axis => axis.Numeric().Labels(labels => labels.Format("{0}%")))
+          .Tooltip(tooltip => tooltip
+                                  .Visible(true)
+                                  .Template("#= series.name #: #= TooltipFormat(value) #"))
+          .Events(events => events.DataBound("onTrendsDataBound"))
+          )
+</div>
+
+<script type="text/javascript">
+    $(window).resize(function(){
+        if ($("#@Model.ChartName").length>0) {
+            $("#@Model.ChartName").data("kendoChart").redraw();
+        }
+    });
+    
+    function TooltipFormat(value) {
+        var dec = value.toString().substring(value.toString().indexOf('.') + 1);
+        var places = 0;
+        for (var i = 0; i < dec.length; i++) {
+            if (dec[i] != 0) {
+                places = i + 2;
+                break;
+            }
+        }
+        return value.toFixed(places) + '%';
+    }    
+</script>
+

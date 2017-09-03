@@ -1,0 +1,28 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Catalog.ItemsViewModel
+
+<div style="display: block; width: 100%; overflow: auto">
+    <div style="float: left; width: 90%;">
+        <legend title="@this.LocalResources("viewdetails")">
+            <div style="width: 25%; float: left;">
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("assetid")"><span class="bold">@this.SharedResources("name")</span></span><br/>
+                @Model.ItemDetails.CatalogItemInfo.ItemID<br/><br/>
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("name")"><span class="bold">@this.SharedResources("name")</span></span><br/>
+                @Model.ItemDetails.CatalogItemInfo.Description<br/><br/>
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("status")"><span class="bold">@this.SharedResources("status")</span></span><br/>
+                @(Model.ItemDetails.CatalogItemInfo.Disabled) ? "Inactive":"Active"<br/><br/>
+            </div>
+            <div style="width: 25%; float: left;">
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("assetid")"><span class="bold">@this.SharedResources("name")</span></span><br/>
+                    @Model.ItemDetails.CatalogItemInfo.ItemID<br/><br/>
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("name")"><span class="bold">@this.SharedResources("name")</span></span><br/>
+                    @Model.ItemDetails.CatalogItemInfo.Description<br/><br/>
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("status")"><span class="bold">@this.SharedResources("status")</span></span><br/>
+                    @(Model.ItemDetails.CatalogItemInfo.Disabled) ? "Inactive":"Active"<br/><br/>
+            </div>
+        </legend>
+    </div>
+    
+    
+    <br/>
+</div>

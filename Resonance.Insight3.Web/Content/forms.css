@@ -1,0 +1,39 @@
+/**
+ * Inputs and Validation
+ */
+.form .form-label {
+    display: block;
+    float: left;
+    font-size: 0.875em;
+    line-height: 29px;
+    margin: 0;
+    text-align: right;
+    width: 200px;
+}
+
+.form .form-label.no-description { line-height: 30px; }
+
+.form .form-label.no-description small { display: none; }
+
+.form .form-action { margin-left: 210px; }
+
+.form .form-input {
+    line-height: 29px;
+    margin: 0 0 4px 209px;
+}
+
+.form .form-textarea { line-height: 1; }
+
+.form .form-input textarea,
+.form .form-input input[type=text],
+.form .form-input input[type=password],
+.form .form-input input[type=email],
+.form .form-input input[type=url],
+.form .form-input input[type=date],
+.form .form-input input[type=number],
+.form .form-input input[type=time],
+.form .form-input input[type=date],
+.form .form-input input.date,
+.form .form-input .selector,
+.form .form-input .uploader,
+.form .form-input .radiogroup { width: 100%; }

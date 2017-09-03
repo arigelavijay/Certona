@@ -1,0 +1,52 @@
+@using Resonance.Insight3.Web.Helpers
+<header>
+    <div id="logopanelgrey" class="greyedoutmodal"></div>
+    <div id="logopanel">
+        <a href="/Home/">
+            <h1 id="logo"></h1>
+        </a>
+        <div id="success">
+            <div class="successborder">
+                <div class="successSysMessage">
+                    <a href="#" class="closeSysMessage"></a>
+                    <span id="successContent">Application Details saved successfully.</span>
+                </div>
+            </div>
+        </div>
+        <div id="error">
+            <div class="errorborder">
+                <div class="errorSysMessage">
+                    <a href="#" class="closeSysMessage"></a>
+                    <span id="errorContent">Required fields must be completed.</span>
+                </div>
+            </div>
+        </div>
+        <div id="top">
+            <ul>
+                <li class="first">
+                    <span class="grey">@this.LocalResources("LoggedInText")</span> @User.Identity.Name
+                </li>
+                <li class="sep">|</li>
+                <li>
+                    <a href="#blank" id="aUserSetting">@this.LocalResources("UserSettingsText")</a>
+                </li>
+                <li class="sep">|</li>
+                <li>
+                    <a href="#blank">@this.LocalResources("UserHelpText")</a>
+                </li>
+                <li class="sep">|</li>
+                <li>
+                    <a href="#">@Html.ActionLink(this.LocalResources("LogoutText"), "LogOff", "Authentication")</a>
+                </li>
+                <!--
+                <li class="sep">|</li>
+                <li>
+                    <span style="cursor: pointer;" onclick="$(window).trigger('statechange');">Change State</span>
+                </li>   
+                -->
+            </ul>
+        </div>
+    </div>
+    <div class="border"></div>
+    <script type="text/javascript" src="~/Scripts/Certona/headerpanel.js?@DateTime.Now.Ticks"> </script>
+</header>

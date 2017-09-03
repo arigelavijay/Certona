@@ -1,0 +1,69 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Variant.VariantBoosts
+
+<script type="text/javascript" src="~/Scripts/jquery.knob.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".dial").dial({
+            release : function (value) {
+                $('#boost1text').text(value);
+                // alert(value);
+                // alert(this.name);
+            },
+            change : function(value) {
+                $('#boost1text').text(value);
+            },
+            cancel : function () {
+                // alert("Cancel");
+            }
+        });
+    });
+</script>
+<div class="modifiers-container">
+    <div class="modifiers-header-bg" style="border-left-style: solid;"><span class="hotspot" data-hotspot="@this.InfoPanelResources("pool")">Pool</span></div>
+    <div>
+        <div class="modifiers-dial-wrapper">
+            <input type="hidden" class="dial" data-width="60" data-thickness=".3" data-fgColor="#87CEEB" data-bgColor="#C0C0C0" data-angleOffset="0" data-readOnly="true" data-min="0" data-max="10" value="@Model.VariantDetails.PoolFactor" />
+        </div>
+        <div class="modifiers-dial-text">@Model.VariantDetails.PoolFactor</div>
+        <div class="modifiers-dial-notation">x</div>
+    </div>
+</div>
+
+<div class="modifiers-container" style="border-left-style:none;">
+    <div class="modifiers-header-bg"><span class="hotspot" data-hotspot="@this.InfoPanelResources("profile")">Profile</span></div>
+    <div>
+        <div class="modifiers-dial-wrapper">
+            <input type="hidden" class="dial" data-width="60" data-thickness=".3" data-fgColor="#87CEEB" data-bgColor="#C0C0C0" data-angleOffset="0" data-readOnly="true" data-min="0" data-max="100" value="@Model.VariantDetails.SubjectWeight" />
+        </div>
+        <div class="modifiers-dial-text">@Model.VariantDetails.SubjectWeight</div>
+        <div class="modifiers-dial-notation">%</div>
+    </div>
+</div>
+@foreach (var bias in Model.VariantBiases)
+{
+    <div class="modifiers-container modifiers-biases-bg" style="border-left-style:none;">
+    <div class="modifiers-header-bg"><span class="hotspot" data-hotspot="@this.InfoPanelResources("newproducts")">@bias.ListName</span></div>
+    <div>
+        <div class="modifiers-dial-wrapper">
+            <input type="hidden" class="dial" data-width="60" data-thickness=".3" data-fgColor="#87CEEB" data-bgColor="#C0C0C0" data-angleOffset="0" data-readOnly="true" data-min="0" data-max="100" value="@bias.Weight" />
+        </div>
+        <div id="bias_@bias.BiasID" class="modifiers-dial-text">@bias.Weight</div>
+        <div class="modifiers-dial-notation">%</div>
+    </div>
+    </div>
+}
+
+@foreach (var variant in Model.VariantModels)
+{
+    <div class="modifiers-container modifiers-models-bg" style="border-left-style:none;">
+        <div class="modifiers-header-bg"><span class="hotspot" data-hotspot="@this.InfoPanelResources("parameterizedbias")" style="line-height:30px;">@variant.Name</span></div>
+        <div>
+            <div class="modifiers-dial-wrapper">
+                <input type="hidden" class="dial" data-width="60" data-thickness=".3" data-fgColor="#87CEEB" data-bgColor="#C0C0C0" data-angleOffset="0" data-readOnly="true" data-min="0" data-max="100" value="@variant.Weight" />
+            </div>
+            <div id="boost_@variant.CatalogID" class="modifiers-dial-text">@variant.Weight</div>
+            <div class="modifiers-dial-notation">%</div>
+        </div>
+    </div>
+}

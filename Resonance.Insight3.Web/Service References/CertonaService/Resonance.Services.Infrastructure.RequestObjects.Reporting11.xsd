@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Reporting" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Reporting" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" />
+  <xs:complexType name="GetReportingDataLastUpdatedRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q1:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetReportingDataLastUpdatedRequest" nillable="true" type="tns:GetReportingDataLastUpdatedRequest" />
+  <xs:complexType name="GetTrendsDataApplicationRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GetTrendsDataRequestBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTrendsDataApplicationRequest" nillable="true" type="tns:GetTrendsDataApplicationRequest" />
+  <xs:complexType name="GetTrendsDataRequestBase">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q2:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Metric" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ViewBy" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTrendsDataRequestBase" nillable="true" type="tns:GetTrendsDataRequestBase" />
+  <xs:complexType name="GetTrendsDataPackageRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GetTrendsDataRequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PackageID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTrendsDataPackageRequest" nillable="true" type="tns:GetTrendsDataPackageRequest" />
+  <xs:complexType name="GetTrendsDataSchemeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GetTrendsDataRequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SchemeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTrendsDataSchemeRequest" nillable="true" type="tns:GetTrendsDataSchemeRequest" />
+  <xs:complexType name="GetTrendsDataExperienceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GetTrendsDataRequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ExperienceID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTrendsDataExperienceRequest" nillable="true" type="tns:GetTrendsDataExperienceRequest" />
+  <xs:complexType name="GetTrendsDataVariantRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GetTrendsDataRequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="VariantID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTrendsDataVariantRequest" nillable="true" type="tns:GetTrendsDataVariantRequest" />
+</xs:schema>

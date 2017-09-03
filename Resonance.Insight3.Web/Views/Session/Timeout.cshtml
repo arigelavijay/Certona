@@ -1,0 +1,38 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.LoginViewModel
+<div id="divTimeOut" style="overflow: hidden; width: 400px;">
+    <div id="main" style="overflow: hidden">
+        <section class="container_100 clearfix">
+            <div class="form">
+                @*@using (Html.BeginForm())
+                {*@
+                <div id="timeoutmessagecontainer" class="errmessageicon clearfix hidden">
+                    <div id="message" class="errmessage">
+                        <table >
+                            <tbody>
+                                <tr>
+                                    <td id="messagecontent"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="clearfix">
+                    @Html.LabelFor(model => model.UserName, this.LocalResources("UserIDText"), new {@class = "form-label"})
+                    <div class="form-input">@Html.TextBoxFor(model => model.UserName, new {@readonly = "readonly"})</div>
+                </div>
+                <div class="clearfix">
+                    @Html.LabelFor(model => model.Password, this.LocalResources("PasswordText"), new {@class = "form-label"})
+                    <div class="form-input"> @Html.PasswordFor(model => model.Password)</div>
+                </div>
+                <div class="clearfix">
+                    <div class="form-action">
+                        <input type="submit" id="relogin" value='@this.LocalResources("LoginAgainText")' class="login"/>
+                    </div>
+                </div>
+                @* }*@
+            </div>
+        </section>
+        <script type="text/javascript" src="~/Scripts/Certona/login.js?@DateTime.Now.Ticks"> </script>
+    </div>
+</div>

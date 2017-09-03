@@ -1,0 +1,27 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Experience.ExperienceNodeViewModel
+
+<div style="display: block; width: 100%;">
+    @Html.Hidden("cps-editmode-flag", "0", new { id = "cps-editmode-flag" })
+    <div style="float: left; width: 25%;">
+        <span class="bold">@this.SharedResources("experience")</span>
+        <br/>
+        @Model.Name
+    </div>
+    <div style="float: left; width: 25%;">
+        <span class="bold">@this.SharedResources("description")</span>
+        <br/>
+        @Model.Description
+    </div>
+    <div style="float: left; width: 25%;">
+        <span class="hotspot" data-hotspot="@this.InfoPanelResources("traffic")"><span class="bold">@this.SharedResources("traffic")</span></span>
+        <br/>
+        @Model.Traffic%
+    </div>
+    <div style="float: left; width: 25%;">
+        <span class="hotspot" data-hotspot="@this.InfoPanelResources("status")"><span class="bold">@this.SharedResources("status")</span></span>
+        <br/>
+        @Model.Status
+    </div>    
+    <div style="clear: both;"></div>
+</div>

@@ -1,0 +1,257 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@using Resonance.Insight3.Web.HtmlHelpers
+@model Resonance.Insight3.Web.ViewModels.Asset.AssetDetailsViewModel
+
+<div id="modal-enumerations-container">
+    <div id="modal-enumerations"></div>    
+</div>
+
+<div style="display: block; width: 100%; overflow: auto">
+    <fieldset>
+        <legend title="View Details"><span class="hotspot" data-hotspot="@this.InfoPanelResources("viewdetails")"><span class="bold">@this.SharedResources("viewdetails")</span></span></legend>
+        <div style="float: left; width: 75%;">
+            <div style="clear: both;">&#160;</div>
+            <div class="asset-detail">
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("assetid")"><span class="bold">@this.SharedResources("assetid")</span></span>
+                <br/>
+                @Model.Details.AccountItemID
+            </div>
+            <div class="asset-detail">
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("imageurl")"><span class="bold">@this.SharedResources("imageurl")</span></span>                
+                <br/>
+                <div style='word-wrap: break-word'><a href="@Model.Details.ImageURL" target="_blank">@Model.Details.ImageURL</a></div>                
+            </div>        
+            <div style="clear: both;">&#160;</div>
+            <div class="asset-detail">
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("name")"><span class="bold">@this.SharedResources("name")</span></span>
+                <br/>
+                <span id="asset-product-name">@Html.Raw(Model.Details.Name)</span>
+            </div>
+            <div class="asset-detail">
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("detailurl")"><span class="bold">@this.SharedResources("detailurl")</span></span>
+                <br/>
+                <div style='word-wrap: break-word'><a href="@Model.Details.DetailURL" target="_blank">@Model.Details.DetailURL</a></div>                
+            </div>        
+            <div style="clear: both;">&#160;</div>
+            <div class="asset-detail">
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("dateintroduced")"><span class="bold">@this.SharedResources("dateintroduced")</span></span>
+                <br/>
+                @Model.Details.DateIntroduced
+            </div>
+            <div class="asset-detail">
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("lastupdateddate")"><span class="bold">@this.SharedResources("lastupdateddate")</span></span>
+                <br/>
+                @Model.Details.DateLastUpdated
+            </div>        
+            <div style="clear: both;">&#160;</div>
+            <div class="asset-detail">
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("status")"><span class="bold">@this.SharedResources("status")</span></span>
+                <br/>
+                @Model.Details.Status
+            </div>
+            <div class="asset-detail">
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("excludedfromrecommendations")"><span class="bold">@this.SharedResources("excludedfromrecommendations")</span></span>
+                <br/>
+                @Model.Details.ExcludedFromRecommendations
+            </div>        
+            <div style="clear: both;">&#160;</div>
+        </div>
+        <div style="float: left; width: 25%;">
+            <div class="asset-detail">
+                <span class="hotspot" data-hotspot="@this.InfoPanelResources("imageurlpreview")"><span class="bold">@this.SharedResources("imageurlpreview")</span></span>
+                <br/>
+                <img src="@Url.Action("GetImage", "Image")?img=@Model.Details.ImageURL&mxH=240&mxW=170"/>                
+            </div>        
+        </div>
+    </fieldset>    
+    
+    <div style="clear: both;">&#160;</div>
+    
+    <fieldset>
+        <legend title="View Additional Details"><span class="hotspot" data-hotspot="@this.InfoPanelResources("viewadditionaldetails")"><span class="bold">@this.SharedResources("viewadditionaldetails")</span></span></legend>
+        <div>
+            @foreach(var key in Model.AdditionalDetails.Details.Keys)
+            {
+                @Html.ItemDetailSection(Model.AdditionalDetails.Details[key]);
+            }
+        </div>
+    </fieldset>    
+</div>
+
+<div id="enumerated-values-container" style="display: none">
+@foreach(var key in Model.AdditionalDetails.Details.Keys)
+{
+    var obj = Model.AdditionalDetails.Details[key];
+    if (obj.DisplayValues.Count > 1)
+    {
+    <text>
+    <div id="enumerated-values-@obj.DisplayLabel" class="k-content">
+        <table id="enumerated-values-grid-@obj.DisplayLabel">
+            <thead>
+                <tr>
+                    <th data-field="field">@obj.DisplayLabel</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var s in obj.DisplayValues)
+                {
+                    <text>
+                        <tr>
+                            <td>@Html.Raw(s)</td>
+                        </tr>
+                    </text>
+                }
+            </tbody>
+        </table>
+    </div>
+    </text>
+    }
+}
+</div>
+
+<script type="text/javascript">
+ 
+    $(function () {
+@foreach(var key in Model.AdditionalDetails.Details.Keys)
+{
+    // Turns each table into a kendo grid for display in modal
+    var obj = Model.AdditionalDetails.Details[key];
+    if (obj.DisplayValues.Count > 1)
+    {
+    <text>        
+        $('#enumerated-values-grid-@obj.DisplayLabel').kendoGrid({ sortable: true });
+    </text>
+    }
+}
+        @{
+        if (!Model.Details.ID.HasValue)
+        {
+        <text>
+        ShowsysMessage("error", "@Html.Raw(String.Format(this.SharedResources("catalogDataUnavailable"), "  <span id=\\\"reloadDetails\\\" style=\\\"cursor: pointer;\\\">", "</span>"))");
+        $('#reloadDetails').on('click', function (e) {
+            e.stopPropagation();
+            reloadAssetDetails();
+        });
+        </text>
+        }
+    }        
+    });
+
+    function reloadAssetDetails() {
+        $("#content-pane").load('@Url.Action("GetContentPanel","Content")', { NodeType: 'Asset', nodeID: '@Model.Details.AccountItemID', catalogID: '@Model.Details.CatalogID', rand: new Date().getTime() }, function () {
+        });
+    }
+
+    function displayEnumeratedData(key) {        
+        var productName = $('#asset-product-name').html();
+        var data = $('#enumerated-values-' + key.id).html();
+        displayAssetModal(productName, data);
+        return;        
+        @*// look up in master array
+        $.each(masterEnumeration, function (i, obj) {
+            if (obj.key === key.id) {                
+                // got it///display
+                var d = {
+                    values: obj.values,
+                    catalogID: '@Model.Details.Catalog',
+                    name: obj.key
+                };
+
+                var productName = $('#asset-product-name').html();
+               
+                // Use Ajax
+                $.ajax({
+                    url: '@Url.Action("ViewEnumerations","Asset")',
+                    type: 'POST',
+                    cache: false,
+                    contentType: 'application/json', // only this setting will serialize the object correctly 
+                    //dataType: 'json',             // no workie
+                    data: JSON.stringify({ model: d }),
+                    success: function (data) {
+                        displayAssetModal(productName, data);    
+                    }
+                });
+                return false;
+            }
+            return true;
+        });*@
+    }
+    @*    
+    var currentObj;
+    var masterEnumeration = [];    
+@foreach (var obj in Model.AdditionalDetails.Details.Values)
+{
+    if (obj.DisplayValues.Count > 1)
+    {
+    <text>
+    currentObj = {};
+    currentObj.key = '@obj.DisplayLabel';
+    currentObj.values = [];
+    @foreach (var s in obj.DisplayValues)
+    {
+        <text>currentObj.values.push('@s');</text>
+    }
+    masterEnumeration.push(currentObj);
+    </text>
+    }
+}
+    *@
+    
+    function displayAssetModal(title, content) {
+        var modalWidth = window.innerWidth * .60;
+        var minWidth = 315;
+        if (modalWidth < minWidth)
+            modalWidth = minWidth;
+        
+        // because destroy will kill the container div, we have to add it back in
+        if ($('#modal-enumerations').length == 0) {
+            $("#modal-enumerations-container").append("<div id='modal-enumerations'></div>");
+        }            
+
+        $('#modal-enumerations').html(content);        
+
+        //if (!$("#modal-enumerations").data("kendoWindow")) {
+        $("#modal-enumerations").kendoWindow({
+            width: modalWidth,
+            minWidth: minWidth,
+            height: 300,
+            minHeight: 300,
+            maxHeight: 300,
+            modal: true,
+            resizable: true,
+            title: title,
+            animation: {
+                open: {
+                    effects: { fadeIn: {} },
+                    duration: 100,
+                    show: true
+                },
+                close: {
+                    effects: { fadeOut: {} },
+                    duration: 100,
+                    hide: true
+                }
+            },
+            visible: false,
+            deactivate: function () {this.destroy();}  // destroys the window
+        });
+        window.setTimeout(function () {
+            showAssetModal(title, content);
+            //$("#modal-enumerations").data("kendoWindow").center().open();                
+        }, 100);
+        //} else {
+        //    showAssetModal(title, content);
+        //}
+    }
+
+    function showAssetModal(title, content) {
+        var modalWindow = $("#modal-enumerations").data("kendoWindow");
+        modalWindow.center();
+        modalWindow.content(content);
+        modalWindow.title(title);
+        modalWindow.open();
+    }
+</script>
+
+
+

@@ -1,0 +1,57 @@
+﻿@using Resonance.Insight3.Web.CertonaService
+@using Resonance.Insight3.Web.Helpers
+<script type="text/javascript" src="~/Scripts/Certona/ContentPanels.js"></script>
+<script type="text/javascript">
+    // URLs
+    var blankDefaultUrl = '@Url.Action("Blank", "Content")';
+    var sessionTimeoutLoginUrl = '@Url.Action("Login", "Authentication", new { SessionTimeout = true } )';
+    var sessionWarningUrl = '@Url.Action("Warning", "Session")';
+    var setContentSectionStateUrl = '@Url.Action("SetContentPanelSectionState", "Content")';
+    var homeNaviagtionPanelUrl = '@Url.Action("NavigationPanel", "Home")';
+    var updateLastAccountIdUrl = '@Url.Action("UpdateLastAccountID", "Home")';
+    var getAccountChangedUrl = '@Url.Action("GetAccountChanged", "Content")';
+    var getAccountExplorerStatusesUrl = '@Url.Action("GetAccountExplorerStatuses", "Navigation")';
+    var getPanelBarStatesUrl = '@Url.Action("GetPanelBarStates", "Navigation")';
+    var setRulesDisplayStateUrl = '@Url.Action("SetRulesDisplayState", "Experience")';
+    var setDecisionPlanDisplayStateUrl = '@Url.Action("SetDecisionPlanDisplayState", "Experience")';
+    var defaultInfoPanelText = '<span style=\"font-style: italic;\">@this.SharedResources("defaultInfoPanelText")</span>';
+    var unsavedChangesDialogUrl = '@Url.Action("UnsavedChanges", "Home")';
+    
+    // Enumeration Arrays
+    var nodeTypes = [];
+        @{
+            foreach (var t in Enum.GetNames(typeof(NodeType)))
+            {
+    @:nodeTypes[@((int)((NodeType)Enum.Parse(typeof(NodeType), t)))] = '@t';
+            }
+        }
+        
+    var nodeStatuses = [];
+        @{
+            foreach (var t in Enum.GetNames(typeof(NodeStatus)))
+            {
+    @:nodeStatuses[@((int)((NodeStatus)Enum.Parse(typeof(NodeStatus), t)))] = '@t';
+                    }
+        }
+        
+    // Content Panel Arrays
+    var contentPanels = new ContentPanels();
+    var unsavedChangesMessage = '@this.LocalResources("UnsavedChanges")';
+    var unsavedChangesContinueFunction, unsavedChangesContinueData, bypassUnsavedChangesDialog = false;
+    var highlightTreeItem;
+    
+    $(window).on('beforeunload', function () {
+        //alert('[[ TODO: HANDLE UNSAVED CHANGES ]]');
+        var cp = contentPanels.GetCurrentContentPanel();
+        var isDirty = false;
+        $.each(cp.Sections(), function (idx, val) {
+            if(val.IsEditing() && val.IsDirty()) {
+                isDirty = true;
+                return false;
+            }
+        });
+        if(isDirty){
+            return '@this.LocalResources("UnsavedChanges")';
+        }
+    });
+</script>

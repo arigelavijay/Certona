@@ -1,0 +1,87 @@
+﻿<input type="text" id="ApplicationName" style="width: 100px;"/><button id="addApp" type="button">Add Application</button>
+<br/>
+<input type="text" id="PackageName" style="width: 100px;"/><select id="ddlPackageType">
+                                                               <option value="WebPage">Web Page</option>
+                                                                <option value="Email">Email</option>
+                                                           </select> <button id="addPack" type="button">Add Package</button>
+<br/>
+<input type="text" id="SchemeName" style="width: 100px;"/><button id="addScheme" type="button">Add Scheme</button>
+<br/>
+<input type="text" id="ExperienceName" style="width: 100px;"/><button id="addExp" type="button">Add Experience</button>
+<br/>
+<input type="text" id="VariantName" style="width: 100px;"/><button id="addVari" type="button">Add Variant</button>
+<br/>
+<select id="RetrievingType">
+    <option>Application</option>
+    <option>Package</option>
+    <option>Scheme</option>
+    <option>Experience</option>
+    <option>Variant</option>
+</select>
+<input type="text" id="RetrievingID" style="width:50px;"/><button id="getDetails" type="button">Get Details</button>
+<script type="text/javascript">
+    function getRandomID() {
+        return Math.floor(Math.random() * 1001) + 1000;
+    }
+    
+    $(function () {
+        $('#getDetails').on('click', function () {
+            var data = $('#AccountTreeView').data("kendoTreeView").dataSource.data();
+            var nodeData = findNodeByTypeAndID(data, $.inArray($('#RetrievingType').val(), nodeTypes), $('#RetrievingID').val());
+            alert(JSON.stringify(nodeData));
+        });
+
+        $('#addApp').on('click', function () {
+            var app = {
+                Classification_ID_1: '',
+                Classification_Value_ID_1: '',
+                Classification_Value_1: 'USA',
+                Classification_ID_2: '',
+                Classification_Value_ID_2: '',
+                Classification_Value_2: '',
+                ApplicationID: $('#ApplicationName').val().replace(/ /g, '_'),
+                Name: $('#ApplicationName').val()
+            };
+
+            AddApplicationToTree(app);
+        });
+        $('#addPack').on('click', function () {
+            var pack = {
+                ApplicationID: $('#ApplicationName').val(),
+                PackageType: $('#ddlPackageType').val(),
+                PackageID: getRandomID(),
+                Name: $('#PackageName').val()
+            };
+
+            AddPackageToTree(pack);
+        });
+        $('#addScheme').on('click', function () {
+            var scheme = {
+                PackageID: $('#PackageName').val(),
+                SchemeID: getRandomID(),
+                Name: $('#SchemeName').val()
+            };
+
+            AddSchemeToTree(scheme);
+        });
+        $('#addExp').on('click', function () {
+            var experience = {
+                SchemeID: $('#SchemeName').val(),
+                ExperienceID: getRandomID(),
+                Name: $('#ExperienceName').val()
+            };
+
+            AddExperienceToTree(experience);
+        });
+        $('#addVari').on('click', function () {
+            var variant = {
+                ExperienceID: $('#ExperienceName').val(),
+                VariantID: getRandomID(),
+                Name: $('#VariantName').val()
+            };
+
+            AddVariantToTree(variant);
+        });
+    });
+
+</script>

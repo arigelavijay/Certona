@@ -1,0 +1,379 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Catalog.AssetsViewModel
+<div id="assetsDiv" style="display: block; width: 100%; overflow: auto">
+    <div id="AssetFilterControls">
+        <div id="description" class="listviewInputFilter borderRight" data-field-type="string" onclick="showFilter('description')">
+            <span id="description_header_text">@Model.DescriptionMapping</span><span class="filterText" id="description_filter_text" data-value="" style="display: none;"></span>&#160;<img src="/Images/drop-arrow.png" alt="Show Filter"/><img src="/Images/sort_asc.png" id="description_sort" alt="Ascending" onclick="sort(event, this);" style="float: right; margin-right: 5px;"/>
+        </div>
+        <div id="description_filter" class="assetsFilterDiv" style="display: none;">
+            <input type="text" data-field="description" id="description_filter_input"/>&#160;<img src="/Images/clear-x.png" width="10" height="10" style="vertical-align: middle; cursor: pointer;" onclick="clearFilter('description')" alt="Clear Search"/>
+        </div>
+
+        <div id="account_item_id" class="listviewInputFilter borderRight" data-field-type="string" onclick="showFilter('account_item_id')">
+            <span class="hotspot" data-hotspot="@this.InfoPanelResources("id")" id="account_item_id_header_text">@Model.AccountItemIDMapping</span><span class="filterText" id="account_item_id_filter_text" data-value="" style="display: none;"></span>&#160;<img src="/Images/drop-arrow.png" alt="Show Filter"/><img src="/Images/sort_asc.png" id="account_item_id_sort" alt="Ascending" onclick="sort(event, this);" style="float: right; margin-right: 5px; display: none;"/>
+        </div>
+        <div id="account_item_id_filter" class="assetsFilterDiv" style="display: none;">
+            <input type="text" data-field="account_item_id" id="account_item_id_filter_input">&#160;<img src="/Images/clear-x.png" width="10" height="10" style="vertical-align: middle; cursor: pointer;" onclick="clearFilter('account_item_id')" alt="Clear Search"/>
+        </div>
+
+        <div id="disabled" class="listviewInputFilter" data-field-type="enumerated" onclick="showFilter('disabled')">
+            <span class="hotspot" data-hotspot="@this.InfoPanelResources("status")" id="disabled_header_text">@this.SharedResources("status")</span><span class="filterText" id="disabled_filter_text" data-value="" style="display: none;"></span>&#160;<img src="/Images/drop-arrow.png" alt="Show Filter"/><img src="/Images/sort_asc.png" id="disabled_sort" alt="Ascending" onclick="sort(event, this);" style="float: right; margin-right: 5px; display: none;"/>
+        </div>
+        <div id="disabled_filter" class="assetsFilterDiv" style="display: none;">
+            <div class="enumeratedFilterOption" data-field="disabled" data-value="" id="disabledAll">@this.SharedResources("statusAll")</div>
+            <div class="enumeratedFilterOption" data-field="disabled" data-value="0" id="disabledActive">@this.SharedResources("statusActive")</div>
+            <div class="enumeratedFilterOption" data-field="disabled" data-value="1" id="disabledInactive">@this.SharedResources("statusInactive")</div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+    <div id="listAssets"></div>
+    <div style="clear: both;"></div>
+    <div id="pager" class="k-pager-wrap"></div>
+</div>
+
+<style type="text/css">
+    div#AssetFilterControls {
+        padding: 1px;
+    }
+    .filterText {
+        color: #6fa919;
+    }
+    img.excludedItem {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .enumeratedFilterOption {
+        padding: 5px;
+        cursor: pointer;
+    }
+    .enumeratedFilterOption:hover {
+        padding: 5px;
+        cursor: pointer;
+        background-color: #E3F7FF;
+    }
+    .listviewInputFilter {
+        float: left;
+        padding: 7px 0 7px 2px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        color: #3f3f3f;
+        font-weight: bold;
+        width: 16.5%;
+        cursor: pointer;
+        height: 16px;
+        vertical-align: middle;
+    }
+    .borderRight {
+        border-right: solid 2px #959595;
+    }
+    .asset {
+        width: 100px;
+        height: 170px;
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid #959595;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 15px;
+        background-color: #F2F2F2;
+        position: relative;
+    }
+    .asset > .image {
+        height: 125px;
+    }
+    .asset > .image img {
+        border: solid 1px #BDBDBD;
+    }
+    .asset > .text {
+        line-height: 1.1em;
+        white-space: nowrap;
+	    width: 100%;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+        text-align: center;
+    }
+    .asset > .text > .assetDetailsLink {
+         color: #0000FF;
+         cursor: pointer;
+         white-space: normal;
+         width: 100%;
+         display: block;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         height: 2.2em;
+    }
+    .disabledAsset {
+        background-image: url(/Images/inactive_tile_gray.png);
+    }
+</style>
+
+<script type="text/x-kendo-tmpl" id="template">
+    <div class="asset #=Disabled ? 'disabledAsset' : '' #">
+        <div class="image">
+            <table style="height: 100%; width: 100%;">
+                <tr>
+                    <td style="vertical-align: middle; text-align: center;">
+                        <img src="@Url.Action("GetImage", "Image")?img=#=ImageUrl#&mxH=120&mxW=85" alt="#=escapeString(Description)#" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="text">
+            <span data-hotspot="#=escapeString(Description)#" class="assetDetailsLink hotspot" style="cursor: pointer;" onclick="GoAssetDetails('#=escapeString(AccountItemID)#', this);">#=Description#</span>
+        </div>
+        <div class="text">
+            <span class="hotspot" data-hotspot="#=escapeString(AccountItemID)#">#=AccountItemID#</span>
+        </div>
+        #=ExcludedFromRecommendations ?
+        '<img class="excludedItem" src="/Images/ExcludedItemIcon.png" alt="Excluded Item" />'
+        : '' #
+    </div>
+</script>
+
+<script type="text/javascript">
+    
+    function Assets_Expanded() {
+        queryData();
+    }
+
+    function escapeString(s) {
+        s = s.replace(/'/g, '&#39;').replace(/"/g, '&#34;');
+        return s;
+    }
+
+
+    var pageSize = 20;
+    var assetWidth = 122;
+    $(function () {
+        dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "@Url.Action("GetAssets", "Catalog")",
+                    cache: false,
+                    data: {
+                        catalogId: '@Model.CatalogID'
+                    }
+                }
+            },
+            schema: {
+                data: 'Data',
+                total: 'Total'
+            },
+            pageSize: calculatePageSize(),
+            page: 1,
+            serverFiltering: true,
+            serverPaging: true,
+            serverSorting: true
+        });
+
+        $("#pager").kendoPager({
+            dataSource: dataSource
+        });
+
+        $("#listAssets").kendoListView({
+            dataSource: dataSource,
+            template: kendo.template($("#template").html())
+        });
+        
+        $('.listviewInputFilter').hover(function () {
+            // Mouse Over
+            var field = this.id;
+            if ($('#' + field + '_sort').css('display') === 'none') {
+                $('#' + field + '_sort').fadeIn(125);
+            }
+        }, function () {
+            // Mouse Out
+            var field = this.id;
+            if (sortColumn.toLowerCase() !== field.toLowerCase()) {
+                $('#' + field + '_sort').fadeOut(125);
+            }
+        });
+        
+        $('.enumeratedFilterOption').bind('click', function () {
+            var option = $(this);
+            var text = option.text();
+            var field = option.attr('data-field');
+            if (text !== 'All') {
+                //Apply sorting on filtered column
+                hideSortImages();
+                showSortImage(field, 'asc');
+                sortColumn = field;
+                sortDirection = 'asc';
+                
+                sortDirection.replace('\'', '\\\'');
+
+                $('#' + field + '_filter_text').text(text);
+                $('#' + field + '_filter_text').attr('data-value', option.attr('data-value'));
+                $('#' + field + '_filter_text').css('display', 'inline');
+                $('#' + field + '_header_text').css('display', 'none');
+            } else {
+                $('#' + field + '_filter_text').attr('data-value', '');
+                $('#' + field + '_filter_text').text('');
+                $('#' + field + '_filter_text').css('display', 'none');
+                $('#' + field + '_header_text').css('display', 'inline');
+            }
+
+            $('#' + field + '_filter').slideToggle(250);
+            queryData();
+        });
+        
+        $('#description_filter_input,#account_item_id_filter_input').keypress(function (event) {
+            var chCode = event.which;
+            if (chCode === 13) {
+                var selector = $(this);
+                var field = selector.attr('data-field');
+                if (selector.val() != '') {
+                    //Apply sorting on filtered column
+                    hideSortImages();
+                    showSortImage(field, 'asc');
+                    sortColumn = field;
+                    sortDirection = 'asc';
+
+                    //set filter values
+                    $('#' + field + '_filter_text').text(selector.val());
+                    $('#' + field + '_filter_text').attr('data-value', selector.val());
+                    $('#' + field + '_filter_text').css('display', 'inline');
+                    $('#' + field + '_header_text').css('display', 'none');
+                } else {
+                    //clear filter values
+                    $('#' + field + '_filter_text').text('');
+                    $('#' + field + '_filter_text').attr('data-value', '');
+                    $('#' + field + '_filter_text').css('display', 'none');
+                    $('#' + field + '_header_text').css('display', 'inline');
+                }
+
+                $('#' + field + '_filter').slideToggle(250);
+                queryData();
+            }
+        });
+    });
+
+    function GoAssetDetails(id, ctrl) {
+        var e = {
+            sender: {
+                element: [{
+                    id: 'AssetTreeView'
+                }]
+            },
+            node: {
+                NodeID: id,
+                NodeType: 17,
+                uid: null,
+                ClassificationID: null,
+                DisplayValue: $(ctrl).attr('data-hotspot'),
+                CatalogID: '@Model.CatalogID'
+            }
+        };
+        SetContent(e);
+        return false;
+    }
+
+    var dataSource;
+
+    var fields = [
+        'description',
+        'account_item_id',
+        'disabled'
+    ];
+
+    var sortColumn = 'description';
+    var sortDirection = 'asc';
+    
+    function queryData() {
+        var filters = [];
+        
+        for(field in fields) {
+            if ($('#' + fields[field] + '_filter_text').attr('data-value').trim() !== '') {
+                if ($('#' + fields[field]).attr('data-field-type') === 'string') {
+                    filters.push({ field: fields[field], operator: 'contains', value: $('#' + fields[field] + '_filter_text').attr('data-value').trim() });
+                } else {
+                    filters.push({ field: fields[field], operator: 'eq', value: $('#' + fields[field] + '_filter_text').attr('data-value').trim() });
+                }
+            }
+        }
+
+        dataSource.query({
+            page: dataSource.page(),
+            pageSize: calculatePageSize(),
+            sort: {
+                field: sortColumn,
+                dir: sortDirection
+            },
+            filter: filters
+        });
+    }
+    
+    function calculatePageSize() {
+        var windowWidth = $('#assetsDiv').width();
+        var itemsPerRow = Math.floor(windowWidth / assetWidth);
+        var assetsTitleBar = document.getElementById('Assets_TitleBar');
+        var height = $(window).height();    // window.innerHeight <= NOT AVAILABLE in IE8
+        var listViewHeight = height - (assetsTitleBar.offsetTop + assetsTitleBar.offsetHeight + 152);
+        var rows = Math.floor(listViewHeight / 197);
+        pageSize = itemsPerRow * rows;
+        return pageSize;
+    }
+    
+    function hideSortImages() {
+        for(field in fields) {
+            $('#' + fields[field] + '_sort').css('display', 'none');
+        }
+    }
+    
+    function showSortImage(field, direction) {
+        $('#' + field + '_sort').attr('src', '/Images/sort_' + direction + '.png');
+        $('#' + field + '_sort').css('display', 'inline');
+    }
+    
+    function sort(event, img) {
+        //Prevent event bubbling to parent div
+        event.stopPropagation();
+        
+        //get the field we are going to sort on
+        var field = img.parentNode.id;
+        
+        //hide all sort images
+        hideSortImages();
+
+        //is the new sort column the same as the old?
+        if (sortColumn.toLowerCase() === field.toLowerCase()) {
+            //yes, change sort direction
+            if(sortDirection === 'asc') {
+                sortDirection = 'desc';
+                showSortImage(field, 'desc');
+            } else {
+                sortDirection = 'asc';
+                showSortImage(field, 'asc');
+            }
+        } else {
+            showSortImage(field, 'asc');
+            //set new sort field
+            sortColumn = field;
+            sortDirection = 'asc';
+        }
+        queryData();
+    }
+
+    function showFilter(headerId) {
+        var filterDiv = $('#' + headerId + '_filter');
+        var headerDiv = $('#' + headerId);
+        
+        filterDiv.css('width', (parseFloat(headerDiv.css('width')) - 14) + 'px');
+        filterDiv.children('input').css('width', (parseFloat(headerDiv.css('width')) - 30) + 'px');
+        filterDiv.css('top', headerDiv.position().top + headerDiv.outerHeight(true));
+        filterDiv.css('left', headerDiv.position().left);
+
+        filterDiv.slideToggle(250);
+    }
+    
+    function clearFilter(field) {
+        $('#' + field + '_filter_input').val('');
+        $('#' + field + '_filter_text').text('');
+        $('#' + field + '_filter_text').attr('data-value', '');
+        $('#' + field + '_filter_text').css('display', 'none');
+        $('#' + field + '_header_text').css('display', 'inline');
+        $('#' + field + '_filter').slideToggle(250);
+        queryData();
+    }
+</script>

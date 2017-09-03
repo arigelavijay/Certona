@@ -1,0 +1,62 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Application.ApplicationRemarketingCampaigns
+<script src="~/Scripts/Certona/application.js"></script>
+
+<div style="display: block; width: 100%;">
+    
+    <div id="FrequencyCap_TitleBar" class="ContentPanelSectionTitleBarExpanded" style="cursor: pointer;" onclick=" toggleContentPanel('FrequencyCap') ">
+        <img id="imgToggleVisibility_FrequencyCap" src="~/Images/imgExpanded.png"/><span style="font-weight: bold; margin-left: 6px;">@this.LocalResources("ManageFrequencyHeaderText")</span>
+    </div>
+    <div id="FrequencyCap" class="ContentPanelSectionExpanded">
+        <div style="padding: 5px 5px 5px 5px">
+            <input id="chkFreqencyCapEnabled" type="checkbox" @{ Write(Model.FrequencyCapEnabled ? "checked" : ""); }> @this.LocalResources("EnableFrequencyText")<br>
+        </div>
+        <div style="padding: 5px 5px 5px 5px">
+             @this.LocalResources("Frequency1") <input id="txtFreqCapEmail" type="text" name="FreqCapEmail" value="@Model.FrequencyCapEmails"> @this.LocalResources("Frequency2")  <input id="txtFreqCapDays" type="text" name="FreqCapDays" value="@Model.FrequencyCapDays"> @this.LocalResources("Frequency3")<br />
+        </div>
+        <div style="padding: 5px 5px 5px 5px">
+            <input type="button" class="freqCapSaveButton" id="btnFreqCapSave" value="@this.LocalResources("SaveButtonText")" onclick="freqCapSave();"/>
+            <input type="button" class="freqCapResetButton" id="btnFreqCapReset" value="@this.LocalResources("ResetButtonText")" onclick="freqCapReset();"/>           
+        </div>
+    </div>
+    <div style="padding-top: 10px">&#160;</div>
+    
+    @*grid content here*@
+    <div style="text-align:right; border:1px solid #bfbfbf">
+        <span class="bold">Actions:</span><span onclick="alert('open wizard');" style="cursor: pointer"><img src="~/Images/Head_SuccessCheck.png"/> @this.LocalResources("CreateRemarketingCampaignText")</span>
+    </div>
+    @(Html.Kendo().Grid(Model.RemarketingCampaigns)    
+        .Name("RemarketingGrid")
+        .Columns(columns =>
+            {
+                columns.Bound(p => p.RemarketingCampaignId).Width(25).Title("").Sortable(false).Groupable(false).Filterable(false).ClientTemplate("<input id='remarketing_row_#=RemarketingCampaignId#' type='checkbox'/>").HeaderTemplate("<input type='checkbox' id='checkAll'/>");
+                columns.Bound(p => p.Name).Groupable(false).ClientTemplate("<span style='cursor:help' onmouseover=\"ShowInfo('#=Name#');\" onmouseout=\"HideInfo();\">#=Name#</span>"); 
+                columns.Bound(p => p.Status);
+                columns.Bound(p => p.LastModified);
+                columns.Bound(p => p.LastSent);
+                columns.Bound(p => p.NextScheduled);
+            })
+        .Sortable()
+        .Groupable()
+        .Scrollable()
+        .Filterable()
+        .DataSource(dataSource => dataSource
+                                .Ajax()
+                                .ServerOperation(false)
+                                .Sort(sort => sort.Add(o => o.Name).Ascending())
+          ))
+    <div style="text-align:left; border:1px solid #bfbfbf; padding: 5px 5px 5px 5px">
+        <select name="setStatus"> 
+          <option value="Inactive" >Inactive</option>
+          <option value="Deleted" >Deleted</option>
+        </select>
+        <input type="button" class="freqCapSaveButton" id="btnSetStatus" value="Change Status" style="width: 150px" />
+    </div>
+@Html.HiddenFor(m => Model.ApplicationID, new {id = "applicationId"})
+</div>
+
+<script type="text/javascript">
+    var freqCapResetAction = '@Url.Action("FrequencyCapGet", "Application")';
+    var freqCapSaveAction = '@Url.Action("FrequencyCapSave", "Application")';
+</script>
+

@@ -1,0 +1,103 @@
+﻿#step_visualization span {
+    background-color: #fff;
+    border: 1px solid #797979;
+    display: inline;
+    margin: 0px 4px; /* 0px = top & bottom, 4px = left & right */
+    padding: 4px;
+}
+
+#step_visualization span.activatedStep {
+    background-color: #ccc;
+    border: 0px;
+}
+
+#step_visualization span.currentStep {
+    background-color: #7f0118;
+    border: 0px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.summary-item { margin: 5px 0px; /* 0px = top & bottom, 4px = left & right */ }
+
+#summaryTable { border: 0; }
+
+#summaryTable tr { height: 25px; }
+
+#summaryTable td.summary-label {
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+#summaryTable td.summary-field { }
+
+#step_visualization_div { display: inline; }
+
+#abandonmentFilterControls {
+    float: left;
+    margin-right: 5px;
+    width: 49%;
+}
+
+#catalogDetails {
+    display: none;
+    float: right;
+    width: 49%;
+}
+
+.step {
+    /*height:735px;*/
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.submit_step { padding-top: 15px; }
+
+#remarketingWizard {
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+}
+
+/* Rule Expressions Table Styling */
+
+table.rulesConfig {
+    background: #DDE9FA;
+    border-left-width: 0px;
+}
+
+table.rulesConfig td {
+    background: #DDE9FA;
+    border-left-width: 0px;
+    
+    border-top: 1px solid #B8BFC8;
+    font-size: 11px;
+    padding: 6px 8px;
+}
+
+table.rulesConfig td.header {
+    background: #DDE9FA;
+    border-left-width: 0px;
+    padding: 0px;
+}
+
+/*    
+.datagrid_row 
+{
+	padding-left:10px;
+	padding-bottom:10px;
+}
+*/
+
+.rule_text {
+    color: #666666;
+    font-family: Arial;
+    font-size: 9pt;
+}
+
+table.rulesConfig td.alt_bg {
+    background: #FFFFFF;
+    background-image: url('/Images/data_grid_alt_bg.png');
+    background-repeat: repeat-x;
+}

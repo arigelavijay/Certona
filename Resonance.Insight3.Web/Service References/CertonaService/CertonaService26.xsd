@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.BusinessRule" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.BusinessRule" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums" />
+  <xs:complexType name="ArrayOfExpressionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExpressionDTO" nillable="true" type="tns:ExpressionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExpressionDTO" nillable="true" type="tns:ArrayOfExpressionDTO" />
+  <xs:complexType name="ExpressionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attribute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConditionID" type="xs:int" />
+      <xs:element minOccurs="0" name="Context" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delete" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums" minOccurs="0" name="ExpressionType" type="q1:ExpressionType" />
+      <xs:element minOccurs="0" name="Operator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PercentOrUnits" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlusOrMinus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VExpressionID" type="xs:int" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExpressionDTO" nillable="true" type="tns:ExpressionDTO" />
+  <xs:complexType name="ControlSet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalFields" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums" minOccurs="0" name="ControlType" type="q2:BusinessRuleEditorControlType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ControlSet" nillable="true" type="tns:ControlSet" />
+  <xs:complexType name="ArrayOfContextDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContextDTO" nillable="true" type="tns:ContextDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContextDTO" nillable="true" type="tns:ArrayOfContextDTO" />
+  <xs:complexType name="ContextDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContextId" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExcludeItem" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rules" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SourceObject" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContextDTO" nillable="true" type="tns:ContextDTO" />
+  <xs:complexType name="ArrayOfRuleOperatorDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RuleOperatorDTO" nillable="true" type="tns:RuleOperatorDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRuleOperatorDTO" nillable="true" type="tns:ArrayOfRuleOperatorDTO" />
+  <xs:complexType name="RuleOperatorDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Operator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OperatorName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RuleOperatorDTO" nillable="true" type="tns:RuleOperatorDTO" />
+  <xs:complexType name="ArrayOfCatalogMappingFieldDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogMappingFieldDTO" nillable="true" type="tns:CatalogMappingFieldDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCatalogMappingFieldDTO" nillable="true" type="tns:ArrayOfCatalogMappingFieldDTO" />
+  <xs:complexType name="CatalogMappingFieldDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttributeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CatalogField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogMappingFieldDTO" nillable="true" type="tns:CatalogMappingFieldDTO" />
+</xs:schema>

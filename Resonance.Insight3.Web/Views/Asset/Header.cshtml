@@ -1,0 +1,13 @@
+﻿@model Resonance.Insight3.Web.ViewModels.Asset.AssetDetailsViewModel
+
+<div style="border-bottom: solid 1px #000; padding: 6px 5px 2px 5px;">
+    <span style="font-size: 130%;">@Html.Raw(Model.Details.Name)</span>
+    @if (!String.IsNullOrWhiteSpace(Model.Details.CatalogImage))
+    {
+        <text>
+         - <img src='/Images/AssetTypes/Small/@Model.Details.CatalogImage' style='vertical-align: middle;' alt=''/>
+        </text>                
+    }    
+    @Model.Details.CatalogName
+</div>
+

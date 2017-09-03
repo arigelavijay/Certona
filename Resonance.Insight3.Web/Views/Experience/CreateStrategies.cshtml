@@ -1,0 +1,83 @@
+﻿@using System.Collections
+@using Resonance.Insight3.Web.Helpers
+@using Resonance.Insight3.Web.HtmlHelpers
+@model Resonance.Insight3.Web.ViewModels.Variant.VariantNodeViewModel
+@{ 
+    const string formName = "frmCreateStrategies";
+    const string createContainer = "#insight-create-dialog";
+    string updateTargetId = ViewBag.UpdateTargetId;
+}
+
+@using (Ajax.BeginForm("CreateNewStrategy", "Experience",
+    new AjaxOptions { HttpMethod = "Post", UpdateTargetId = @updateTargetId, OnSuccess = "onAjaxPostSuccess", OnFailure = "onAjaxPostFailure" }, new { id = @formName }))
+{
+    @Html.HiddenFor(m => m.ExperienceID, Model.ExperienceID)
+
+    <div style="float: left;">
+        <span class="bold">@Html.RequiredAsterik(this) @this.SharedResources("name")</span><br/>
+        @Html.TextBoxForWithDefault(m => m.Name, string.Empty, 200)<br/>
+        @Html.ValidationMessageFor(m => m.Name)<br/><br/>
+    
+        @this.SharedResources("description")<br/>
+        @Html.TextAreaForWithDefault(m => m.Description, string.Empty, 4, 25)<br/>
+        @Html.ValidationMessageFor(m => m.Description)<br/><br/>
+        
+        @this.SharedResources("containertitle")<br/>
+        @Html.TextBoxForWithDefault(m => m.ContainerTitle, string.Empty, 200)<br/>
+        @Html.ValidationMessageFor(m => m.ContainerTitle)<br/><br/>
+    </div>
+    
+    <div style="float: left; padding: 0.4em;">
+        @this.SharedResources("catalog")<br/>
+        @Html.DropDownListForWithDefault(m => m.CatalogID, @Model.ApplicationCatalogList, string.Empty, 200)<br/>
+        @Html.ValidationMessageFor(m => m.CatalogID)<br/><br/>
+
+        @this.SharedResources("personalizationtype")<br/>
+        <div id="personalization-type-list"></div><br/>
+    </div>
+    
+    <div style="float: left; padding: 0.4em;">
+        @this.SharedResources("priority")<br/>
+        @Html.DropDownListForWithDefault(m => m.Priority,@Model.PriorityList, string.Empty, 100)<br/><br/>
+        
+        @this.SharedResources("nbrofassets")<br/>
+        @Html.DropDownListForWithDefault(m => m.NumberOfAssets, @Model.NumberOfAssetsList, string.Empty, 100)<br/>
+    </div>
+    
+    <div style="clear: both; text-align: right;">
+        <input type="submit" class="insight-submit-btn" value="Save" id="btnCreateStrategy" disabled="disabled" />&#160;
+        <button onclick="cancelJqueryDialog('Strategies', '@createContainer')" class="insight-cancel-btn" type="button" value="Cancel">Cancel</button>
+    </div>
+}
+<script type="text/javascript">
+    function onAjaxPostSuccess(response) { 
+        ShowsysMessage('success', 'Strategy added successful');
+        cancelJqueryDialogContinue('@createContainer');
+    }
+
+    function onAjaxPostFailure(response) {
+        ShowsysMessage('error', 'An error occured during the save process');
+    }
+    
+    var cp = contentPanels.GetCurrentContentPanel();
+    var cps = cp.GetContentPanelSection("Strategies");
+    cps.SetDirtyContainer('@formName');
+
+    $('#@formName :input').change(function () { toggleSaveButton('@formName'); });
+    $('#@formName :input').on('keypress', function () { toggleSaveButton('@formName'); });
+
+    $('#CatalogID').change(function() {
+        var catalogID = $(this).val();
+        var personalizationTypeListUrl = '@Url.Action("GetPersonalizationTypeDdl", "Experience")';
+        if (catalogID != '') {
+            $.get(personalizationTypeListUrl, { catalogID: catalogID }, function (response) {
+                $('#personalization-type-list').html(response);
+            });
+        } else {
+            $('#personalization-type-list').html('');
+        }
+    });
+</script>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>

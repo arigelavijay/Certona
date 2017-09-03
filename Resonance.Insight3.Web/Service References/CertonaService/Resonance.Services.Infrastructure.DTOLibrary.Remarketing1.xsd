@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" />
+  <xs:complexType name="ArrayOfRemarketingCampaignSummaryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingCampaignSummaryDTO" nillable="true" type="tns:RemarketingCampaignSummaryDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingCampaignSummaryDTO" nillable="true" type="tns:ArrayOfRemarketingCampaignSummaryDTO" />
+  <xs:complexType name="RemarketingCampaignSummaryDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastModified" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastSent" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextScheduled" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RemarketingCampaignId" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingCampaignSummaryDTO" nillable="true" type="tns:RemarketingCampaignSummaryDTO" />
+  <xs:complexType name="RemarketingCampaignDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Abandonment_Filter_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Abandonment_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Abandonment_Interval_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Application_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Catalog_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Current_Step" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="ESP_Campaign_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Export_Data_Service_Connection" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Export_Data_Service_Header_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Export_Data_Service_Protocol_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Filter_Scheme_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Include_Filtering" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Interval" type="xs:int" />
+      <xs:element minOccurs="0" name="Job_End_Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Job_Run_Time" nillable="true" type="ser:duration" />
+      <xs:element minOccurs="0" name="Job_Start_Date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Min_Amount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Min_Events" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remarketing_Campaign_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Resonance_Field" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Scheme_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Status_ID" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Use_All_Applications" nillable="true" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingCampaignDTO" nillable="true" type="tns:RemarketingCampaignDTO" />
+  <xs:complexType name="ArrayOfRemarketingCampaignDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingCampaignDTO" nillable="true" type="tns:RemarketingCampaignDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingCampaignDTO" nillable="true" type="tns:ArrayOfRemarketingCampaignDTO" />
+  <xs:complexType name="ApplicationFrequencyCapDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FrequencyCapDays" type="xs:int" />
+      <xs:element minOccurs="0" name="FrequencyCapEmails" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationFrequencyCapDTO" nillable="true" type="tns:ApplicationFrequencyCapDTO" />
+  <xs:complexType name="ArrayOfRemarketingAbandonmentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingAbandonmentDTO" nillable="true" type="tns:RemarketingAbandonmentDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingAbandonmentDTO" nillable="true" type="tns:ArrayOfRemarketingAbandonmentDTO" />
+  <xs:complexType name="RemarketingAbandonmentDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Abandonments_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Include_Target_Model_Class_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Missing_Target_Model_Class_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingAbandonmentDTO" nillable="true" type="tns:RemarketingAbandonmentDTO" />
+  <xs:complexType name="ArrayOfRemarketingAbandonmentFilterDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingAbandonmentFilterDTO" nillable="true" type="tns:RemarketingAbandonmentFilterDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingAbandonmentFilterDTO" nillable="true" type="tns:ArrayOfRemarketingAbandonmentFilterDTO" />
+  <xs:complexType name="RemarketingAbandonmentFilterDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Abandonment_Filter_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Abandonment_Filter_Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Abandonments_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Filter_Function" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingAbandonmentFilterDTO" nillable="true" type="tns:RemarketingAbandonmentFilterDTO" />
+  <xs:complexType name="ArrayOfRemarketingAbandonmentIntervalDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingAbandonmentIntervalDTO" nillable="true" type="tns:RemarketingAbandonmentIntervalDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingAbandonmentIntervalDTO" nillable="true" type="tns:ArrayOfRemarketingAbandonmentIntervalDTO" />
+  <xs:complexType name="RemarketingAbandonmentIntervalDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Abandoment_Interval_Hours" type="xs:int" />
+      <xs:element minOccurs="0" name="Abandoment_Interval_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingAbandonmentIntervalDTO" nillable="true" type="tns:RemarketingAbandonmentIntervalDTO" />
+  <xs:complexType name="ArrayOfRemarketingDeliveryMethodDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingDeliveryMethodDTO" nillable="true" type="tns:RemarketingDeliveryMethodDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingDeliveryMethodDTO" nillable="true" type="tns:ArrayOfRemarketingDeliveryMethodDTO" />
+  <xs:complexType name="RemarketingDeliveryMethodDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Delivery_Method_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingDeliveryMethodDTO" nillable="true" type="tns:RemarketingDeliveryMethodDTO" />
+  <xs:complexType name="ArrayOfRemarketingServiceHeaderDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingServiceHeaderDTO" nillable="true" type="tns:RemarketingServiceHeaderDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingServiceHeaderDTO" nillable="true" type="tns:ArrayOfRemarketingServiceHeaderDTO" />
+  <xs:complexType name="RemarketingServiceHeaderDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Export_Data_Service_Header_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Export_Data_Service_Type_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingServiceHeaderDTO" nillable="true" type="tns:RemarketingServiceHeaderDTO" />
+  <xs:complexType name="ArrayOfRemarketingServiceProtocolDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingServiceProtocolDTO" nillable="true" type="tns:RemarketingServiceProtocolDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingServiceProtocolDTO" nillable="true" type="tns:ArrayOfRemarketingServiceProtocolDTO" />
+  <xs:complexType name="RemarketingServiceProtocolDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Export_Data_Service_Protocol_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingServiceProtocolDTO" nillable="true" type="tns:RemarketingServiceProtocolDTO" />
+  <xs:complexType name="ArrayOfRemarketingServiceProtocolAvailableDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingServiceProtocolAvailableDTO" nillable="true" type="tns:RemarketingServiceProtocolAvailableDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingServiceProtocolAvailableDTO" nillable="true" type="tns:ArrayOfRemarketingServiceProtocolAvailableDTO" />
+  <xs:complexType name="RemarketingServiceProtocolAvailableDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deliver_Method_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Export_Data_Service_Header_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Export_Data_Service_Protocol_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="File_Pattern" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Protocol_Connection" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingServiceProtocolAvailableDTO" nillable="true" type="tns:RemarketingServiceProtocolAvailableDTO" />
+  <xs:complexType name="ArrayOfRemarketingServiceTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingServiceTypeDTO" nillable="true" type="tns:RemarketingServiceTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingServiceTypeDTO" nillable="true" type="tns:ArrayOfRemarketingServiceTypeDTO" />
+  <xs:complexType name="RemarketingServiceTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Export_Data_Service_Type_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingServiceTypeDTO" nillable="true" type="tns:RemarketingServiceTypeDTO" />
+  <xs:complexType name="ArrayOfRemarketingCatalogDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingCatalogDTO" nillable="true" type="tns:RemarketingCatalogDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingCatalogDTO" nillable="true" type="tns:ArrayOfRemarketingCatalogDTO" />
+  <xs:complexType name="RemarketingCatalogDTO">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" minOccurs="0" name="AssetType" nillable="true" type="q1:AssetTypesDTO" />
+      <xs:element minOccurs="0" name="Asset_Type_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Catalog_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Last_Update" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingCatalogDTO" nillable="true" type="tns:RemarketingCatalogDTO" />
+  <xs:complexType name="ArrayOfRemarketingEmailSchemeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingEmailSchemeDTO" nillable="true" type="tns:RemarketingEmailSchemeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingEmailSchemeDTO" nillable="true" type="tns:ArrayOfRemarketingEmailSchemeDTO" />
+  <xs:complexType name="RemarketingEmailSchemeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Default_Catalog_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Package_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Scheme" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Scheme_ID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingEmailSchemeDTO" nillable="true" type="tns:RemarketingEmailSchemeDTO" />
+  <xs:complexType name="ArrayOfRemarketingESPConfigInfoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RemarketingESPConfigInfoDTO" nillable="true" type="tns:RemarketingESPConfigInfoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRemarketingESPConfigInfoDTO" nillable="true" type="tns:ArrayOfRemarketingESPConfigInfoDTO" />
+  <xs:complexType name="RemarketingESPConfigInfoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deliver_Method_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="DeliveryMethod" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Export_Data_Service_Header_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Export_Data_Service_Protocol_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="FileType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HostBaseAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProtocolName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProviderName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingESPConfigInfoDTO" nillable="true" type="tns:RemarketingESPConfigInfoDTO" />
+  <xs:complexType name="RemarketingCampaignVariantRuleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Rule_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Variant_ID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RemarketingCampaignVariantRuleDTO" nillable="true" type="tns:RemarketingCampaignVariantRuleDTO" />
+  <xs:complexType name="EmailServiceProviderConfigurationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Delivery_Method_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Export_Data_Service_Header_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Export_Data_Service_Protocol_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="File_Pattern" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Protocol_Connection" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailServiceProviderConfigurationDTO" nillable="true" type="tns:EmailServiceProviderConfigurationDTO" />
+</xs:schema>

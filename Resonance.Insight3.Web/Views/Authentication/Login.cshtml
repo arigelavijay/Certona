@@ -1,0 +1,160 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+<!DOCTYPE html>
+<!--[if IE 7 ]>   <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>   <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>   <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]> <html> <![endif]-->
+<!--[if !IE]><!-->
+    <html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <!--[if lte IE 7 ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <!--[if !IE 7]>
+        <link rel="stylesheet" media="screen" href="~/Content/ie6-styles.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" media="screen" href="~/Content/ie8-styles.css" />
+        <script type="text/javascript" src="~/Scripts/selectivizr.js"> </script>
+    <![endif]-->
+
+    @Styles.Render("~/Content/login")
+    @Scripts.Render("~/bundles/jquery")
+
+    <script type="text/javascript">
+        if (($.browser.msie && $.browser.version < 8)
+            || ($.browser.mozilla && $.browser.version < 10)
+            || ($.browser.safari)
+            || ($.browser.opera)) {
+            
+            $(function () {
+                var divLayer = document.getElementById('browserMessage');
+        
+                if (divLayer != null) {
+                    $("#browserMessage").css('display', 'block');
+                }
+
+                divLayer = document.getElementById('login');
+                if (divLayer != null) {
+                    $("#login").css('display', 'none');
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <div class="logo">
+                <img alt="" src="~/Images/Log_ResInsLogo.png" />
+            </div>
+        </header>
+        <div id="main">
+            <section class="container_100 clearfix">
+                <div class="form">
+                    @using (Html.BeginForm())
+                    {
+                        <div id="browserMessage" style="display:none">
+                            <div class="errmessageicon clearfix">
+                                <div id="message" class="errmessage" style="width:650px">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 65px"></td>
+                                                <td id="messagecontent"><br/>
+                                                    Please use the latest PC version for one of the following browsers to access this web application.<br/><br/>
+
+                                                    <img src="/images/icon-ie.gif" align="middle" alt="Internet Explorer" style="width: 20px; height: 20px; position:relative; top:5px" /><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx" target="_blank">Internet Explorer</a>&#160;&#160;
+                                                    <!-- <img src="/images/icon-chrome.gif" align="middle" alt="Chrome" style="width: 20px; height: 20px; position:relative; top:5px" /><a href="http://www.google.com/chrome/" target="_blank">Google Chrome</a>&#160;&#160; -->
+                                                    <img src="/images/icon-firefox.gif" align="middle" alt="Firefox" style="width: 20px; height: 20px; position:relative; top:5px" /><a href="http://www.mozilla.com/firefox/" target="_blank">Firefox</a><br/><br/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        if (!string.IsNullOrWhiteSpace(Model.SuccessMessage))
+                        {
+                            <div id="logOutMessage">
+                                <div class="successmessageicon clearfix" style="height:55px; position: relative">
+                                    <div class="successmessage" style="position:absolute; top:3px; width: 650px; height:47px;">
+                                        <table>
+                                            <tbody>
+                                            <tr>
+                                                <td style="width: 65px;"></td>
+                                                <td id="messagecontent" style="height:45px; vertical-align: middle">@Model.SuccessMessage</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <noscript>
+                        <div id="javascriptMessage">
+                            <div class="errmessageicon clearfix">
+                                <div id="message" class="errmessage" style="width:650px">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td style="width: 65px"></td>
+                                                <td id="messagecontent"><br/>
+                                                <br />Javascript must be enabled to use this site.<br /><br /><br />
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        </noscript>
+                        
+                        <div id="login">
+                            <div id="messagecontainer" class="@(ViewData.ModelState.IsValid ? "errmessageicon clearfix hidden" : "errmessageicon clearfix")">
+                                <div id="message" class="errmessage">
+                                    <table >
+                                        <tbody>
+                                            <tr>
+                                                <td id="messagecontent">@Html.ValidationSummary()</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                @Html.LabelFor(model => model.UserName, this.LocalResources("UserIDText"), new { @class = "form-label" })
+                                <div class="form-input">@Html.TextBoxFor(model => model.UserName)</div>
+                            </div>
+                            <div class="clearfix">
+                                @Html.LabelFor(model => model.Password, this.LocalResources("PasswordText"), new { @class = "form-label" })
+                                <div class="form-input"> @Html.PasswordFor(model => model.Password)</div>
+                            </div>
+                            <div class="clearfix">
+                                <div class="form-action">
+                                    <script type="text/javascript">document.write('<input type=\'submit\' value=\'@this.LocalResources("LoginButtonText")\' class=\'login\' />');</script>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+        </div>
+        <script type="text/javascript" src="~/Scripts/Certona/login.js?@DateTime.Now.Ticks"> </script>
+    </div>
+    <footer id="footer" class="clearfix">
+        <div class="footercopy">
+            &#169;@DateTime.Now.Year Certona Corporation<br />
+            @this.LocalResources("CopyrightText")
+        </div>
+        <div class="footerlogo">
+            <img alt="" src="~/Images/Log_CertonaLogo.png" />
+        </div>
+    </footer>
+</body>
+</html>

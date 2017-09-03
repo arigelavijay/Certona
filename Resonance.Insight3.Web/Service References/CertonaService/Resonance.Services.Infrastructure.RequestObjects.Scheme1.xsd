@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Scheme" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Scheme" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" />
+  <xs:complexType name="GetSchemeDetailsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q1:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SchemeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSchemeDetailsRequest" nillable="true" type="tns:GetSchemeDetailsRequest" />
+  <xs:complexType name="GetSchemeContextRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q2:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SchemeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSchemeContextRequest" nillable="true" type="tns:GetSchemeContextRequest" />
+  <xs:complexType name="GetSchemeEventContextRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q3:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SchemeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSchemeEventContextRequest" nillable="true" type="tns:GetSchemeEventContextRequest" />
+  <xs:complexType name="GetSchemeExperiencesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q4:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SchemeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSchemeExperiencesRequest" nillable="true" type="tns:GetSchemeExperiencesRequest" />
+  <xs:complexType name="GetSchemeNumberOfItemsByExperienceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q5:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ExperienceID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSchemeNumberOfItemsByExperienceRequest" nillable="true" type="tns:GetSchemeNumberOfItemsByExperienceRequest" />
+</xs:schema>

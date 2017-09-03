@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Scheme" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Scheme" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Scheme" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" />
+  <xs:complexType name="GetSchemeExperiencesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q1:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Scheme" minOccurs="0" name="Experiences" nillable="true" type="q2:ArrayOfSchemeExperienceDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSchemeExperiencesResponse" nillable="true" type="tns:GetSchemeExperiencesResponse" />
+  <xs:complexType name="GetSchemeNumberOfItemsByExperienceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q3:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NumberOfItems" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSchemeNumberOfItemsByExperienceResponse" nillable="true" type="tns:GetSchemeNumberOfItemsByExperienceResponse" />
+  <xs:complexType name="GetSchemeDetailsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q4:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Scheme" minOccurs="0" name="SchemeDetails" nillable="true" type="q5:SchemeDetailsDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSchemeDetailsResponse" nillable="true" type="tns:GetSchemeDetailsResponse" />
+  <xs:complexType name="GetSchemeContextResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q6:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Scheme" minOccurs="0" name="SchemeEventsContexts" nillable="true" type="q7:ArrayOfSchemeContextDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSchemeContextResponse" nillable="true" type="tns:GetSchemeContextResponse" />
+  <xs:complexType name="GetSchemeEventContextResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q8:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Scheme" minOccurs="0" name="SchemeEventsContexts" nillable="true" type="q9:ArrayOfSchemeEventContextDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetSchemeEventContextResponse" nillable="true" type="tns:GetSchemeEventContextResponse" />
+</xs:schema>

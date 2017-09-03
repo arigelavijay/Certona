@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Reporting" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Reporting" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Reporting" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" />
+  <xs:complexType name="GetReportingDataLastUpdatedResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q1:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Reporting" minOccurs="0" name="ReportingDataLastUpdated" nillable="true" type="q2:ReportingDataLastUpdatedDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetReportingDataLastUpdatedResponse" nillable="true" type="tns:GetReportingDataLastUpdatedResponse" />
+  <xs:complexType name="GetTrendsDataResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q3:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Reporting" minOccurs="0" name="TrendsData" nillable="true" type="q4:ArrayOfTrendsDataDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTrendsDataResponse" nillable="true" type="tns:GetTrendsDataResponse" />
+</xs:schema>

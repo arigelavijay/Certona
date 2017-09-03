@@ -1,0 +1,159 @@
+body { background: url('../Images/Login_Squares.png') no-repeat 63.5156% top; }
+
+/**
+ * Header
+ */
+
+#wrapper > header {
+    background: url('../Images/Log_DesignBar.png') no-repeat left 100px;
+    height: 107px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    z-index: 9999;
+    zoom: 1;
+}
+
+#wrapper > header > .logo {
+    height: 55px;
+    padding: 39px 0 0 49px;
+    width: 443px;
+}
+
+#main {
+    overflow: auto;
+    padding-bottom: 102px;
+}
+
+#footer {
+    clear: both;
+    height: 102px;
+    margin-top: -102px;
+    position: relative;
+}
+
+.footerlogo {
+    height: 58px;
+    padding: 0 0 0 23px;
+    width: 302px;
+}
+
+.footercopy {
+    color:#D7D7D7;
+    float: right;
+    font-size: 0.7em;
+    padding: 2.34375% 20px 0 0;
+    text-align: right;
+    width: auto;
+}
+
+
+.container_100 {
+    margin-left: 0%;
+    margin-right: 0%;
+    overflow: hidden;
+    padding-top: 66px; /*146px;*/
+    width: 100%;
+}
+
+.container_100 #messagecontainer {
+    /*	visibility:hidden;*/
+    font-size: 0.75em;
+    height: 55px;
+    margin-left: 21px;
+    padding-bottom: 25px;
+    padding-top: 1px;
+    width: 473px;
+}
+
+.container_100 #messagecontainer #message {
+    clear: both;
+    cursor: pointer;
+    line-height: 15px;
+    margin-left: 42px;
+    margin-right: 0%;
+    margin-top: 3px;
+    padding-left: 25px;
+    padding-right: 10px;
+    position: relative;
+    zoom: 1;
+}
+
+.container_100 #messagecontainer #message #messagecontent {
+    display: table-cell;
+    height: 46px;
+    margin: 0%;
+    vertical-align: middle;
+}
+
+.errmessageicon { background: url('../Images/Log_IconError.png') no-repeat left top; }
+
+.errmessage {
+    border-bottom: 1px solid #cf102d;
+    border-left: 0px solid #cf102d;
+    border-right: 1px solid #cf102d;
+    border-top: 1px solid #cf102d;
+}
+
+.successmessageicon { background: url('../Images/Log_IconOut.png') no-repeat left top; }
+
+.successmessage {
+    z-index: -5;
+    margin-left: 15px;
+    border-bottom: 1px solid #c4df9b;
+    border-left: 0px;
+    border-right: 1px solid #c4df9b;
+    border-top: 1px solid #c4df9b;
+}
+
+
+/*form fields*/
+
+.form .form-label { width: 259px; }
+
+.form .form-input { margin-left: 268px; }
+
+.form .form-input input[type=text],
+.form .form-input input[type=password] { width: 224px; }
+
+.form .form-label .rememberme { color: rgb(5%, 5%, 5%); }
+
+.form .form-action {
+    font-family: 'Trade Gothic Bold', 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial;
+    height: 28px;
+    margin: 0 0 4px 268px;
+    max-width: 224px;
+    padding-bottom: 7px;
+    width: 100%;
+}
+
+.form .form-action a {
+    background: url('../Images/Log_ButtonRed.png') no-repeat top right;
+    color: #fff;
+    float: right;
+    font-size: 0.95em;
+    height: 21px; /*28px - pad top + pad bottom*/
+    line-height: 15px;
+    padding: 7px 10px 0px 0px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 78px; /*88px - pad left + pad right*/
+}
+
+.login {
+    background: url('../Images/Log_ButtonRed.png') no-repeat top right;
+    border: none;
+    color: #fff;
+    float: right;
+    font-size: 0.95em;
+    height: 32px;
+    line-height: 21px;
+    padding: 1px 0px 0px 0px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 88px;
+}
+
+.hidden { visibility: hidden; }

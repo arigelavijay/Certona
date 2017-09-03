@@ -1,0 +1,49 @@
+﻿@using Resonance.Insight3.Web.CertonaService
+@model List<NodeDTO>
+@{
+    if (Model.Count > 0)
+    {
+        Html.Kendo()
+            .TreeView()
+            .Name("AccountTreeView")
+            .Events(events => events
+                                  .Select("SetContent")
+                                  .Collapse("AccountTreeViewCollapse")
+                                  .Expand("AccountTreeViewExpand"))
+            .HtmlAttributes(new {style = "overflow-x: hidden;"})
+            .BindTo(Model, mappings =>
+                {
+                    mappings.For<NodeDTO>(binding => binding
+                                                         .ItemDataBound((n, node) =>
+                                                             {
+                                                                 if (node != null)
+                                                                 {
+                                                                     if (node.DisplayValue == "Web Pages" || node.DisplayValue == "Emails" || node.DisplayValue == "Remarketing Campaigns")
+                                                                     {
+                                                                         n.Text = node.DisplayValue;
+                                                                         n.Id = node.DisplayValue.Replace(" ", "_");
+                                                                         n.Expanded = true;
+                                                                         n.Enabled = false;
+                                                                         n.HtmlAttributes.Add("id", node.DisplayValue.Replace(" ", "_"));
+                                                                         n.HtmlAttributes.Add("class", "k-treeview-lines");
+                                                                     }
+                                                                     else
+                                                                     {
+                                                                         n.Text = node.DisplayValue;
+                                                                         n.Id = node.NodeID;
+                                                                         n.Expanded = node.Expanded;
+                                                                         n.Selected = node.Selected;
+                                                                         n.HtmlAttributes.Add("data-node-type", node.NodeType);
+                                                                         n.HtmlAttributes.Add("data-classification-id", node.ClassificationID);
+                                                                         n.HtmlAttributes.Add("class", "k-treeview-lines");
+                                                                     }
+                                                                 }
+                                                             })
+                                                         .Children(x => x.ChildNodes));
+                })
+            .Render();
+    }
+    else
+    {
+    }
+}

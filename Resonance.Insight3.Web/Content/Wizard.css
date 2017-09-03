@@ -1,0 +1,87 @@
+﻿.WizardTitleBarVisited {
+    background-color: #F2F2F2;
+    border: solid 1px #BFBFBF;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 3px 6px;
+}
+
+.WizardTitleBarCurrent {
+    background-color: #B8E7F7;
+    border: solid 1px #BFBFBF;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 10px;
+    padding: 3px 6px;
+}
+
+.WizardTitleBarUnvisited {
+    background-color: #FFF;
+    border: solid 1px #BFBFBF;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 3px 6px;
+}
+
+.container {
+    display: table;
+    height: 22px;
+    vertical-align: middle;
+}
+
+.panel {
+    display: table-cell;
+    font-family: verdana;
+    font-size: 9pt;
+    height: 28px;
+    padding: 0px 5px;
+    vertical-align: middle;
+    vertical-align: middle;
+}
+
+.prev {
+    background-image: url(/images/wizard/gray-fill.png);
+    background-repeat: repeat-x;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.active {
+    background-image: url(/images/wizard/red-fill.png);
+    background-repeat: repeat-x;
+    color: white;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.next {
+    background-image: url(/images/wizard/white-fill.png);
+    background-repeat: repeat-x;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.buttonSection {
+    clear: both;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    margin-top: 15px;
+}
+
+.nextButton {
+    background-color: #BFBFBF;
+    border: solid 1px #BFBFBF;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 5px;
+    padding: 4px 8px;
+}
+
+.previousButton {
+    background-color: #F2F2F2;
+    border: solid 1px #BFBFBF;
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 2px 4px;
+}

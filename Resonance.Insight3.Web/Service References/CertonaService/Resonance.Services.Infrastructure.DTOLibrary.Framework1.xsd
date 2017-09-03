@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums.Framework" />
+  <xs:complexType name="ContentPanelDTO">
+    <xs:sequence>
+      <xs:element name="ContentPanelSections" nillable="true" type="tns:ArrayOfContentPanelSectionDTO" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="PartialViewName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContentPanelDTO" nillable="true" type="tns:ContentPanelDTO" />
+  <xs:complexType name="ArrayOfContentPanelSectionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContentPanelSectionDTO" nillable="true" type="tns:ContentPanelSectionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContentPanelSectionDTO" nillable="true" type="tns:ArrayOfContentPanelSectionDTO" />
+  <xs:complexType name="ContentPanelSectionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CanAdd" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CanEdit" type="xs:boolean" />
+      <xs:element name="ContentPanelSectionID" type="xs:int" />
+      <xs:element minOccurs="0" name="Expanded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FeatureCode" nillable="true" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="PartialViewName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContentPanelSectionDTO" nillable="true" type="tns:ContentPanelSectionDTO" />
+  <xs:complexType name="ArrayOfApplicationClassificationsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationClassificationsDTO" nillable="true" type="tns:ApplicationClassificationsDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationClassificationsDTO" nillable="true" type="tns:ArrayOfApplicationClassificationsDTO" />
+  <xs:complexType name="ApplicationClassificationsDTO">
+    <xs:sequence>
+      <xs:element name="_x003C_ClassificationName_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_ClassificationValueID_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_ClassificationValue_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationClassificationsDTO" nillable="true" type="tns:ApplicationClassificationsDTO" />
+  <xs:complexType name="ArrayOfPanelBarDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PanelBarDTO" nillable="true" type="tns:PanelBarDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPanelBarDTO" nillable="true" type="tns:ArrayOfPanelBarDTO" />
+  <xs:complexType name="PanelBarDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Expanded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PanelBarID" type="xs:int" />
+      <xs:element minOccurs="0" name="PanelBarName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PanelBarDTO" nillable="true" type="tns:PanelBarDTO" />
+  <xs:complexType name="ArrayOfClassificationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClassificationDTO" nillable="true" type="tns:ClassificationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClassificationDTO" nillable="true" type="tns:ArrayOfClassificationDTO" />
+  <xs:complexType name="ClassificationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClassificationID" type="xs:int" />
+      <xs:element minOccurs="0" name="ClassificationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Selected" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClassificationDTO" nillable="true" type="tns:ClassificationDTO" />
+  <xs:complexType name="ArrayOfNodeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="NodeDTO" nillable="true" type="tns:NodeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNodeDTO" nillable="true" type="tns:ArrayOfNodeDTO" />
+  <xs:complexType name="NodeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChildNodes" nillable="true" type="tns:ArrayOfNodeDTO" />
+      <xs:element minOccurs="0" name="ClassificationID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="DisplayValue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Expanded" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NodeID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums.Framework" minOccurs="0" name="NodeType" type="q1:NodeType" />
+      <xs:element minOccurs="0" name="Selected" type="xs:boolean" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums.Framework" minOccurs="0" name="Status" type="q2:NodeStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NodeDTO" nillable="true" type="tns:NodeDTO" />
+  <xs:complexType name="ArrayOfStatusDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StatusDTO" nillable="true" type="tns:StatusDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatusDTO" nillable="true" type="tns:ArrayOfStatusDTO" />
+  <xs:complexType name="StatusDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatusID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatusDTO" nillable="true" type="tns:StatusDTO" />
+</xs:schema>

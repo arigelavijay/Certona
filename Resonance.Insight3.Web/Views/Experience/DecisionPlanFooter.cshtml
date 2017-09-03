@@ -1,0 +1,8 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Experience.ExperienceStrategyDecisionPlan
+
+<div style='float: left; width: 25%;background-color:PaleTurquoise'><span class="hotspot" data-hotspot="@this.InfoPanelResources("numberOfAssets")"><span class="bold">No. of Assets Requested:</span></span>&#160;@Model.NumberOfItems</div>
+<div style='float: left; width: 25%;background-color:PaleTurquoise'><span class="hotspot" data-hotspot="@this.InfoPanelResources("minRequired")"><span class="bold">Min. Required:</span></span>&#160;@Model.MinItems</div>
+<div style='float: left; width: 25%;background-color:PaleTurquoise'><span class="hotspot" data-hotspot="@this.InfoPanelResources("breakOnMin")"><span class="bold">Break on Min:</span></span>&#160;@Model.BreakOnMinItems</div>
+<div style='float: left; width: 25%;background-color:PaleTurquoise'><span class="hotspot" data-hotspot="@this.InfoPanelResources("slots")"><span class="bold">Slots:</span></span>&#160;@Model.SlotInfo</div>
+

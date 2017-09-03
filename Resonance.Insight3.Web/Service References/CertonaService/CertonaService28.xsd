@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Tools" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd27" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd40" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Reporting" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Administration" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd18" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="GetToolsListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q1:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Tools" minOccurs="0" name="Tools" nillable="true" type="q2:ArrayOfToolDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetToolsListResponse" nillable="true" type="tns:GetToolsListResponse" />
+  <xs:complexType name="GetStatusListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q3:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" minOccurs="0" name="Statuses" nillable="true" type="q4:ArrayOfStatusDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetStatusListResponse" nillable="true" type="tns:GetStatusListResponse" />
+  <xs:complexType name="GetReportsListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q5:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Reporting" minOccurs="0" name="Reports" nillable="true" type="q6:ArrayOfReportDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetReportsListResponse" nillable="true" type="tns:GetReportsListResponse" />
+  <xs:complexType name="GetContentPanelResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q7:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" minOccurs="0" name="ContentPanel" nillable="true" type="q8:ContentPanelDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetContentPanelResponse" nillable="true" type="tns:GetContentPanelResponse" />
+  <xs:complexType name="GetAccountsByUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q9:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Administration" minOccurs="0" name="Accounts" nillable="true" type="q10:ArrayOfAccountDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAccountsByUserResponse" nillable="true" type="tns:GetAccountsByUserResponse" />
+  <xs:complexType name="GetAccountExplorerStatusResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q11:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StatusValues" nillable="true" type="q12:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAccountExplorerStatusResponse" nillable="true" type="tns:GetAccountExplorerStatusResponse" />
+  <xs:complexType name="GetPanelBarStatesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q13:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" minOccurs="0" name="ExpandedPanelBars" nillable="true" type="q14:ArrayOfPanelBarDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPanelBarStatesResponse" nillable="true" type="tns:GetPanelBarStatesResponse" />
+  <xs:complexType name="GetAccountExplorerTreeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q15:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" minOccurs="0" name="Classifications" nillable="true" type="q16:ArrayOfClassificationDTO" />
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" minOccurs="0" name="Nodes" nillable="true" type="q17:ArrayOfNodeDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAccountExplorerTreeResponse" nillable="true" type="tns:GetAccountExplorerTreeResponse" />
+  <xs:complexType name="GetAssetExplorerTreeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q18:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" minOccurs="0" name="Nodes" nillable="true" type="q19:ArrayOfNodeDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAssetExplorerTreeResponse" nillable="true" type="tns:GetAssetExplorerTreeResponse" />
+  <xs:complexType name="GetPanelBarWidthResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q20:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Width" nillable="true" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPanelBarWidthResponse" nillable="true" type="tns:GetPanelBarWidthResponse" />
+</xs:schema>

@@ -1,0 +1,30 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model List<Resonance.Insight3.Web.ViewModels.Package.PackageSchemesViewModel>
+<script id="template" type="text/x-kendo-tmpl">
+    <span   
+    # if (data == 'Inactive') { #
+          class="accountStatusInactive"
+      # } else if (data == 'Deleted') { #
+          class="accountStatusDeleted"
+      # } #
+     >#=data#</span>
+ </script>
+@(Html.Kendo().Grid(Model)
+.Name("PackageSchemes")
+.Columns(columns =>
+{
+    columns.Bound(p => p.Name).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("name")">Name</span> </text>);
+    columns.Bound(p => p.Description).HeaderTemplate(@<text> Description</text>);
+    columns.Bound(p => p.ContainerID).Title("Container ID").HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("containerId")">Container ID</span> </text>);
+    columns.Bound(p => p.NumberOfItems).Title("Number of Items").HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("items")">No. of Items</span> </text>);
+    columns.Bound(p => p.Catalog).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("catalog")">Catalog</span> </text>)
+                                 .ClientTemplate("<img src=\'/Images/AssetTypes/Small/#=CatalogImage#\' alt=\'\' /> #=Catalog#");
+    columns.Bound(p => p.Status).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("status")">Status</span> </text>)
+                                .ClientTemplate("<span style='cursor:help;' #=Status == 'Inactive' || Status == 'Deleted' ? Status == 'Inactive' ? 'class=\"accountStatusInactive\"' : 'class=\"accountStatusDeleted\"' : '' # onmouseover=\"ShowInfo('#=Status#');\" onmouseout=\"HideInfo();\">#=Status#</span>");
+})
+.TableHtmlAttributes(new {style="font-size:0.9em;"})
+.Sortable()
+.DataSource(dataSource => dataSource
+    .Ajax()
+    .ServerOperation(false)
+    .Sort(sort => sort.Add(o => o.Name).Ascending())))

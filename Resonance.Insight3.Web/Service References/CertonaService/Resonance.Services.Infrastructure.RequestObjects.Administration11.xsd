@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Administration" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Administration" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" />
+  <xs:complexType name="AuthenticateUserRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q1:RequestBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AuthenticateUserRequest" nillable="true" type="tns:AuthenticateUserRequest" />
+  <xs:complexType name="GetUserAccountApplicationFeaturesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q2:RequestBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserAccountApplicationFeaturesRequest" nillable="true" type="tns:GetUserAccountApplicationFeaturesRequest" />
+  <xs:complexType name="SetUserSettingsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q3:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrentPassword" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NewPassword" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetUserSettingsRequest" nillable="true" type="tns:SetUserSettingsRequest" />
+</xs:schema>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd27" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" />
+  <xs:complexType name="GetToolsListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q1:RequestBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetToolsListRequest" nillable="true" type="tns:GetToolsListRequest" />
+  <xs:complexType name="GetStatusListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q2:RequestBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetStatusListRequest" nillable="true" type="tns:GetStatusListRequest" />
+  <xs:complexType name="GetReportsListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q3:RequestBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetReportsListRequest" nillable="true" type="tns:GetReportsListRequest" />
+  <xs:complexType name="GetContentPanelRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q4:RequestBase">
+        <xs:sequence>
+          <xs:element name="NodeTypeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetContentPanelRequest" nillable="true" type="tns:GetContentPanelRequest" />
+  <xs:complexType name="SetContentPanelSectionStateRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q5:RequestBase">
+        <xs:sequence>
+          <xs:element name="ContentPanelSectionID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetContentPanelSectionStateRequest" nillable="true" type="tns:SetContentPanelSectionStateRequest" />
+  <xs:complexType name="GetAccountsByUserRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q6:RequestBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAccountsByUserRequest" nillable="true" type="tns:GetAccountsByUserRequest" />
+  <xs:complexType name="GetAccountExplorerStatusRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q7:RequestBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAccountExplorerStatusRequest" nillable="true" type="tns:GetAccountExplorerStatusRequest" />
+  <xs:complexType name="GetPanelBarStatesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q8:RequestBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPanelBarStatesRequest" nillable="true" type="tns:GetPanelBarStatesRequest" />
+  <xs:complexType name="GetAccountExplorerTreeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q9:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClassificationID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAccountExplorerTreeRequest" nillable="true" type="tns:GetAccountExplorerTreeRequest" />
+  <xs:complexType name="GetAssetExplorerTreeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q10:RequestBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAssetExplorerTreeRequest" nillable="true" type="tns:GetAssetExplorerTreeRequest" />
+  <xs:complexType name="SetPanelBarWidthRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q11:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Width" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetPanelBarWidthRequest" nillable="true" type="tns:SetPanelBarWidthRequest" />
+  <xs:complexType name="SetSelectedNodeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q12:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ClassificationID" type="xs:int" />
+          <xs:element minOccurs="0" name="ObjectKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ObjectValue" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetSelectedNodeRequest" nillable="true" type="tns:SetSelectedNodeRequest" />
+  <xs:complexType name="SetAccountExplorerStatusRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q13:RequestBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="StatusValue" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetAccountExplorerStatusRequest" nillable="true" type="tns:SetAccountExplorerStatusRequest" />
+  <xs:complexType name="GetPanelBarWidthRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q14:RequestBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPanelBarWidthRequest" nillable="true" type="tns:GetPanelBarWidthRequest" />
+  <xs:complexType name="SetAccountExplorerNodeStateRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q15:RequestBase">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" minOccurs="0" name="Node" nillable="true" type="q16:NodeDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetAccountExplorerNodeStateRequest" nillable="true" type="tns:SetAccountExplorerNodeStateRequest" />
+  <xs:complexType name="SetAssetExplorerNodeStateRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q17:RequestBase">
+        <xs:sequence>
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" minOccurs="0" name="Node" nillable="true" type="q18:NodeDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetAssetExplorerNodeStateRequest" nillable="true" type="tns:SetAssetExplorerNodeStateRequest" />
+  <xs:complexType name="SetPanelBarStatesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" base="q19:RequestBase">
+        <xs:sequence>
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" minOccurs="0" name="PanelBars" nillable="true" type="q20:ArrayOfPanelBarDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetPanelBarStatesRequest" nillable="true" type="tns:SetPanelBarStatesRequest" />
+</xs:schema>

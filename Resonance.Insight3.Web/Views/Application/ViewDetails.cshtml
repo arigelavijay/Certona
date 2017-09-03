@@ -1,0 +1,65 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Application.ApplicationDetails
+
+<div style="display: block; width: 100%;">
+    <div style="float: left; width: 70%;">
+        <div style="float: left; width: 50%;">
+            <span class="bold">@this.SharedResources("application")</span>
+            <br/>
+            @Model.Name
+        </div>
+        <div style="float: left; width: 50%;">
+            <span class="hotspot" data-hotspot="@this.InfoPanelResources("applicationid")"><span class="bold">@this.SharedResources("applicationid")</span></span>
+            <br/>
+            @Model.ApplicationID
+        </div>
+        <div style="clear: both;"></div>
+        <div style="float: left; width: 50%;">
+            <span class="bold">@this.SharedResources("description")</span>
+            <br/>
+            @Model.Description
+        </div>
+        <div style="float: left; width: 50%;">
+            <span class="bold">@this.SharedResources("applicationurl")</span>
+            <br/>
+            <a href="@Model.URL" target="_blank">@Model.URL</a>
+        </div>
+    </div>
+    @{
+        if (Model.Classifications.Count > 0)
+        {
+            <div style="float: left; width: 29%;">
+                <fieldset>
+                    <legend><span class="hotspot" data-hotspot="@this.InfoPanelResources("classification")"><span class="bold">@this.SharedResources("classification")</span></span></legend>
+                    @{
+                        for (int i = 0; i < Model.Classifications.Count; i += 3)
+                        {
+                            <div style="float: left; width: 33%;">
+                                <span class="bold">@Model.Classifications[i].ClassificationNamek__BackingField</span>
+                                <br/>
+                                @Model.Classifications[i].ClassificationValuek__BackingField
+                            </div>
+                            if(i + 1 < Model.Classifications.Count)
+                            {
+                                <div style="float: left; width: 33%;">
+                                <span class="bold">@Model.Classifications[i + 1].ClassificationNamek__BackingField</span>
+                                <br/>
+                                @Model.Classifications[i + 1].ClassificationValuek__BackingField
+                                </div>
+                            }
+                            if(i + 2 < Model.Classifications.Count)
+                            {
+                                <div style="float: left; width: 33%;">
+                                <span class="bold">@Model.Classifications[i + 2].ClassificationNamek__BackingField</span>
+                                <br/>
+                                @Model.Classifications[i + 2].ClassificationValuek__BackingField
+                                </div>
+                            }
+                            <div style="clear: both;"></div>
+                        }
+                    }
+                </fieldset>
+            </div>
+        }
+    }
+</div>

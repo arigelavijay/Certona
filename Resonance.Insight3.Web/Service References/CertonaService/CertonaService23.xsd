@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd18" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfCatalogDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogDTO" nillable="true" type="tns:CatalogDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCatalogDTO" nillable="true" type="tns:ArrayOfCatalogDTO" />
+  <xs:complexType name="CatalogDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CatalogName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogDTO" nillable="true" type="tns:CatalogDTO" />
+  <xs:complexType name="AssetTypesDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Asset_Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Asset_Type_ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Icon_Filename" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AssetTypesDTO" nillable="true" type="tns:AssetTypesDTO" />
+  <xs:complexType name="ArrayOfCatalogCurrencyFieldDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogCurrencyFieldDTO" nillable="true" type="tns:CatalogCurrencyFieldDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCatalogCurrencyFieldDTO" nillable="true" type="tns:ArrayOfCatalogCurrencyFieldDTO" />
+  <xs:complexType name="CatalogCurrencyFieldDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Catalog_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Customer_Field" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Resonance_Field" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogCurrencyFieldDTO" nillable="true" type="tns:CatalogCurrencyFieldDTO" />
+  <xs:complexType name="CatalogDetailsDTO">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Applications" nillable="true" type="q1:ArrayOfKeyValueOfstringint" />
+      <xs:element minOccurs="0" name="AssetType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Icon_FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LanguageName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogDetailsDTO" nillable="true" type="tns:CatalogDetailsDTO" />
+  <xs:complexType name="CatalogItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CatalogItemAssociatedItem" nillable="true" type="tns:ArrayOfCatalogItemAssociatedItemDTO" />
+      <xs:element minOccurs="0" name="CatalogItemInfo" nillable="true" type="tns:CatalogItemInfoDTO" />
+      <xs:element minOccurs="0" name="CatalogItemMetaData" nillable="true" type="tns:ArrayOfCatalogItemMetaDataDTO" />
+      <xs:element minOccurs="0" name="CatalogMapping" nillable="true" type="tns:ArrayOfCatalogMappingDTO" />
+      <xs:element minOccurs="0" name="CatalogMetaData" nillable="true" type="tns:ArrayOfCatalogMetaDataDTO" />
+      <xs:element minOccurs="0" name="CatalogMetaData2" nillable="true" type="tns:ArrayOfCatalogMetaDataDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogItemDTO" nillable="true" type="tns:CatalogItemDTO" />
+  <xs:complexType name="ArrayOfCatalogItemAssociatedItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogItemAssociatedItemDTO" nillable="true" type="tns:CatalogItemAssociatedItemDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCatalogItemAssociatedItemDTO" nillable="true" type="tns:ArrayOfCatalogItemAssociatedItemDTO" />
+  <xs:complexType name="CatalogItemAssociatedItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DisplayOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogItemAssociatedItemDTO" nillable="true" type="tns:CatalogItemAssociatedItemDTO" />
+  <xs:complexType name="CatalogItemInfoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AccountItemID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="COGS" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateIntroduced" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DetailUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Disabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ExcludedFromRecommendations" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Flag1" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Flag2" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Flag3" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Flag4" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Flag5" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Flag6" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Flag7" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Flag8" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Flag9" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Inventory" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="ItemID" type="ser:guid" />
+      <xs:element minOccurs="0" name="LastUpdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Money1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Money2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Money3" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Money4" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Money5" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Money6" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Money7" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Money8" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Money9" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Number1" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Number2" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Number3" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Number4" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Number5" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Number6" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Number7" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Number8" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Number9" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="ObjectID" type="ser:guid" />
+      <xs:element minOccurs="0" name="Promotion" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="Text1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text9" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogItemInfoDTO" nillable="true" type="tns:CatalogItemInfoDTO" />
+  <xs:complexType name="ArrayOfCatalogItemMetaDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogItemMetaDataDTO" nillable="true" type="tns:CatalogItemMetaDataDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCatalogItemMetaDataDTO" nillable="true" type="tns:ArrayOfCatalogItemMetaDataDTO" />
+  <xs:complexType name="CatalogItemMetaDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FunctionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LevelName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogItemMetaDataDTO" nillable="true" type="tns:CatalogItemMetaDataDTO" />
+  <xs:complexType name="ArrayOfCatalogMappingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogMappingDTO" nillable="true" type="tns:CatalogMappingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCatalogMappingDTO" nillable="true" type="tns:ArrayOfCatalogMappingDTO" />
+  <xs:complexType name="CatalogMappingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AttributeType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomVariable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsMapped" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRuleEnabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OLAPLevel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResonanceField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XSLTransform" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogMappingDTO" nillable="true" type="tns:CatalogMappingDTO" />
+  <xs:complexType name="ArrayOfCatalogMetaDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogMetaDataDTO" nillable="true" type="tns:CatalogMetaDataDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCatalogMetaDataDTO" nillable="true" type="tns:ArrayOfCatalogMetaDataDTO" />
+  <xs:complexType name="CatalogMetaDataDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name3" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogMetaDataDTO" nillable="true" type="tns:CatalogMetaDataDTO" />
+  <xs:complexType name="ArrayOfCatalogItemInfoDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogItemInfoDTO" nillable="true" type="tns:CatalogItemInfoDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCatalogItemInfoDTO" nillable="true" type="tns:ArrayOfCatalogItemInfoDTO" />
+  <xs:complexType name="ArrayOfCatalogRuleContextsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogRuleContextsDTO" nillable="true" type="tns:CatalogRuleContextsDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCatalogRuleContextsDTO" nillable="true" type="tns:ArrayOfCatalogRuleContextsDTO" />
+  <xs:complexType name="CatalogRuleContextsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContextID" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExcludedItem" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rules" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SourceObject" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogRuleContextsDTO" nillable="true" type="tns:CatalogRuleContextsDTO" />
+  <xs:complexType name="ArrayOfCatalogByRuleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CatalogByRuleDTO" nillable="true" type="tns:CatalogByRuleDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCatalogByRuleDTO" nillable="true" type="tns:ArrayOfCatalogByRuleDTO" />
+  <xs:complexType name="CatalogByRuleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CatalogName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CatalogByRuleDTO" nillable="true" type="tns:CatalogByRuleDTO" />
+  <xs:complexType name="ArrayOfRecommendationTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecommendationTypeDTO" nillable="true" type="tns:RecommendationTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecommendationTypeDTO" nillable="true" type="tns:ArrayOfRecommendationTypeDTO" />
+  <xs:complexType name="RecommendationTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsEditable" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MethodID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecommendationTypeDTO" nillable="true" type="tns:RecommendationTypeDTO" />
+</xs:schema>

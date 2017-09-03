@@ -1,0 +1,277 @@
+﻿@using System.Data
+@model Resonance.Insight3.Web.ViewModels.Models.ModelDataViewModel
+
+@{
+    int gridWidth = 114;
+    int counter = 1;
+}
+
+<style type="text/css">
+    .ColumnGroupHeadersContainer {
+        clear: both;
+        margin-bottom: 0;
+    }
+
+    .ColumnGroupHeader {
+        background-color: rgb(227, 247, 255);
+        color: #000;
+        float: left;
+        padding: 8px 6px;
+        width: 150px;
+    }
+
+    .ColumnGroupHeaderLeft {
+        border-left: 1px solid #D2D2D2;
+        border-top: 1px solid #D2D2D2;
+    }
+
+    .ColumnGroupHeaderMiddle {
+        border-left: 1px solid #D2D2D2;
+        border-top: 1px solid #D2D2D2;
+    }
+
+    .ColumnGroupHeaderRight {
+        border-left: 1px solid #D2D2D2;
+    }
+
+    .Segment { width: 100px; }
+</style>
+
+<script type="text/javascript">
+    var columnTypes = new Array();
+    @{
+    for (int i = 0; i < Model.ColumnGroupHeaders.Length; i++)
+    {
+    <text>
+    columnTypes[@(i + counter)] = '@Model.ColumnGroupHeaders[i]';
+    columnTypes[@(i + counter + 1)] = '@Model.ColumnGroupHeaders[i]';
+    </text>
+        counter++;
+    }
+}
+
+    function ModelsGridDataBound(e) {
+        var rows = e.sender.tbody[0].rows;
+
+        for(var r = 0; r < rows.length; r++) {
+            var row = rows[r];
+            row.style.cursor = 'pointer';
+
+            for (var i = 2; i < row.cells.length; i++) {
+                if (typeof columnTypes[i - 1] != 'undefined') {
+                    if ($.trim(row.cells[i].textContent) != '') {
+                        switch (columnTypes[i - 1].toLowerCase()) {
+                            case "longitude":
+                                if ($.trim(row.cells[i].textContent).indexOf('-') == 0) {
+                                    row.cells[i].innerHTML = $.trim(row.cells[i].textContent).replace('-', '') + '&deg; W';
+                                } else {
+                                    row.cells[i].innerHTML = $.trim(row.cells[i].textContent) + '&deg; E';
+                                }
+                                break;
+                            case "latitude":
+                                if ($.trim(row.cells[i].textContent).indexOf('-') == 0) {
+                                    row.cells[i].innerHTML = $.trim(row.cells[i].textContent).replace('-', '') + '&deg; S';
+                                } else {
+                                    row.cells[i].innerHTML = $.trim(row.cells[i].textContent) + '&deg; N';
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function ModelsGridRowSelected(e) {
+        // get the DOM element which represents the clicked row
+        var rows = this.select();
+        var segmentName = 'Default';
+
+        if (rows !== undefined && rows.length === 1) {
+            var row = rows[0];
+            segmentName = row.cells[1].firstChild.data;
+            
+            while (segmentName.indexOf(' ') != -1) {
+                segmentName = segmentName.replace(' ', '_');
+            }
+            while (segmentName.indexOf('.') != -1) {
+                segmentName = segmentName.replace('.', '');
+            }
+
+            $('#segmentItemsGrid').load('@Url.Action("GetSegmentItems", "Models")?ModelID=' + modelID + '&SegmentID=' + row.cells[0].firstChild.data + "&SegmentName=" + escape(row.cells[1].firstChild.data), function(response, status, xhr) {
+                if (status == "error") {
+                    var msg = "Sorry but there was an error: ";
+                    alert(msg + xhr.status + "\n\n" + xhr.statusText);
+                } else {
+                    Set_ModelsGrid_ColumnHeaders_ContainerHeight();
+                    $('#BiasGridHeader').css('width', biasHeaderWidth);
+                }
+            });
+        }
+
+        SetVisualizationImage(segmentName);
+    }
+    
+    function SetVisualizationImage(segmentName) {
+        if (document.getElementById('imgModelVisualization') != undefined) {
+            $('#imgModelVisualization').attr('src', 'Images/PB/USRegions/' + segmentName + '.jpg');
+        }
+    }
+
+    function Set_ModelsGrid_ColumnHeaders_ContainerHeight() {
+        $('.ColumnGroupHeadersContainer').css('height', getComputedHeight('Segment') + 'px');
+    }
+
+    function getComputedHeight(theElt) {
+        var browserName = navigator.appName;
+        var isIe = false;
+        if (browserName == "Microsoft Internet Explorer") {
+            isIe = true;
+        }
+        var tmpHeight;
+        if (isIe) {
+            tmpHeight = document.getElementById(theElt).offsetHeight;
+        } else {
+            var docObj = document.getElementById(theElt);
+            var tmphght1 = document.defaultView.getComputedStyle(docObj, "").getPropertyValue("height");
+            tmpHeight = tmphght1.split('px');
+            tmpHeight = tmpHeight[0];
+            tmpHeight = parseInt(tmpHeight) + 20;
+        }
+        return tmpHeight - 1;
+    }
+
+    function GetModelID() {
+        return {
+            ModelID: @(Model.ModelID)
+        };
+    }
+</script>
+
+<style type="text/css">
+    @{
+        if (Model.ColumnGroupHeaders.Any())
+        {
+            foreach (string t in Model.ColumnGroupHeaders)
+            {
+                gridWidth += 165;
+
+                <text>.@t {
+                width: 152px;
+                }</text>
+            }
+        }
+        else
+        {
+            gridWidth += 330;
+        }
+        gridWidth += 14;
+    } 
+</style>
+
+<div id="gridsDiv">
+    <div id="modelsGrid" style="float: left;">
+        <div class="ColumnGroupHeadersContainer">
+            <div class="ColumnGroupHeader ColumnGroupHeaderLeft Segment" style="@(!Model.ColumnGroupHeaders.Any() ? "width: 430px;" : "")" id="Segment">
+                Segment
+            </div>
+            @for (int i = 0; i < Model.ColumnGroupHeaders.Length; i++)
+            {
+                <div class="ColumnGroupHeader ColumnGroupHeaderMiddle @Model.ColumnGroupHeaders[i]" style="text-align: center;" id="@Model.ColumnGroupHeaders[i]">
+                    @Model.ColumnGroupHeaders[i]
+                </div>
+            }
+            <div class="ColumnGroupHeader ColumnGroupHeaderRight" style="padding-left: 0; padding-right: 0; width: 15px;">
+                &#160;
+            </div>
+        </div>
+        @{
+            string gridWidthString = (gridWidth + 4) + "px";
+        }
+        <div style="margin-top: 0; width: @gridWidthString;">
+            @(
+    Html.Kendo().Grid(Model.GridData)
+        .Name("ModelsGrid")
+        .Columns(columns =>
+            {
+                columns.Bound("ID").Hidden(true);
+                if (Model.GridData != null && Model.GridData.Columns.Count > 0)
+                {
+                    foreach (DataColumn col in Model.GridData.Columns)
+                    {
+                        string[] nameParts = col.ColumnName.Split('_');
+                        if (col.ColumnName == "ID")
+                        {
+                        }
+                        else if (col.ColumnName == "Name")
+                        {
+                            columns.Bound(col.ColumnName)
+                                   .Title(nameParts[0])
+                                   .HeaderHtmlAttributes(new {style = "width: 98px; border-left: none;"})
+                                   .HtmlAttributes(new {style = "width: 98px; border-left: none;"});
+                        }
+                        else
+                        {
+                            columns.Bound(col.ColumnName)
+                                   .Title(nameParts[0]);
+                        }
+                    }
+                }
+                else
+                {
+                    columns.Bound("Name")
+                           .Title("Name")
+                           .HeaderHtmlAttributes(new {style = "width: 98px; border-left: none;"})
+                           .HtmlAttributes(new {style = "width: 98px; border-left: none;"});
+                }
+            })
+        .DataSource(datasource => datasource
+                                      .Ajax()
+                                      .Read(read => read.Action("ModelsGridSelect", "Models")
+                                                        .Data("GetModelID")
+                                      )
+                                      //.Model(model => model.Id(p => p["ID"]))
+                                      .Sort(s => s.Add("Name").Ascending())
+        )
+        .Events(events =>
+            {
+                events.DataBound("ModelsGridDataBound");
+                events.Change("ModelsGridRowSelected");
+            })
+        .CellAction(cell =>
+            {
+                if (cell.DataItem.Row[cell.Column.Member].ToString() != String.Empty)
+                {
+                    if (cell.Column.Member.Contains("Longitude"))
+                    {
+                        cell.Text = cell.DataItem.Row[cell.Column.Member].ToString().Replace("-", "").Trim() + "&deg; " + (cell.DataItem.Row[cell.Column.Member].ToString().StartsWith("-") ? "W" : "E");
+                    }
+                    else if (cell.Column.Member.Contains("Latitude"))
+                    {
+                        cell.Text = cell.DataItem.Row[cell.Column.Member].ToString().Replace("-", "").Trim() + "&deg; " + (cell.DataItem.Row[cell.Column.Member].ToString().StartsWith("-") ? "S" : "N");
+                    }
+                }
+            })
+        .HtmlAttributes(new {style = "width: " + gridWidth + "px; border-width: 2px; border-color: #000; border-top: none; margin-top: 0px;"})
+        .Scrollable(scroll => scroll.Height(267))
+        .Selectable()
+        .Sortable()
+                  )
+        </div>
+        <br/>
+        &#160;
+    </div>
+    <div id="segmentItemsGrid" style="float: left; margin-left: 15px;"></div>
+    <div style="clear: both;">&#160;</div>
+</div>
+@Html.Hidden("hidModelId", Model.ModelID)
+<script type="text/javascript" language="javascript">
+    var modelID = @Model.ModelID;
+    var biasHeaderWidth = '@(gridWidth - 12)px';
+    $('#modelsGrid').css('width', '@(gridWidthString)');
+    $('#segmentItemsGrid').css('width', '@(gridWidthString)');
+    $('#segmentItemsGrid').load('@Url.Action("GetSegmentItems", "Models")', function(response, status, xhr) {
+        Set_ModelsGrid_ColumnHeaders_ContainerHeight();
+        $('#BiasGridHeader').css('width', biasHeaderWidth);
+    });
+</script>

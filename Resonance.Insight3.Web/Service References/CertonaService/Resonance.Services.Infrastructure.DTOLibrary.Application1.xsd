@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Application" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Application" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Administration" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" />
+  <xs:complexType name="ArrayOfApplicationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationDTO" nillable="true" type="tns:ApplicationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationDTO" nillable="true" type="tns:ArrayOfApplicationDTO" />
+  <xs:complexType name="ApplicationDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Administration" minOccurs="0" name="Features" nillable="true" type="q1:ArrayOfFeatureDTO" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums" minOccurs="0" name="Status" type="q2:ItemStatuses" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationDTO" nillable="true" type="tns:ApplicationDTO" />
+  <xs:complexType name="ApplicationDetailsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Classification" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" minOccurs="0" name="Classifications" nillable="true" type="q3:ArrayOfApplicationClassificationsDTO" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationDetailsDTO" nillable="true" type="tns:ApplicationDetailsDTO" />
+  <xs:complexType name="ArrayOfApplicationPackagesDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationPackagesDTO" nillable="true" type="tns:ApplicationPackagesDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationPackagesDTO" nillable="true" type="tns:ArrayOfApplicationPackagesDTO" />
+  <xs:complexType name="ApplicationPackagesDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PackageId" type="xs:int" />
+      <xs:element minOccurs="0" name="PackageName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PackageType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationPackagesDTO" nillable="true" type="tns:ApplicationPackagesDTO" />
+</xs:schema>

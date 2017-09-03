@@ -1,0 +1,31 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Package.PackageDetails
+
+<div style="display: block; width: 100%; overflow: auto">
+    <div style="float: left; width: 33%;">
+        <span class="bold">@this.SharedResources("package")</span>
+        <br/>
+        @Model.PackageName
+    </div>
+    <div style="float: left; width: 33%;">
+        <span class="bold">@this.SharedResources("packagetype")</span>
+        <br/>
+        @Model.PackageType
+    </div>
+    <div style="float: left; width: 33%;">
+        <span class="bold">@this.SharedResources("packageurl")</span>
+        <br/>
+        <a href="@Model.PageURL" target="_blank">@Model.PageURL</a>
+    </div>
+    <div style="clear: both;">&#160;</div>
+        <div style="float: left; width: 33%;">
+        <span class="bold">@this.SharedResources("description")</span>
+        <br/>
+        @Model.Description
+    </div>
+    <div style="float: left; width: 33%;">
+        <span class="hotspot" data-hotspot="@this.InfoPanelResources("packagesubtype")"><span class="bold">@this.SharedResources("packagesubtype")</span></span>
+        <br/>
+        @Model.SubType
+    </div>   
+</div>

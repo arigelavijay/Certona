@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Scheme" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Scheme" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums" />
+  <xs:complexType name="ArrayOfSchemeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SchemeDTO" nillable="true" type="tns:SchemeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchemeDTO" nillable="true" type="tns:ArrayOfSchemeDTO" />
+  <xs:complexType name="SchemeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SchemeID" type="xs:int" />
+      <xs:element minOccurs="0" name="SchemeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SchemeDTO" nillable="true" type="tns:SchemeDTO" />
+  <xs:complexType name="SchemeDetailsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Callback" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomQueryString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefaultCatalogID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Icon_Filename" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfItems" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RecMethod" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="Scheme" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SchemeType" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums" minOccurs="0" name="Status" type="q1:ItemStatuses" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SchemeDetailsDTO" nillable="true" type="tns:SchemeDetailsDTO" />
+  <xs:complexType name="ArrayOfSchemeContextDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SchemeContextDTO" nillable="true" type="tns:SchemeContextDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchemeContextDTO" nillable="true" type="tns:ArrayOfSchemeContextDTO" />
+  <xs:complexType name="SchemeContextDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContextID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExcludeItem" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ExcludeItemDaysPast" type="xs:int" />
+      <xs:element minOccurs="0" name="ExcludeItemLastPages" type="xs:int" />
+      <xs:element minOccurs="0" name="ExcludeItemMaxCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RulesDaysPast" type="xs:int" />
+      <xs:element minOccurs="0" name="RulesLastPages" type="xs:int" />
+      <xs:element minOccurs="0" name="RulesMaxCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SourceObject" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SourceObjectDaysPast" type="xs:int" />
+      <xs:element minOccurs="0" name="SourceObjectLastPages" type="xs:int" />
+      <xs:element minOccurs="0" name="SourceObjectMaxCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SchemeContextDTO" nillable="true" type="tns:SchemeContextDTO" />
+  <xs:complexType name="ArrayOfSchemeEventContextDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SchemeEventContextDTO" nillable="true" type="tns:SchemeEventContextDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchemeEventContextDTO" nillable="true" type="tns:ArrayOfSchemeEventContextDTO" />
+  <xs:complexType name="SchemeEventContextDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ExcludeCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RuleCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SubjectCount" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SchemeEventContextDTO" nillable="true" type="tns:SchemeEventContextDTO" />
+  <xs:complexType name="ArrayOfSchemeExperienceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SchemeExperienceDTO" nillable="true" type="tns:SchemeExperienceDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchemeExperienceDTO" nillable="true" type="tns:ArrayOfSchemeExperienceDTO" />
+  <xs:complexType name="SchemeExperienceDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExperienceID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Traffic" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SchemeExperienceDTO" nillable="true" type="tns:SchemeExperienceDTO" />
+</xs:schema>

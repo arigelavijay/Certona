@@ -1,0 +1,48 @@
+﻿.ContentPanelSectionTitleBarCollapsed {
+    background-color: #BCBEC0;
+    border: solid 1px #BCBEC0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 3px 6px;
+    color:#3f3f3f;
+    font-weight: bold;
+    cursor: pointer;
+    height: 13px;
+}
+
+.ContentPanelSectionTitleBarExpanded {
+    background-image: url('/Content/themes/Images/content-panel-section-title-bar-expanded.png');
+    border: solid 1px #BFBFBF;
+    border-bottom: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 3px 6px;
+    color:#00536f;
+    font-weight: bold;
+    cursor: pointer;
+    height: 13px;
+}
+
+.ContentPanelSectionExpanded {
+    background-color: #F8F8F8;
+    border: solid 1px #BFBFBF;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: block;
+    padding: 10px;
+    overflow: auto;
+    margin-bottom: 10px;
+}
+
+.ContentPanelSectionCollapsed {
+    background-color: #BCBEC0;
+    border: solid 1px #BCBEC0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+    padding: 10px;
+}
+
+.ContentPanelSectionEdit {
+    background-color: #ffffcc !important;
+}

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd47" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Experience" />
+  <xs:complexType name="GetLastVariantPriorityByExperienceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q1:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LastPriority" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetLastVariantPriorityByExperienceResponse" nillable="true" type="tns:GetLastVariantPriorityByExperienceResponse" />
+  <xs:complexType name="GetExperienceBoostsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q2:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Experience" minOccurs="0" name="ExperienceDetails" nillable="true" type="q3:ExperienceDetailsDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetExperienceBoostsResponse" nillable="true" type="tns:GetExperienceBoostsResponse" />
+  <xs:complexType name="GetExperienceVariantsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q4:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Experience" minOccurs="0" name="Variants" nillable="true" type="q5:ArrayOfExperienceVariantDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetExperienceVariantsResponse" nillable="true" type="tns:GetExperienceVariantsResponse" />
+  <xs:complexType name="GetExperienceDetailsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q6:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Experience" minOccurs="0" name="Details" nillable="true" type="q7:ExperienceDetailsDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetExperienceDetailsResponse" nillable="true" type="tns:GetExperienceDetailsResponse" />
+  <xs:complexType name="UpdateExperienceDetailsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q8:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateExperienceDetailsResponse" nillable="true" type="tns:UpdateExperienceDetailsResponse" />
+  <xs:complexType name="UpdateExperienceModifiersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q9:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateExperienceModifiersResponse" nillable="true" type="tns:UpdateExperienceModifiersResponse" />
+  <xs:complexType name="UpdateExperienceTrafficResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q10:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateExperienceTrafficResponse" nillable="true" type="tns:UpdateExperienceTrafficResponse" />
+  <xs:complexType name="CreateExperienceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q11:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ExperienceID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateExperienceResponse" nillable="true" type="tns:CreateExperienceResponse" />
+</xs:schema>

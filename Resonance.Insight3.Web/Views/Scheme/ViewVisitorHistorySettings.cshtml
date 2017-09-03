@@ -1,0 +1,104 @@
+﻿@using Resonance.Insight3.Web.HtmlHelpers
+@using Resonance.Insight3.Web.Helpers
+
+@model Resonance.Insight3.Web.ViewModels.Scheme.SchemeContextViewModel
+<script src="~/Scripts/tristate-0.9.2-min.js"></script>
+
+<div class="div-context">
+    <fieldset>
+        <legend><span class="hotspot" data-hotspot="@this.InfoPanelResources("inclusionCriteria")"><span class="bold">@this.SharedResources("inclusionCriteria")</span></span></legend>
+        <div class="div-context-item">
+            @Html.TriStateReadOnly(Model.InclusionCriteria.IncludeCurrentAssets)&#160;&#160;<span class="hotspot checkbox-text" data-hotspot="@this.InfoPanelResources("inclusionCurrentAssets")">@this.SharedResources("inclusionCurrentAssets")</span>
+        </div>
+        <div class="div-context-item">
+            @Html.TriStateReadOnly(Model.InclusionCriteria.IncludePreviousAssets)&#160;&#160;<span class="hotspot checkbox-text" data-hotspot="@this.InfoPanelResources("inclusionPreviousAssets")">@this.SharedResources("inclusionPreviousAssets")</span>
+        </div>              
+        <div style="clear: both;">&#160;</div>
+        <div class="div-context-area">
+            <div class="div-context-section">                
+                <div class="div-context-item">&#160;&#160;Include @Html.TextBox("incMaxItems", Model.InclusionCriteria.IncludeMaxCount == 0 ? "all" : Model.InclusionCriteria.IncludeMaxCount.ToString(), new {style="width:40px", disabled="disabled"}) items</div>
+                <div class="div-context-item">&#160;&#160;From the last @Html.TextBox("inclPastDays", Model.InclusionCriteria.IncludeDaysPast, new {style="width:40px", disabled="disabled"}) days</div>
+                <div class="div-context-item">&#160;&#160;From the last @Html.TextBox("inclLastPages", Model.InclusionCriteria.IncludeLastPages == 0 ? "all" : Model.InclusionCriteria.IncludeLastPages.ToString() , new {style="width:40px", disabled="disabled"}) pages viewed</div>
+            </div>    
+            <div class="div-context-section">              
+                <div class="div-context-item">&#160;&#160;<span class="hotspot" data-hotspot="@this.InfoPanelResources("eventGroup")"><span class="bold">@this.SharedResources("eventGroup")</span></span></div>
+                @{
+                    foreach (var context in Model.InclusionCriteria.EventContexts)
+                    {
+                        <div>@Html.TriStateReadOnly(context.DisplayValue)&#160;&#160;<span class="checkbox-text">@context.EventName</span></div>
+                    }
+                }                
+            </div>
+        </div>    
+
+    </fieldset>
+</div>    
+
+<div class="div-context"> 
+    <fieldset>
+        <legend><span class="hotspot" data-hotspot="@this.InfoPanelResources("exclusionCriteria")"><span class="bold">@this.SharedResources("exclusionCriteria")</span></span></legend>
+        <div class="div-context-item">
+            @Html.TriStateReadOnly(Model.ExclusionCriteria.ExcludeCurrentAssets)&#160;&#160;<span class="hotspot checkbox-text" data-hotspot="@this.InfoPanelResources("exclusionCurrentAssets")">@this.SharedResources("exclusionCurrentAssets")</span><br/>
+            @*
+            <span id="exclCurrentAssets" style="cursor: default;">
+                <input type="hidden" id="exclCurrentAssetsState" name="exclCurrentAssetsState" value="1"/>
+            </span><span>Exclude the currently viewed asset(s) as context when generating recommendations</span>
+            *@
+        </div>
+        <div class="div-context-item">
+            @Html.TriStateReadOnly(Model.ExclusionCriteria.ExcludePreviousAssets)&#160;&#160;<span class="hotspot checkbox-text" data-hotspot="@this.InfoPanelResources("exclusionPreviousAssets")">@this.SharedResources("exclusionPreviousAssets")</span><br/>
+        </div>
+        <div style="clear: both;">&#160;</div>
+        <div class="div-context-area">
+            <div class="div-context-section">                
+                <div class="div-context-item">&#160;&#160;Exclude @Html.TextBox("exclMaxItems", Model.ExclusionCriteria.ExcludeMaxCount == 0 ? "all" : Model.ExclusionCriteria.ExcludeMaxCount.ToString(), new {style="width:40px",disabled="disabled"}) items</div>
+                <div class="div-context-item">&#160;&#160;From the last @Html.TextBox("exclPastDays", Model.ExclusionCriteria.ExcludeDaysPast, new {style="width:40px",disabled="disabled"}) days</div>
+                <div class="div-context-item">&#160;&#160;From the last @Html.TextBox("exclLastPages", Model.ExclusionCriteria.ExcludeLastPages == 0 ? "all" : Model.ExclusionCriteria.ExcludeLastPages.ToString(), new {style="width:40px",disabled="disabled"}) pages viewed</div>
+            </div>                                        
+            <div class="div-context-section">                
+                <div class="div-context-item">&#160;&#160;<span class="hotspot" data-hotspot="@this.InfoPanelResources("eventGroup")"><span class="bold">@this.SharedResources("eventGroup")</span></span></div>
+                @{
+                    foreach (var context in Model.ExclusionCriteria.EventContexts)
+                    {
+                        <div>@Html.TriStateReadOnly(context.DisplayValue)&#160;&#160;<span class="checkbox-text">@context.EventName</span></div>
+                    }
+                }                
+            </div>
+        </div>    
+    </fieldset>
+</div>    
+
+<div class="div-context">
+    <fieldset>
+        <legend><span class="hotspot" data-hotspot="@this.InfoPanelResources("rulesCriteria")"><span class="bold">@this.SharedResources("rulesCriteria")</span></span></legend>
+        <div class="div-context-area">
+            <div class="div-context-section">                 
+                <div class="div-context-item">&#160;&#160;Include @Html.TextBox("ruleMaxItems", Model.RulesCriteria.RulesMaxCount == 0 ? "all" : Model.RulesCriteria.RulesMaxCount.ToString(), new {style="width:40px",disabled="disabled"}) items</div>
+                <div class="div-context-item">&#160;&#160;From the last @Html.TextBox("rulePastDays", Model.RulesCriteria.RulesDaysPast, new {style="width:40px",disabled="disabled"}) days</div>
+                <div class="div-context-item">&#160;&#160;From the last @Html.TextBox("ruleLastPages", Model.RulesCriteria.RulesLastPages == 0 ? "all" : Model.RulesCriteria.RulesLastPages.ToString(), new {style="width:40px",disabled="disabled"}) pages viewed</div>
+            </div>
+            <div class="div-context-section">                
+                <div class="div-context-item">&#160;&#160;<span class="hotspot" data-hotspot="@this.InfoPanelResources("eventGroup")"><span class="bold">@this.SharedResources("eventGroup")</span></span></div>
+                @{
+                    foreach (var context in Model.RulesCriteria.EventContexts)
+                    {
+                        <div>@Html.TriStateReadOnly(context.DisplayValue)&#160;&#160;<span class="checkbox-text">@context.EventName</span></div>
+                    }
+                }
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        // Adding info panel text to View Visitor History Settings section header
+        // Note: This is currently the only section header requiring a hotspot. This may require refactoring if more headers require a hotspot
+        $('.content-pnl-section-hdr').each(function (index, obj) {
+            if (obj.innerHTML.toLowerCase() === "view visitor history settings") {
+                var infoPanelText = '@this.InfoPanelResources("viewVisitorHistorySettings")';
+                $(this).addClass('hotspot').attr('data-hotspot', infoPanelText);
+            }
+        });
+    });
+</script>

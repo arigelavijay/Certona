@@ -1,0 +1,1469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Scheme" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Scheme" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Variant" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Experience" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Application" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd22" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Application" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd24" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd25" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd28" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Model" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd29" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Model" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd32" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Segment" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd33" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Segment" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd34" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Package" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd35" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Package" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd37" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd38" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd41" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Reporting" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd42" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Reporting" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd43" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Administration" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd44" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Administration" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd45" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Catalog" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd46" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Catalog" />
+  <xs:element name="GetSchemeExperiences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Scheme" minOccurs="0" name="request" nillable="true" type="q1:GetSchemeExperiencesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchemeExperiencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Scheme" minOccurs="0" name="GetSchemeExperiencesResult" nillable="true" type="q2:GetSchemeExperiencesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchemeNumberOfItemsByExperience">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Scheme" minOccurs="0" name="request" nillable="true" type="q3:GetSchemeNumberOfItemsByExperienceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchemeNumberOfItemsByExperienceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Scheme" minOccurs="0" name="GetSchemeNumberOfItemsByExperienceResult" nillable="true" type="q4:GetSchemeNumberOfItemsByExperienceResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetToolsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q5:GetToolsListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetToolsListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" minOccurs="0" name="GetToolsListResult" nillable="true" type="q6:GetToolsListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVariantDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Variant" minOccurs="0" name="request" nillable="true" type="q7:GetVariantDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVariantDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" minOccurs="0" name="GetVariantDetailsResult" nillable="true" type="q8:GetVariantDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVariantRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Variant" minOccurs="0" name="request" nillable="true" type="q9:GetVariantRulesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVariantRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" minOccurs="0" name="GetVariantRulesResult" nillable="true" type="q10:GetVariantRulesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVariantBoosts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Variant" minOccurs="0" name="request" nillable="true" type="q11:GetVariantBoostsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVariantBoostsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" minOccurs="0" name="GetVariantBoostsResult" nillable="true" type="q12:GetVariantBoostsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVariantSlots">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Variant" minOccurs="0" name="request" nillable="true" type="q13:GetVariantSlotsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVariantSlotsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" minOccurs="0" name="GetVariantSlotsResult" nillable="true" type="q14:GetVariantSlotsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVariantStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Variant" minOccurs="0" name="request" nillable="true" type="q15:UpdateVariantStatusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVariantStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" minOccurs="0" name="UpdateVariantStatusResult" nillable="true" type="q16:UpdateVariantStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVariantPriority">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Variant" minOccurs="0" name="request" nillable="true" type="q17:UpdateVariantPriorityRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVariantPriorityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" minOccurs="0" name="UpdateVariantPriorityResult" nillable="true" type="q18:UpdateVariantPriorityResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVariantDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Variant" minOccurs="0" name="request" nillable="true" type="q19:UpdateVariantDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVariantDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" minOccurs="0" name="UpdateVariantDetailsResult" nillable="true" type="q20:UpdateVariantDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateVariant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Variant" minOccurs="0" name="request" nillable="true" type="q21:CreateVariantRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateVariantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" minOccurs="0" name="CreateVariantResult" nillable="true" type="q22:CreateVariantResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastVariantPriorityByExperience">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Experience" minOccurs="0" name="request" nillable="true" type="q23:GetLastVariantPriorityByExperienceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastVariantPriorityByExperienceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" minOccurs="0" name="GetLastVariantPriorityByExperienceResult" nillable="true" type="q24:GetLastVariantPriorityByExperienceResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationCatalogsByExperience">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Application" minOccurs="0" name="request" nillable="true" type="q25:GetApplicationCatalogsByExperienceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationCatalogsByExperienceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Application" minOccurs="0" name="GetApplicationCatalogsByExperienceResult" nillable="true" type="q26:GetApplicationCatalogsByExperienceResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q27:CreateRuleRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="CreateRuleResult" nillable="true" type="q28:CreateRuleResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q29:UpdateRuleRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="UpdateRuleResult" nillable="true" type="q30:UpdateRuleResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveExpression">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q31:SaveExpressionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveExpressionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="SaveExpressionResult" nillable="true" type="q32:SaveExpressionResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetControlSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q33:GetControlSetRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetControlSetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="GetControlSetResult" nillable="true" type="q34:GetControlSetResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q35:DeleteRuleRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="DeleteRuleResult" nillable="true" type="q36:DeleteRuleResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteExpression">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q37:DeleteExpressionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteExpressionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="DeleteExpressionResult" nillable="true" type="q38:DeleteExpressionResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContexts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q39:GetContextsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContextsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="GetContextsResult" nillable="true" type="q40:GetContextsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatusList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q41:GetStatusListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatusListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" minOccurs="0" name="GetStatusListResult" nillable="true" type="q42:GetStatusListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Model" minOccurs="0" name="request" nillable="true" type="q43:GetModelRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Model" minOccurs="0" name="GetModelResult" nillable="true" type="q44:GetModelResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Model" minOccurs="0" name="request" nillable="true" type="q45:GetModelsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Model" minOccurs="0" name="GetModelsResult" nillable="true" type="q46:GetModelsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSegmentItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Segment" minOccurs="0" name="request" nillable="true" type="q47:GetSegmentItemsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSegmentItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Segment" minOccurs="0" name="GetSegmentItemsResult" nillable="true" type="q48:GetSegmentItemsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Package" minOccurs="0" name="request" nillable="true" type="q49:GetPackageDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Package" minOccurs="0" name="GetPackageDetailsResult" nillable="true" type="q50:GetPackageDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageSchemes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Package" minOccurs="0" name="request" nillable="true" type="q51:GetPackageSchemesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPackageSchemesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Package" minOccurs="0" name="GetPackageSchemesResult" nillable="true" type="q52:GetPackageSchemesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationRemarketingCampaigns">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q53:GetApplicationRemarketingCampaignsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationRemarketingCampaignsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetApplicationRemarketingCampaignsResult" nillable="true" type="q54:GetApplicationRemarketingCampaignsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRemarketingCampaignDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q55:GetRemarketingCampaignDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRemarketingCampaignDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetRemarketingCampaignDetailsResult" nillable="true" type="q56:GetRemarketingCampaignDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRemarketingCampaignStatuses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q57:UpdateRemarketingCampaignStatusesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRemarketingCampaignStatusesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="UpdateRemarketingCampaignStatusesResult" nillable="true" type="q58:UpdateRemarketingCampaignStatusesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivateRemarketingCampaign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q59:ActivateRemarketingCampaignRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivateRemarketingCampaignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="ActivateRemarketingCampaignResult" nillable="true" type="q60:ActivateRemarketingCampaignResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRemarketingCampaign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q61:CreateRemarketingCampaignRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateRemarketingCampaignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="CreateRemarketingCampaignResult" nillable="true" type="q62:CreateRemarketingCampaignResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRemarketingCampaign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q63:UpdateRemarketingCampaignRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRemarketingCampaignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="UpdateRemarketingCampaignResult" nillable="true" type="q64:UpdateRemarketingCampaignResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationFrequencyCap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q65:GetApplicationFrequencyCapRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationFrequencyCapResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetApplicationFrequencyCapResult" nillable="true" type="q66:GetApplicationFrequencyCapResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetApplicationFrequencyCap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q67:SetApplicationFrequencyCapsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetApplicationFrequencyCapResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAbandonmentTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q68:GetAllAbandonmentTypesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAbandonmentTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetAllAbandonmentTypesResult" nillable="true" type="q69:GetAllAbandonmentTypesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAbandonmentFilters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q70:GetAllAbandonmentFiltersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAbandonmentFiltersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetAllAbandonmentFiltersResult" nillable="true" type="q71:GetAllAbandonmentFiltersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAbandonmentFiltersByAbandonmentID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q72:GetAbandonmentFiltersByAbandonmentIDRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAbandonmentFiltersByAbandonmentIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetAbandonmentFiltersByAbandonmentIDResult" nillable="true" type="q73:GetAllAbandonmentFiltersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAbandonmentIntervals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q74:GetAllAbandonmentIntervalsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAbandonmentIntervalsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetAllAbandonmentIntervalsResult" nillable="true" type="q75:GetAllAbandonmentIntervalsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDeliveryMethods">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q76:GetAllDeliveryMethodsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllDeliveryMethodsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetAllDeliveryMethodsResult" nillable="true" type="q77:GetAllDeliveryMethodsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllServiceHeaders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q78:GetAllServiceHeadersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllServiceHeadersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetAllServiceHeadersResult" nillable="true" type="q79:GetAllServiceHeadersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllServiceProtocols">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q80:GetAllServiceProtocolsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllServiceProtocolsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetAllServiceProtocolsResult" nillable="true" type="q81:GetAllServiceProtocolsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllServiceProtocolsAvailable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q82:GetAllServiceProtocolsAvailableRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllServiceProtocolsAvailableResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetAllServiceProtocolsAvailableResult" nillable="true" type="q83:GetAllServiceProtocolsAvailableResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllServiceTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q84:GetAllServiceTypesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllServiceTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetAllServiceTypesResult" nillable="true" type="q85:GetAllServiceTypesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogsForApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q86:GetCatalogsForApplicationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogsForApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetCatalogsForApplicationResult" nillable="true" type="q87:GetCatalogsForApplicationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogCurrencyFields">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q88:GetCatalogCurrencyFieldsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogCurrencyFieldsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetCatalogCurrencyFieldsResult" nillable="true" type="q89:GetCatalogCurrencyFieldsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRemarketingEmailSchemes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q90:GetRemarketingEmailSchemesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRemarketingEmailSchemesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetRemarketingEmailSchemesResult" nillable="true" type="q91:GetRemarketingEmailSchemesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRemarketingESPConfigInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q92:GetRemarketingESPConfigInfoRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRemarketingESPConfigInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetRemarketingESPConfigInfoResult" nillable="true" type="q93:GetRemarketingESPConfigInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckESPCampaignIDUniqueness">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q94:CheckESPCampaignIDUniquenessRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckESPCampaignIDUniquenessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="CheckESPCampaignIDUniquenessResult" nillable="true" type="q95:CheckESPCampaignIDUniquenessResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckCampaignNameUniqueness">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q96:CheckCampaignNameUniquenessRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckCampaignNameUniquenessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="CheckCampaignNameUniquenessResult" nillable="true" type="q97:CheckCampaignNameUniquenessResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignVariantRule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q98:GetCampaignVariantRuleRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampaignVariantRuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetCampaignVariantRuleResult" nillable="true" type="q99:GetCampaignVariantRuleResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountNameByApplicationId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q100:GetAccountNameByApplicationIdRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountNameByApplicationIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetAccountNameByApplicationIdResult" nillable="true" type="q101:GetAccountNameByApplicationIdResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailServiceProviderConfiguration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" minOccurs="0" name="request" nillable="true" type="q102:GetEmailServiceProviderConfigurationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailServiceProviderConfigurationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" minOccurs="0" name="GetEmailServiceProviderConfigurationResult" nillable="true" type="q103:GetEmailServiceProviderConfigurationResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q104:GetReportsListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportsListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" minOccurs="0" name="GetReportsListResult" nillable="true" type="q105:GetReportsListResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportingDataLastUpdated">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Reporting" minOccurs="0" name="request" nillable="true" type="q106:GetReportingDataLastUpdatedRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportingDataLastUpdatedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Reporting" minOccurs="0" name="GetReportingDataLastUpdatedResult" nillable="true" type="q107:GetReportingDataLastUpdatedResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrendsDataApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Reporting" minOccurs="0" name="request" nillable="true" type="q108:GetTrendsDataApplicationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrendsDataApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Reporting" minOccurs="0" name="GetTrendsDataApplicationResult" nillable="true" type="q109:GetTrendsDataResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrendsDataPackage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Reporting" minOccurs="0" name="request" nillable="true" type="q110:GetTrendsDataPackageRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrendsDataPackageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Reporting" minOccurs="0" name="GetTrendsDataPackageResult" nillable="true" type="q111:GetTrendsDataResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrendsDataScheme">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Reporting" minOccurs="0" name="request" nillable="true" type="q112:GetTrendsDataSchemeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrendsDataSchemeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Reporting" minOccurs="0" name="GetTrendsDataSchemeResult" nillable="true" type="q113:GetTrendsDataResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrendsDataExperience">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Reporting" minOccurs="0" name="request" nillable="true" type="q114:GetTrendsDataExperienceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrendsDataExperienceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Reporting" minOccurs="0" name="GetTrendsDataExperienceResult" nillable="true" type="q115:GetTrendsDataResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrendsDataVariant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Reporting" minOccurs="0" name="request" nillable="true" type="q116:GetTrendsDataVariantRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrendsDataVariantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Reporting" minOccurs="0" name="GetTrendsDataVariantResult" nillable="true" type="q117:GetTrendsDataResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchemeDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Scheme" minOccurs="0" name="request" nillable="true" type="q118:GetSchemeDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchemeDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Scheme" minOccurs="0" name="GetSchemeDetailsResult" nillable="true" type="q119:GetSchemeDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchemeContext">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Scheme" minOccurs="0" name="request" nillable="true" type="q120:GetSchemeContextRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchemeContextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Scheme" minOccurs="0" name="GetSchemeContextResult" nillable="true" type="q121:GetSchemeContextResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchemeEventContext">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Scheme" minOccurs="0" name="request" nillable="true" type="q122:GetSchemeEventContextRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSchemeEventContextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Scheme" minOccurs="0" name="GetSchemeEventContextResult" nillable="true" type="q123:GetSchemeEventContextResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRuleOperators">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q124:GetRuleOperatorsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRuleOperatorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="GetRuleOperatorsResult" nillable="true" type="q125:GetRuleOperatorsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Administration" minOccurs="0" name="request" nillable="true" type="q126:AuthenticateUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AuthenticateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Administration" minOccurs="0" name="AuthenticateUserResult" nillable="true" type="q127:AuthenticateUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserAccountApplicationFeatures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Administration" minOccurs="0" name="request" nillable="true" type="q128:GetUserAccountApplicationFeaturesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserAccountApplicationFeaturesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Administration" minOccurs="0" name="GetUserAccountApplicationFeaturesResult" nillable="true" type="q129:GetUserAccountApplicationFeaturesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetUserSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Administration" minOccurs="0" name="request" nillable="true" type="q130:SetUserSettingsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetUserSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Administration" minOccurs="0" name="SetUserSettingsResult" nillable="true" type="q131:SetUserSettingsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContentPanel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q132:GetContentPanelRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContentPanelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" minOccurs="0" name="GetContentPanelResult" nillable="true" type="q133:GetContentPanelResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetContentPanelSectionState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q134:SetContentPanelSectionStateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetContentPanelSectionStateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountsByUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q135:GetAccountsByUserRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountsByUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" minOccurs="0" name="GetAccountsByUserResult" nillable="true" type="q136:GetAccountsByUserResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Application" minOccurs="0" name="request" nillable="true" type="q137:GetApplicationDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Application" minOccurs="0" name="GetApplicationDetailsResult" nillable="true" type="q138:GetApplicationDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationPackages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Application" minOccurs="0" name="request" nillable="true" type="q139:GetApplicationPackagesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationPackagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Application" minOccurs="0" name="GetApplicationPackagesResult" nillable="true" type="q140:GetApplicationPackagesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationCatalogs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Application" minOccurs="0" name="request" nillable="true" type="q141:GetApplicationCatalogsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationCatalogsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Application" minOccurs="0" name="GetApplicationCatalogsResult" nillable="true" type="q142:GetApplicationCatalogsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationSchemes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Application" minOccurs="0" name="request" nillable="true" type="q143:GetApplicationSchemesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationSchemesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Application" minOccurs="0" name="GetApplicationSchemesResult" nillable="true" type="q144:GetApplicationSchemesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationSegments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Application" minOccurs="0" name="request" nillable="true" type="q145:GetApplicationSegmentsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationSegmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Application" minOccurs="0" name="GetApplicationSegmentsResult" nillable="true" type="q146:GetApplicationSegmentsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilterAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q147:GetFilterAttributesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilterAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="GetFilterAttributesResult" nillable="true" type="q148:GetFilterAttributesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConditionAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q149:GetConditionAttributesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConditionAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="GetConditionAttributesResult" nillable="true" type="q150:GetConditionAttributesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNavigationMapping">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q151:GetNavigationMappingRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNavigationMappingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="GetNavigationMappingResult" nillable="true" type="q152:GetNavigationMappingResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserMapping">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" minOccurs="0" name="request" nillable="true" type="q153:GetUserMappingRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserMappingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" minOccurs="0" name="GetUserMappingResult" nillable="true" type="q154:GetUserMappingResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Catalog" minOccurs="0" name="request" nillable="true" type="q155:GetCatalogDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Catalog" minOccurs="0" name="GetCatalogDetailsResult" nillable="true" type="q156:GetCatalogDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Catalog" minOccurs="0" name="request" nillable="true" type="q157:GetCatalogItemRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Catalog" minOccurs="0" name="GetCatalogItemResult" nillable="true" type="q158:GetCatalogItemResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Catalog" minOccurs="0" name="request" nillable="true" type="q159:GetCatalogItemsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Catalog" minOccurs="0" name="GetCatalogItemsResult" nillable="true" type="q160:GetCatalogItemsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogRuleContexts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Catalog" minOccurs="0" name="request" nillable="true" type="q161:GetCatalogRuleContextsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogRuleContextsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Catalog" minOccurs="0" name="GetCatalogRuleContextsResult" nillable="true" type="q162:GetCatalogRuleContextsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogByRule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Catalog" minOccurs="0" name="request" nillable="true" type="q163:GetCatalogByRuleRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogByRuleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Catalog" minOccurs="0" name="GetCatalogByRuleResult" nillable="true" type="q164:GetCatalogByRuleResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogMappingFromResonanceField">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Catalog" minOccurs="0" name="request" nillable="true" type="q165:GetCatalogMappingFromResonanceFieldRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCatalogMappingFromResonanceFieldResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Catalog" minOccurs="0" name="GetCatalogMappingFromResonanceFieldResult" nillable="true" type="q166:GetCatalogMappingFromResonanceFieldResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecommendationTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Catalog" minOccurs="0" name="request" nillable="true" type="q167:GetRecommendationTypesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecommendationTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Catalog" minOccurs="0" name="GetRecommendationTypesResult" nillable="true" type="q168:GetRecommendationTypesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExperienceBoosts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Experience" minOccurs="0" name="request" nillable="true" type="q169:GetExperienceBoostsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExperienceBoostsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" minOccurs="0" name="GetExperienceBoostsResult" nillable="true" type="q170:GetExperienceBoostsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExperienceVariants">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q171="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Experience" minOccurs="0" name="request" nillable="true" type="q171:GetExperienceVariantsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExperienceVariantsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" minOccurs="0" name="GetExperienceVariantsResult" nillable="true" type="q172:GetExperienceVariantsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExperienceDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Experience" minOccurs="0" name="request" nillable="true" type="q173:GetExperienceDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExperienceDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" minOccurs="0" name="GetExperienceDetailsResult" nillable="true" type="q174:GetExperienceDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExperienceDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Experience" minOccurs="0" name="request" nillable="true" type="q175:UpdateExperienceDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExperienceDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" minOccurs="0" name="UpdateExperienceDetailsResult" nillable="true" type="q176:UpdateExperienceDetailsResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExperienceModifiers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Experience" minOccurs="0" name="request" nillable="true" type="q177:UpdateExperienceModifiersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExperienceModifiersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" minOccurs="0" name="UpdateExperienceModifiersResult" nillable="true" type="q178:UpdateExperienceModifiersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVariantModifiers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Variant" minOccurs="0" name="request" nillable="true" type="q179:UpdateVariantModifiersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateVariantModifiersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" minOccurs="0" name="UpdateVariantModifiersResult" nillable="true" type="q180:UpdateVariantModifiersResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExperienceTraffic">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Experience" minOccurs="0" name="request" nillable="true" type="q181:UpdateExperienceTrafficRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateExperienceTrafficResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q182="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" minOccurs="0" name="UpdateExperienceTrafficResult" nillable="true" type="q182:UpdateExperienceTrafficResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateExperience">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Experience" minOccurs="0" name="request" nillable="true" type="q183:CreateExperienceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateExperienceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q184="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" minOccurs="0" name="CreateExperienceResult" nillable="true" type="q184:CreateExperienceResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountExplorerStatusList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q185="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q185:GetAccountExplorerStatusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountExplorerStatusListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q186="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" minOccurs="0" name="GetAccountExplorerStatusListResult" nillable="true" type="q186:GetAccountExplorerStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPanelBarStates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q187="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q187:GetPanelBarStatesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPanelBarStatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q188="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" minOccurs="0" name="GetPanelBarStatesResult" nillable="true" type="q188:GetPanelBarStatesResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountExplorerTree">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q189="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q189:GetAccountExplorerTreeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountExplorerTreeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q190="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" minOccurs="0" name="GetAccountExplorerTreeResult" nillable="true" type="q190:GetAccountExplorerTreeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAssetExplorerTree">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q191="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q191:GetAssetExplorerTreeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAssetExplorerTreeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q192="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" minOccurs="0" name="GetAssetExplorerTreeResult" nillable="true" type="q192:GetAssetExplorerTreeResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPanelBarWidth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q193="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q193:SetPanelBarWidthRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPanelBarWidthResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSelectedNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q194="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q194:SetSelectedNodeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSelectedNodeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAccountExplorerStatusList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q195="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q195:SetAccountExplorerStatusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAccountExplorerStatusListResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPanelBarWidth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q196="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q196:GetPanelBarWidthRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPanelBarWidthResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q197="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" minOccurs="0" name="GetPanelBarWidthResult" nillable="true" type="q197:GetPanelBarWidthResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAccountExplorerNodeState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q198="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q198:SetAccountExplorerNodeStateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAccountExplorerNodeStateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAssetExplorerNodeState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q199="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q199:SetAssetExplorerNodeStateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAssetExplorerNodeStateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPanelBarStates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q200="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" minOccurs="0" name="request" nillable="true" type="q200:SetPanelBarStatesRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPanelBarStatesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

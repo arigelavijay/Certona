@@ -1,0 +1,164 @@
+﻿@using System.Collections
+@using Resonance.Insight3.Web.Helpers
+@using Resonance.Insight3.Web.HtmlHelpers
+@model Resonance.Insight3.Web.ViewModels.Rule.ExpressionViewModel
+@{ 
+    const string formName = "frmAddFilter";
+    const string createContainer = "#insight-create-dialog2";
+    string updateTargetId = ViewBag.UpdateTargetId; 
+}
+@using (Ajax.BeginForm("SaveExpression", "Variant",
+    new AjaxOptions { HttpMethod = "Post", UpdateTargetId = @updateTargetId, OnSuccess = "onAjaxPostSuccess", OnFailure = "onAjaxPostFailure" }, new { id = @formName }))
+{
+    <div id='model-grey' class='greyedoutparentmodal'></div>     
+    <div style="float: left; line-height:33px">
+        <span>@Html.RequiredAsterik(this) @this.SharedResources("name")</span><img src="/Images/AssetTypes/Small/search.png" alt="" id="selectattribute"><br />
+        @Html.TextBoxFor(m => m.Attribute, Model.Attribute)
+        <br />
+        @Html.HiddenFor(m => m.RuleID, Model.RuleID)
+        @Html.HiddenFor(m => m.RuleName, Model.RuleName)
+        @Html.HiddenFor(m => m.VariantID, Model.VariantID)
+        @Html.HiddenFor(m => m.Operator, Model.Operator)
+        @Html.Hidden("hdnAttribute")
+    </div>    
+    <div style="float: left;line-height:33px;padding-left:3px" id="divoperator">
+        @this.SharedResources("operator")<br />
+        <select id="ddlOperator" style="height: 25px;">
+        </select>
+        <br />
+    </div>    
+    <div style="float: left; line-height:33px;padding-left:3px" id="divcontextsoucre">
+        @this.SharedResources("contextsource")<br />
+        @Html.TextBoxFor(m => m.Context, Model.Context)
+        <br />
+    </div>
+    <div style="float: left; line-height:33px;padding-left:3px" id="divvalues">
+        @this.SharedResources("values")<br />
+        @Html.TextBox("context")
+        @*
+           @(Html.Kendo().MultiSelect() // TODO: Multiselect for contexts
+          .Name("optional")
+          .Placeholder("Select Values")
+          .BindTo(new List<string>() {
+              "Item 1",
+              "Item 2",
+              "Item 3"
+          })
+        )*@
+        <br />
+    </div>
+    <div style="float: left; line-height:33px;padding-left:3px" id="divdelta">
+        @this.SharedResources("delta")<br />
+        @Html.DropDownListFor(m => m.PlusOrMinus, @Model.PlusOrMinusList, new { @style = "height: 25px" })<br />
+    </div>
+    <div style="float: left; line-height:33px;padding-left:3px" id="divvalue">
+        @this.SharedResources("value")<br />
+        @Html.TextBoxFor(m => m.Value, Model.Value)
+        <br />
+    </div>
+    <div style="float: left; line-height:33px;padding-left:3px" id="divType">
+        @this.SharedResources("type")<br />
+        @Html.DropDownListFor(m => m.PercentOrUnits, @Model.PercentOrUnitsList, new { @style = "height: 25px" })<br />
+    </div>
+    <div style="clear: both; text-align: right; margin-top: 10px">
+        <input type="submit" class="insight-submit-btn" value="Save" id="btnAddFilter"/>&nbsp;
+        <button onclick="cancelJqueryDialog('Rules', '@createContainer')" class="insight-cancel-btn" type="button" value="Cancel">Cancel</button>
+    </div>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#divoperator").hide();
+        hideallFields();
+    });
+
+    function hideallFields() {
+        $("#divcontextsoucre").hide();
+        $("#divdelta").hide();
+        $("#divvalue").hide();
+        $("#divType").hide();
+        $("#divvalues").hide();
+    }
+    function onAjaxPostSuccess(response) {
+        ShowsysMessage('success', 'Rule added successful');
+        cancelJqueryDialogContinue('@createContainer');
+    }
+
+    function onAjaxPostFailure(response) {
+        ShowsysMessage('error', 'An error occured during the save process');
+    }
+
+    $('#selectattribute').click(function (event) {
+        var ruleID = $("#RuleID").val() == "" ? 0 : $("#RuleID").val();
+        var data = {
+            ruleID: ruleID
+        };
+        PopupJqueryMultiDialog("Select Attribute", "/Variant/SelectAttribute", data, "#insight-create-dialog3", true, '#insight-create-dialog2', event, 300, 300);
+    });
+
+    SetGrayedOutLayer();
+
+    // TODO : Move this to common js file
+    function SetGrayedOutLayer() {
+        $('#insight-create-dialog2').closest('.ui-dialog').append('<div id="model-grey" class="greyedoutparentmodal"></div>');
+    }
+
+    function SetAtrribute1(e) {
+        $("#Attribute").val(e.CatalogField);
+        $("#hdnAttribute").val(e.AttributeType);
+        onChange(e.AttributeType);
+    }
+
+    function onChange(attrType) {
+        hideallFields();
+        $("#divoperator").show();
+        $('#ddlOperator').children().remove();
+        $.ajax({
+            url: '/Variant/GetRuleOperators',
+            type: 'post',
+            data: { attributeType: attrType },
+            success: function (data) {
+                $("#ddlOperator").get(0).options.length = 0;
+                $("#ddlOperator").get(0).options[0] = new Option("---Select---", "-1");
+                $.each(data, function (i, variant) {
+                    $("#ddlOperator").append($('<option/>').text(variant.OperatorName).attr('value', variant.Operator));
+                });
+            },
+            error: function () {
+                alert('Error');
+            }
+        });
+    }
+    $("#ddlOperator").change(function (e) {
+        hideallFields();
+        var ddlOperatorText = $("#ddlOperator option:selected").text();
+        if ($("#hdnAttribute").val() == "Currency" || $("#hdnAttribute").val() == "Continuous") {
+            if (ddlOperatorText.toLowerCase().indexOf('relative') >= 0) {
+                $("#divcontextsoucre").show();
+                $("#divvalue").show();
+                $("#divdelta").show();
+                $("#divType").show();
+            }
+            else if (ddlOperatorText.toLowerCase() == "same as" || ddlOperatorText.toLowerCase() == "different from") {
+                $("#divcontextsoucre").show();
+            }
+            else
+                $("#divvalue").show();
+        }
+        else if (ddlOperatorText.toLowerCase() == "same as" || ddlOperatorText.toLowerCase() == "different from") {
+            $("#divcontextsoucre").show();
+        }
+        else {
+            $("#divvalues").show();
+        }
+        $("#Operator").val(ddlOperatorText);
+        $.get('/Variant/GetControlSet', { "attributeType": $("#hdnAttribute").val(), operatorType: $("#ddlOperator").val() }, function (data) {
+            if (data.AdditionalFields) {
+                $("#divdelta").show();
+                $("#divvalue").show();
+                $("#divType").show();
+            }
+        });
+    });
+</script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>

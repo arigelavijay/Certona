@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Experience" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Experience" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ExperienceDetailsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExperienceID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pool" type="xs:int" />
+      <xs:element minOccurs="0" name="Profile" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Traffic" nillable="true" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExperienceDetailsDTO" nillable="true" type="tns:ExperienceDetailsDTO" />
+  <xs:complexType name="ArrayOfExperienceVariantDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExperienceVariantDTO" nillable="true" type="tns:ExperienceVariantDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExperienceVariantDTO" nillable="true" type="tns:ArrayOfExperienceVariantDTO" />
+  <xs:complexType name="ExperienceVariantDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BreakOnMinItemsReturned" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Catalog" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CatalogImage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExperienceID" type="xs:int" />
+      <xs:element minOccurs="0" name="Impressions" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="MinItemsReturned" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfItems" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonalizationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Rules" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StrategyID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExperienceVariantDTO" nillable="true" type="tns:ExperienceVariantDTO" />
+</xs:schema>

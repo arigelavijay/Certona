@@ -1,0 +1,102 @@
+﻿@using Resonance.Insight3.Web.ViewModels.Models
+@using Kendo.Mvc.UI
+@using Resonance.Insight3.Web.ViewModels.Models
+@model Resonance.Insight3.Web.ViewModels.Models.SegmentItemsGridViewModel
+
+<script type="text/javascript">
+    function SegmentData() {
+        @{
+            if (Model.ModelID != null && Model.SegmentID != null)
+            {
+                <text>
+        var mid = @(Model.ModelID);
+        var sid = @(Model.SegmentID);
+        </text>
+            }
+            else
+            {
+                <text>
+        var mid = '';
+        var sid = '';
+        </text>
+            }
+        }
+        
+        
+
+        return { ModelID: mid, SegmentID: sid };
+    }
+    
+    function onError(e) {
+        alert("Error!"); 
+    }
+</script>
+
+<div class="ColumnGroupHeadersContainer">
+    <div class="ColumnGroupHeader ColumnGroupHeaderRight" id="BiasGridHeader" style="border-left: 1px solid #D2D2D2; width: 100%;">
+        Bias Summary 
+        @{
+            if (Model.SegmentID.HasValue)
+            {
+                <text>
+                    for @Model.SegmentName
+                </text>
+            }
+        }
+    </div>
+</div>
+@{
+    Html.Kendo().Grid<SegmentItemsViewModel>()
+        .Name("SegmentsGrid")
+        .Columns(col =>
+            {
+                if (Model.SegmentItems.Count > 0)
+                {
+                    col.Bound("Score")
+                       .Title("Bias Score")
+                       .Width("22%")
+                       .Filterable(true);
+                    col.Bound("SKU")
+                       .Title(Model.AccountItemIDDisplay)
+                       .Width("22%")
+                       .Filterable(true);
+                    col.Bound("Name")
+                       .Title(Model.DescriptionDisplay)
+                       .Filterable(true);
+                }
+                else
+                {
+                    col.Bound("Score")
+                       .Title("Bias Score")
+                       .Width("18%")
+                       .Filterable(true);
+                    col.Bound("SKU")
+                       .Width("20%")
+                       .Filterable(true);
+                    col.Bound("Name")
+                       .Title("Product Name")
+                       .Filterable(true);
+                }
+            })
+        .HtmlAttributes(new {style = "border-width: 2px; border-color: #000; margin-top: 0px; border-top: none;"})
+        .Scrollable(scroll => scroll.Height(267))
+        .Selectable()
+        .Sortable()
+        .DataSource(db => db
+            .Ajax()
+            .Read(read => read
+                .Action("SegmentItemsGridSelect", "Models")
+                .Data("SegmentData")
+            )
+            .Sort(s => s.Add("Score").Descending())
+            .Model(model =>
+                {
+                    model.Id(p => p.ItemID);
+                }
+            )
+            .Events(e => e.Error("onError"))
+        )
+        .Render();
+}
+<br/>
+<i>Biases generated from last 2 weeks of behavior</i>

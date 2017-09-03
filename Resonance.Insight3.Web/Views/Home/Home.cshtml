@@ -1,0 +1,76 @@
+﻿@using Resonance.Insight3.Web.CertonaService
+@model Resonance.Insight3.Web.ViewModels.HomeViewModel
+@{
+    ViewBag.Title = "Home";
+}
+<!DOCTYPE html>
+<!--[if IE 7 ]>   <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>   <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>   <html class="ie9"> <![endif]-->
+<!--[if gt IE 9]> <html> <![endif]-->
+<!--[if !IE]><!-->
+    <html>
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <!--[if lte IE 9 ]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    <!--[if !IE 7]>
+        <link rel="stylesheet" media="screen" href="~/Content/ie6-styles.css" />
+    <![endif]-->
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" media="screen" href="~/Content/ie8-styles.css" />
+        <script type="text/javascript" src="~/Scripts/selectivizr.js"> </script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Content/KendoUI/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/KendoUI/kendo.uniform.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui-1.10.2.custom.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/home")
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="~/Scripts/kendo.all.min.js"> </script>
+    <script type="text/javascript" src="~/Scripts/kendo.aspnetmvc.min.js"> </script>
+    <link href="~/Content/jquery.selectbox.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery.selectbox-0.2.min.js"> </script>
+    <script type="text/javascript" src="~/Scripts/jquery.history.js"> </script>
+    <script type="text/javascript" src="~/Scripts/jquery.color-2.1.1.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-ui.1.10.2.min.js"></script>
+    <script type="text/javascript">
+        var selectedNode;
+    </script>
+    @Html.Partial("_JavaScriptVariables")
+</head>
+<body>
+    <div id="session-dialog"></div>
+    <div id="modal-dialog"></div>
+    <div id="alert-dialog"></div>
+    <div id="unsaved-changes-dialog" class="insight-jquery-dialog"></div>
+    <div id="separator-greyed-out" class="greyedoutmodal"></div>
+    <div id="wrapper">
+        @Html.Partial("_Header")
+        <div class="form">
+            <div id="main">
+                <section id="splitter-pane">
+                    <aside id="nav-pane">                    
+                        @{
+                            Html.RenderPartial("_NavigationPanel", Model.NavigationModel);
+                        }					
+                    </aside>
+                    <section id="contentpane">
+                        @{
+                            Html.RenderPartial("_ContentPanel");
+                        }
+                        <div class="spinnerContainer" id="spinnerContainer" style="z-index: 999999;">
+                            <div class="spinner" id="spinner"></div>
+                        </div>
+                    </section>
+                </section>
+            </div>
+        </div>
+        <input type="hidden" id="hdnPanelbarWidth" value="@Model.NavigationModel.PanelBarWidth" />
+    </div>
+    <script type="text/javascript" src="~/Scripts/Certona/common.ajax.js?@DateTime.Now.Ticks"></script>
+    <script type="text/javascript" src="~/Scripts/Certona/common.dialog.js?@DateTime.Now.Ticks"></script>
+    <script type="text/javascript" src="~/Scripts/Certona/common.session.js?@DateTime.Now.Ticks"></script>
+    <script type="text/javascript" src="~/Scripts/Certona/home.js?@DateTime.Now.Ticks"></script>
+</body>
+</html>

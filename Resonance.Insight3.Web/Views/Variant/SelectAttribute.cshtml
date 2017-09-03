@@ -1,0 +1,107 @@
+﻿@using System.Collections
+@using Resonance.Insight3.Web.Helpers
+@using Resonance.Insight3.Web.HtmlHelpers
+@using Resonance.Insight3.Web.CertonaService;
+@using Resonance.Insight3.Web.ViewModels.Rule;
+@using Resonance.Insight3.Web.Models;
+@{ 
+    const string formName = "frmSelectAttribute";
+    const string createContainer = "#insight-create-dialog3";
+    string updateTargetId = ViewBag.UpdateTargetId;
+    int ruleID = Convert.ToInt32(ViewBag.ruleID);
+}
+
+<div id='model-grey' class='greyedoutparentmodal'></div>
+
+@*@( Html.Kendo().TreeView()
+                                .Name("Attribute")
+                                .BindTo(RuleModel.GetCatalogMappingFields(ruleID), mappings =>
+                                {
+                                    mappings.For<CatalogAttribute>(binding => binding.ItemDataBound((item, category) =>
+                                        {
+                                            item.Text = category.CatalogName;
+                                            item.Id = "-1";
+                                        })
+                                        .Children(category => category.CatalogMappingFields));
+
+                                    mappings.For<CatalogMappingFieldDTO>(binding => binding.ItemDataBound((item, subCategory) =>
+                                    {
+                                        item.Text = subCategory.CatalogField;
+                                        item.Id = subCategory.AttributeType;
+                                        item.Expanded = true;
+                                    }));
+                                })
+                            )*@
+
+<div class="panelItemsActiveAsset">
+    <div id="AttributeTreeView"></div>
+</div>
+<div style="clear: both; text-align: right; margin-top: 10px">
+    <input type="submit" class="insight-submit-btn" value="Select" id="btnSelect" disabled="disabled" />&nbsp;
+        <button onclick="cancelJqueryDialog('SelectAttribute', '@createContainer')" class="insight-cancel-btn" type="button" value="Cancel">Cancel</button>
+</div>
+<script type="text/javascript">
+    function onAjaxPostSuccess(response) {
+        ShowsysMessage('success', 'Rule added successful');
+        cancelJqueryDialogContinue('@createContainer');
+    }
+
+    function onAjaxPostFailure(response) {
+        ShowsysMessage('error', 'An error occured during the save process');
+    }
+
+    function SetAtrribute(e) {
+
+        selector = '#' + e.sender.element[0].id;
+        var nodeData = $(selector).data('kendoTreeView').dataItem(e.node);
+        if (nodeData === undefined) {
+            nodeData = e.node;
+        }
+        if (nodeData.id != "") {
+            $('.insight-submit-btn').removeAttr('disabled');
+            $('#btnSelect').click(function () {
+                cancelJqueryDialog('SelectAttribute', '@createContainer');
+                parent.SetAtrribute1(nodeData);
+            });
+        }
+        else {           
+            $('.insight-submit-btn').attr('disabled', 'disabled');
+        }
+    }
+    $(function () {
+        $('#AttributeTreeView').kendoTreeView({
+            dataSource: {
+                schema: {
+                    model: {
+                        id: 'AttributeType',
+                        children: "CatalogMappingFields"
+                    }
+                },
+                transport: {
+                    read: {
+                        url: '/Variant/GetCatalogMappingFields',
+                        cache: false,
+                        data: {
+                            ruleID: '@ruleID'
+                        }
+                    }
+                },
+                requestEnd: requestEndHandler
+            },
+            loadOnDemand : false,
+            dataTextField: ["CatalogName", "CatalogField"],
+            select: SetAtrribute
+        });
+    });
+
+    function requestEndHandler() {
+        setTimeout("expandNodes()");
+    }
+
+    function expandNodes() {
+        var tree = $("#AttributeTreeView").data("kendoTreeView");
+        tree.expand(".k-item");
+    }
+</script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>

@@ -1,0 +1,135 @@
+﻿@using Resonance.Insight3.Web.FormAuthentication
+@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.ContentViewModel
+
+<script type="text/javascript">
+    var cp;
+    var cps;
+    if (!contentPanels.HasContentPanel('@Model.NodeType')) {
+        cp = new ContentPanel('@Model.NodeType');
+        contentPanels.Add(cp);
+    } else {
+        cp = contentPanels.GetContentPanel('@Model.NodeType');
+    }
+    @{
+        foreach (var cps in Model.ContentPanelSections)
+        {
+        <text>
+    if (!cp.HasContentPanelSection('@cps.Name.Replace(" ", "_")')) {
+        cps = new ContentPanelSection({
+            name: '@cps.Name.Replace(" ", "_")',
+            id: '@cps.ContentPanelSectionID',
+            nodeId: '@Model.NodeID',
+            catalogId: '@Model.CatalogID',
+            nodeType: '@Model.NodeType',
+            viewUrl: '@Url.Action("View" + cps.PartialViewName, Model.NodeType)',
+            manageUrl: '@Url.Action("Manage" + cps.PartialViewName, Model.NodeType)',
+            viewTitle: '@(this.LocalResources("view") + " " + cps.Name)',
+            manageTitle: '@(this.LocalResources("manage") + " " + cps.Name)'
+        });
+        cp.Sections().push(cps);
+    } else {
+        cps = cp.GetContentPanelSection('@cps.Name.Replace(" ", "_")');
+        // merge in new context
+        cps.NodeID('@Model.NodeID');
+        cps.NodeType('@Model.NodeType');
+        cps.CatalogID('@Model.CatalogID');
+        cps.IsEditing(false);
+    }
+        </text>
+        }
+    }
+
+    contentPanels.CurrentType('@Model.NodeType');
+</script>
+
+<div id="header" style="max-height: 45px; display: block;">
+    @{
+        switch(Model.NodeType)
+        {
+            case "Asset":
+                Html.RenderAction("Header", Model.NodeType, new { id = Model.NodeID, catalogid = Model.CatalogID });
+                break;
+            default:
+                Html.RenderAction("Header", Model.NodeType, new { id = Model.NodeID });
+                break;
+        }
+       
+        var user = FormsAuthenticationWrapper.User;
+    }
+</div>
+<div id="innerContainer" style="overflow: auto; display: block;">
+    <div style="padding: 10px 10px 0px 10px;">
+        @{
+            var nodeType = Model.NodeType;
+            var nodeId = Model.NodeID;
+            
+            foreach (var cps in Model.ContentPanelSections)
+            {
+                var hasAccess = false;
+                var hasFullAccess = false;
+                var action = cps.PartialViewName;
+                //var manageUrl = @Url.Action("Manage" + cps.PartialViewName, Model.NodeType);
+                if(cps.FeatureCode.HasValue)
+                {
+                    foreach (var feature in user.Accounts.FirstOrDefault(ac => ac.AccountID == user.LastAccountID).Applications.Where(ap => Model.ApplicationID.Split('|').Contains(ap.ApplicationID)).Select(app => app.Features.FirstOrDefault(f => f.FeatureCode == cps.FeatureCode)).Where(feature => feature != null))
+                    {
+                        hasAccess = true;
+                        hasFullAccess = !feature.IsReadOnly;
+                    }
+        
+                    if(hasFullAccess)
+                    {
+                        action = string.Format("View{0}", action);
+                    }
+                }
+                else
+                {
+                    hasAccess = true;
+                    action = string.Format("View{0}", action);
+                }
+            
+                if(hasAccess)
+                {
+                    var cpsId = cps.ContentPanelSectionID;
+                    var cpsDiv = cps.Name.Replace(" ", "_");
+                    var viewUrl = @Url.Action("View" + cps.PartialViewName, Model.NodeType);
+                    var viewTitle = (cps.CanAdd || cps.CanEdit) ? (this.LocalResources("manage") + " " + cps.Name) : (this.LocalResources("view") + " " + cps.Name);
+                    var manageUrl = @Url.Action("Manage" + cps.PartialViewName, Model.NodeType);
+                    var manageTitle = (this.LocalResources("manage") + " " + cps.Name);
+                    var createUrl = @Url.Action("Create" + cps.PartialViewName, Model.NodeType);
+                    var createTitle = (this.LocalResources("create") + " " + cps.Name);
+
+                    <div id="@(cpsDiv)_TitleBar" class="ContentPanelSectionTitleBar@{ Write(cps.Expanded ? "Expanded" : "Collapsed"); }" data-name="@cpsDiv" data-cpsId="@cps.ContentPanelSectionID" style="cursor: pointer;">
+                        <img id="imgToggleVisibility_@(cpsDiv)" style="vertical-align: middle;" src="~/Images/@{ Write(cps.Expanded ? "imgExpanded" : "imgCollapsed"); }.png"/>
+                        <span id="@(cpsDiv)_TitleBar_Span" style="margin-left: 6px; vertical-align: middle;">@viewTitle</span>
+                        @{  
+                            if (cps.CanEdit) //(hasFullAccess && cps.CanEdit)
+                            {
+                                <img src="/Images/edit-blue.png" alt="Edit"  id="edit-cps-@cpsId" data-cps-id="@cpsId" data-name="@cpsDiv" data-node-type="@nodeType" data-node-id="@nodeId" data-manage-url="@manageUrl" data-manage-title="@manageTitle" data-view-url="@viewUrl" data-view-title="@viewTitle" class="toggleAddEdit"/>
+                            }
+                            if (cps.CanAdd) //(hasFullAccess && cps.CanAdd)
+                            {
+                                <img src="/Images/add-blue.png" alt="Create" id="@cpsId" data-name="@cpsDiv" data-node-type="@nodeType" data-node-id="@nodeId" data-create-url="@createUrl" data-create-title="@createTitle" data-view-url="@viewUrl" data-view-title="@viewTitle" data-update-target-id="@cpsDiv" class="toggleAddEdit"/>
+                            }
+                        }
+                    </div>
+                    <div id="@(cpsDiv)" class="ContentPanelSection@{ Write(cps.Expanded ? "Expanded" : "Collapsed"); }">
+                        @{
+                           switch (Model.NodeType)
+                            {
+                                case "Asset":
+                                    Html.RenderAction(action, Model.NodeType, new { id = Model.NodeID, catalogid = Model.CatalogID });
+                                    break;
+                                default:
+                                    Html.RenderAction(action, Model.NodeType, new { id = Model.NodeID });    
+                                    break;
+                            }
+                        }
+                    </div>
+                }
+            }
+        }
+    </div>
+    <script type="text/javascript" src="~/Scripts/Certona/content.template.js?@DateTime.Now.Ticks"></script>
+</div>

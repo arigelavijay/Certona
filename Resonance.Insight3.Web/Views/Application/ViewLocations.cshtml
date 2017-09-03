@@ -1,0 +1,68 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model List<Resonance.Insight3.Web.ViewModels.Application.ApplicationPackage>
+<script id="template" type="text/x-kendo-tmpl">
+    <span   
+    # if (data == 'Inactive') { #
+          class="accountStatusInactive"
+      # } else if (data == 'Deleted') { #
+          class="accountStatusDeleted"
+      # } #
+     >#=data#</span>
+ </script>
+
+<script type="text/javascript">
+    var filterElement = null;
+    
+    function statusFilter(element) {
+        element.kendoDropDownList({
+            dataSource: {
+                transport: {
+                    read: "@Url.Action("StatusList","Application")"
+                }
+            },
+            optionLabel: "--Select Value--",          
+            template: kendo.template($("#template").html()),
+            dataBound: function (e) {
+                // default to Active
+                if (filterElement) {
+                    filterElement.data('kendoDropDownList').value("Active");
+                }
+            }
+        });
+
+        filterElement = element;        
+    }   
+</script>
+
+@(Html.Kendo().Grid(Model)
+.Name("ManageLocations")
+.Columns(columns =>
+{
+    columns.Bound(p => p.PackageName).Filterable(false).HeaderTemplate("Name");
+    columns.Bound(p => p.Description).Filterable(false).HeaderTemplate("Description");
+    columns.Bound(p => p.Type).Filterable(false).HeaderTemplate("Type"); 
+    columns.Bound(p => p.SubType).Title("Sub Type").Filterable(false).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("subType")">Sub Type</span> </text>);
+    columns.Bound(p => p.Status).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("status")">Status</span> </text>)
+                                .ClientTemplate("<span #=Status == 'Inactive' || Status == 'Deleted' ? Status == 'Inactive' ? 'class=\"accountStatusInactive\"' : 'class=\"accountStatusDeleted\"' : '' # onmouseover='' onmouseout=''>#=Status#</span>")
+                                .Filterable(filterable => filterable.Extra(false).UI("statusFilter").Operators(operators => operators.ForString(str => str.Clear().IsEqualTo("Is equal to"))));
+})
+.TableHtmlAttributes(new {style="height: 100%; font-size:0.9em;"})
+.Sortable()
+.Pageable(page => page.PreviousNext(false).Numeric(false).Messages(m => m.Display("Displaying items {0} - {1} of {2}")))
+.Filterable()
+.Groupable()
+.DataSource(dataSource => dataSource
+    .Ajax()
+    .ServerOperation(false)
+    .PageSize(Model.Count())    
+    .Sort(sort => sort.Add(o => o.Type).Descending())    
+    .Filter(filter => filter.Add(o => o.Status).IsEqualTo("active"))
+    )
+)
+
+<script type="text/javascript">
+    $(function () {        
+        // set filtering        
+        $("#ManageLocations .k-grid-filter").addClass("k-state-active");
+    });
+</script>

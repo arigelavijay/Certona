@@ -1,0 +1,270 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@using Resonance.Insight3.Web.ViewModels.Experience
+@model Resonance.Insight3.Web.ViewModels.Scheme.SchemeExperienceViewModel
+<script type="text/javascript" src="~/Scripts/Certona/grid.common.js"></script>
+
+@{
+    string cpsId = Convert.ToString(ViewBag.cpsId);
+}
+
+<style>
+ #SchemeExperiences .k-tooltip
+{
+    position: relative !important
+}
+
+#SchemeExperiences .text-box
+{
+    width: 100%;
+    font-size: 100% !important;     
+}
+
+#SchemeExperiences .k-invalid
+{             
+    border-color: #f00 !important;
+}
+
+</style>
+<script id="template" type="text/x-kendo-tmpl">
+    <span   
+    # if (data == 'Inactive') { #
+          class="accountStatusInactive"
+      # } else if (data == 'Deleted') { #
+          class="accountStatusDeleted"
+      # } #
+     >#=data#</span>
+</script>
+
+<script type="text/javascript">
+    // Clean up - Move content to external js file?
+    var rebindFlag = false;
+
+    // EVENTS    
+    function onExperienceGridError(e) {
+        ShowsysMessage('error', 'An error occured during the save process');
+    }
+    
+    function onExperienceGridRequestEnd(e) {
+        if (e.type === "update") {            
+            ShowsysMessage('success', 'Experience updated successfully');
+            // need to Rebind ENTIRE GRID 
+            //rebindExperiencesGrid(e.response);
+            rebindFlag = true;
+        }
+    }
+    
+    function onExperienceGridDataBound(e) {
+    var grid = $("#SchemeExperiences").data("kendoGrid");
+        if (grid) {
+            @*grid.columns[0].editor = nameEditor;
+            grid.columns[1].editor = descriptionEditor;
+            grid.columns[2].editor = trafficEditor;*@
+            grid.columns[3].editor = statusDropDownEditor;
+        }
+        $("#SchemeExperiences .k-grid-edit").toggle(false);
+        $("#SchemeExperiences .k-grid-footer").css('display', 'none');
+        
+        if (rebindFlag) {
+            rebindFlag = false;
+            setTimeout(ReloadGrid, 10);
+        }
+    }
+
+    function onExperienceGridCancel(e) {
+        setTimeout(function () {
+            $("#SchemeExperiences .k-grid-edit").toggle(false);
+        }, 10);
+    }
+
+    function onExperienceGridEdit(e) {
+        setTimeout(function () {
+            $("#SchemeExperiences .k-grid-edit").toggle(false);
+        }, 10);
+
+        // Validation events
+        $('#experience-name').on('blur', function () {
+            ValidateExperienceName($(this));
+        });
+        
+        //debugger - Append extra client side validation upon click of Update
+        //var myValidator = e.sender.editable.validatable;
+        //e.container.find('.k-grid-update').click(function () {
+        //    debugger
+        //    if (!myValidator.validate()) {
+        //        alert("invalid");
+        //    }
+        //});        
+    }
+
+    function onExperienceGridSave(e) {
+        if (!ValidateExperienceModel(e)) {
+            // failed due to Model validation
+            e.preventDefault();
+            //alert("PopupModal('Invalid Experience Configuration')");
+        }
+    }
+
+    @*
+    function ValidateExperienceName(obj) {
+        var validationMessage = '', isValid = true;
+        if (obj.attr('data-val-required-alt') !== undefined) {
+            if (obj.val() === '') {
+                isValid = false;
+                validationMessage = obj.attr('data-val-required-alt');
+            }
+        }
+        ToggleValidationMessage(obj, validationMessage);
+        return isValid;
+    }
+    *@
+    function ValidateExperienceModel(e) {
+        var isValid = true;
+        @*// Name
+        isValid = ValidateExperienceName($("#experience-name"));
+        if (!isValid)
+            return isValid;*@
+
+        // Traffic
+        if (e.model.Status === "Active") {
+            e.model.Traffic = 100.0;
+            if (e.model.Traffic == null)
+                isValid = false;
+            if (parseFloat(e.model.Traffic) > 100.0 || parseFloat(e.model.Traffic) <= 0.0)
+                isValid = false;
+        } else {
+            e.model.Traffic = null;
+        }
+
+        return isValid;
+    }
+    // EVENTS
+
+    // GRID - CLIENT TEMPLATES
+    function statusDropDownEditor(container, options) {
+        $('<input id="experience-status" data-bind="value:' + options.field + '" data-original-value="' + options.model.Status + '" />')
+            .appendTo(container)
+            .kendoDropDownList({
+                dataSource: {
+                    transport: {
+                        read: "@Url.Action("StatusList", "Application")"
+                    }
+                },
+                template: kendo.template($("#template").html()),
+                change: function (e) {
+                    if (e.sender._selectedValue !== "Active") {
+                        $("#experience-traffic").val('');
+                    }
+                }
+            });
+    }
+    @*
+    function nameEditor(container, options) {
+        $('<input id="experience-name" name="Name" style="width:100%" data-bind="value:' + options.field + '" data-val-required-alt="The Name field is required" data-original-value="' + options.model.Name + '" />').appendTo(container);
+    }
+
+    function descriptionEditor(container, options) {
+        $('<input id="experience-description" style="width:100%" data-bind="value:' + options.field + '" data-original-value="' + options.model.Description + '" />').appendTo(container);
+    }
+    *@
+    function trafficDefault(data) {
+        var template = "<span data-id='" + data.ExperienceID + "' data-role='traffic-display'>" + (data.Traffic == null ? '--' : data.Traffic) +
+            (data.Traffic == null ? '' : ' %') + "</span>";
+        //+ "<input type='textbox' id='traffic_" + data.ExperienceID + "' value='" + data.Traffic + "' data-original-value='" + data.Traffic + "' style='display:none' data-id='" + data.ExperienceID + "' data-role='traffic-edit'/>";
+        return template;
+    }
+    // TEMPLATES    
+    
+    function containerID() {
+        return { containerID: '@Model.ContainerID' };
+    }
+    
+    function ReloadGrid() {    
+        var grid = $("#SchemeExperiences").data("kendoGrid");
+        grid.dataSource.read();
+    }
+    
+</script>
+
+@Html.Hidden("cps-editmode-flag", "1", new { id = "cps-editmode-flag", data_cps_id = cpsId})
+
+@(Html.Kendo().Grid<Resonance.Insight3.Web.ViewModels.Scheme.SchemeExperience>()
+.Name("SchemeExperiences")
+.Columns(columns =>
+{
+    columns.Bound(p => p.Name);
+    columns.Bound(p => p.Description).Sortable(false).HeaderHtmlAttributes(new {@class = "remove-k-link"});
+    columns.Bound(p => p.Traffic).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("traffic")">Traffic</span> </text>).Sortable(false).HeaderHtmlAttributes(new {@class = "remove-k-link"})
+                                 .ClientTemplate("#= trafficDefault(data) #"); 
+                                 //.ClientFooterTemplate("#= getTrafficTotal() #");
+    columns.Bound(p => p.Status).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("status")">Status</span> </text>).Sortable(false).HeaderHtmlAttributes(new {@class = "remove-k-link"})
+                                .ClientTemplate("<span style='cursor:help;' #=Status == 'Inactive' || Status == 'Deleted' ? Status == 'Inactive' ? 'class=\"accountStatusInactive\"' : 'class=\"accountStatusDeleted\"' : '' # onmouseover=\"ShowInfo('#=Status#');\" onmouseout=\"HideInfo();\">#=Status#</span>")
+                                .Width(160);
+    columns.Command(command => command.Edit()).Width(80);                                
+})
+.TableHtmlAttributes(new {style="font-size:0.9em;"})
+.Sortable()
+.Selectable(selectable => selectable.Enabled(true).Type(GridSelectionType.Row).Mode(GridSelectionMode.Multiple))        
+.Editable(editable => editable.Mode(GridEditMode.InLine))
+.DataSource(dataSource => dataSource
+    .Ajax()    
+    .Model(model =>
+                {
+                    model.Id(p => p.ExperienceID);
+                    model.Field(p => p.ExperienceID).Editable(false);                                                  
+                    model.Field(p => p.Status);
+                    model.Field(p => p.Name);
+                    model.Field(p => p.Description);
+                    model.Field(p => p.Traffic).Editable(false).DefaultValue(0);
+                })
+    .ServerOperation(false)
+    .Read(read => read.Action("GetExperiences", "Experience").Data("containerID"))
+    .Update(update => update.Action("ExperienceInline_Update", "Experience"))
+    .Sort(sort => sort.Add(o => o.Name).Ascending())    
+    .Events(e =>
+                {
+                    e.Error("onExperienceGridError");
+                    e.RequestEnd("onExperienceGridRequestEnd");
+                })
+    )
+ .Events(events =>
+                  {
+                      events.DataBound("onExperienceGridDataBound");
+                      events.Cancel("onExperienceGridCancel");
+                      events.Edit("onExperienceGridEdit");
+                      events.Save("onExperienceGridSave");
+                  })    
+)
+
+<script type="text/javascript">
+    $(function () {
+        
+        // removing k-link css class b/c k-link color is set to red in /Content/styles.v.1.1.css
+        //$(".remove-k-link > span").removeClass('k-link');
+        $(".remove-k-link > span").addClass('unsortable-gridheader');
+
+        // setup Grid events
+        GridRow_Mouseover('SchemeExperiences');
+        GridRow_Mouseout('SchemeExperiences');
+    });
+   
+    function checkExperiencesDirty() {
+        var isDirty = false;
+        var grid = $("#SchemeExperiences").data("kendoGrid");
+        if (grid) {
+            $.each(grid.dataSource._data, function(idx, val) {
+                if (val.dirty === true) {
+                    isDirty = true;
+                    return false;
+                }
+            });
+        }
+        return isDirty;
+    }
+
+    var cp = contentPanels.GetCurrentContentPanel();
+    var cps = cp.GetContentPanelSectionById('@cpsId');
+    if (cps) {
+        cps.SetIsDirtyOverride(checkExperiencesDirty);
+    }
+
+</script>

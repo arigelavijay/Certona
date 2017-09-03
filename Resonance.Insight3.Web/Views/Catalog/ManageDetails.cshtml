@@ -1,0 +1,81 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@using Resonance.Insight3.Web.HtmlHelpers
+@model Resonance.Insight3.Web.ViewModels.Catalog.CatalogDetails
+
+<div style="display: block; width: 100%; overflow: auto">
+    @Html.HiddenFor(m => m.CatalogId)
+    <div style="float: left; width: 50%;">
+        <div>
+            <span class="bold">@this.SharedResources("name")</span>
+            <br/>
+            @Html.TextBoxForWithDefault(m => m.Name, Model.Name, 250)
+        </div>
+        
+        <div style="margin-top: 15px;">
+            <span class="bold">@this.SharedResources("description")</span>
+            <br/>
+            @Html.TextAreaForWithDefault(m => m.Description, Model.Description, 5, 25)
+        </div>
+        
+        <div style="margin-top: 15px;">
+            <span class="bold">@this.SharedResources("language")</span>
+            <br/>
+            @(
+                Html.Kendo().DropDownList()
+                .Name("Language")
+                .HtmlAttributes(new { data_original_value = "1033" } )
+                .Value("1033")
+                //.DataTextField("LanguageName")
+                //.DataValueField("LCID")
+                .BindTo(new List<SelectListItem>()
+                    {
+                        new SelectListItem
+                            {
+                                Text = "English",
+                                Value = "1033"
+                            }
+                    })
+            )
+            @Model.LanguageName
+        </div>
+    </div>
+    <div style="float: left; width: 50%;">
+        <div>
+            <span class="hotspot" data-hotspot="@this.InfoPanelResources("assettype")"><span class="bold">@this.SharedResources("assettype")</span></span><br/>
+            <img src="/Images/AssetTypes/Small/@Model.Icon_FileName.ToLower()" style="vertical-align: middle;" alt="" /> @Model.AssetType
+        </div>
+        <div style="margin-top:15px;">
+            <span class="hotspot bold" data-hotspot="@this.InfoPanelResources("applications")">@this.SharedResources("applications")</span><br/>
+            @foreach (var catApp in Model.CatalogApplications)
+            {
+<text>@catApp.Key (@catApp.Value)<br/></text>
+            }
+        </div>
+    </div>
+    <br/>
+    <div style="clear: both;">
+        <button class="k-button" onclick="saveContentPanel('Details')" disabled="disabled" type="button" id="btnSave" value="Save">Save</button>&#160;<button onclick="resetContentPanel('Details')" class="k-button" type="button" value="Cancel">Cancel</button>
+    </div>
+    <script type="text/javascript">
+        $('#Details :input').change(function() {
+            ToggleSaveButton();
+        });
+        
+        $('#Details :input').on('keypress', function () {
+            ToggleSaveButton();
+        });
+        
+        $('#Details :input').on('blur', function () {
+            ValidateField($(this));
+        });
+        
+        function ToggleSaveButton() {
+            var cps = getContentPanelSection('Details');
+            if (cps.CanSave()) {
+                $('#btnSave').removeAttr('disabled');
+            } else {
+                $('#btnSave').attr('disabled', 'disabled');
+            }
+        }
+    </script>
+</div>

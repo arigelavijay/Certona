@@ -1,0 +1,27 @@
+@using Resonance.Insight3.Web.FormAuthentication
+@{
+    var user = FormsAuthenticationWrapper.User;
+}
+<div id="dvUserSetting" class="hidden userSetting">
+    <div style="margin: 15px;">
+        <fieldset>
+            <legend>User Settings</legend>
+            @if (user != null)
+            {
+                <span class="bold">Username</span><br />
+                @user.UserID<br /><br />
+
+
+                <span class="bold">Email</span><br />
+                @user.Email
+            }
+        </fieldset>
+    </div>
+</div>
+<div id="dvUserHelp" class="hidden userHelp"></div>
+<div id="content-pane-grey" class="greyedoutmodal"></div>
+<div id="content-pane"></div>
+<div id="insight-create-dialog" class="insight-jquery-dialog"></div>
+<div id="insight-create-dialog2" class="insight-jquery-dialog"></div>
+<div id="insight-create-dialog3" class="insight-jquery-dialog"></div>
+<script type="text/javascript" src="~/Scripts/Certona/contentpanel.js?@DateTime.Now.Ticks"></script>

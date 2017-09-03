@@ -1,0 +1,246 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.NavigationViewModel
+@if (string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <style type="text/css">
+        .k-treeview [id="Web_Pages"] .k-minus-disabled, .k-treeview [id="Emails"] .k-minus-disabled, .k-treeview [id="Remarketing_Campaigns"] .k-minus-disabled { background: none; }
+
+        .k-treeview [id="Web_Pages"] .k-state-disabled, .k-treeview [id="Emails"] .k-state-disabled, .k-treeview [id="Remarketing_Campaigns"] .k-state-disabled {
+            color: #2e2e2e;
+            filter: none;
+            font-style: italic;
+            opacity: 1;
+        }
+    </style>
+    @*<div id="account-content">
+        <div id="home">
+        </div>
+        <div id="account">
+            <span style="font-family:inherit;" class="hotspot" data-hotspot="@this.InfoPanelResources("AccountHeader")">Account:</span><input type="hidden" id="hdnAccountID" value="@Model.User.LastAccountID"/><label id="lblAccountID">@Model.User.LastAccountID</label>
+            @{
+                if (Model.AccountList.Count() > 1)
+                {
+                    <span id="ddlAccountList"> @Html.DropDownList("ddlAccount", Model.AccountList) </span>
+                }
+            }            
+        </div>
+        @{
+            if (Model.AccountList.Count() > 1)
+            {
+                <div id="swapaccount">
+                </div>
+            }
+        }
+    </div>
+    <div class="white-spacer">
+    </div>
+    <div class="white-spacer padlogo">
+    </div>*@
+    @Html.Hidden("hidApplicationNodeInfo", this.InfoPanelResources("AcctExplorerNoteTypeApplication"), new { id = "hidApplicationNodeInfo" })
+    @Html.Hidden("hidLocationNodeInfo", this.InfoPanelResources("AcctExplorerNoteTypeLocation"), new { id = "hidLocationNodeInfo" })
+    @Html.Hidden("hidContainerNodeInfo", this.InfoPanelResources("AcctExplorerNoteTypeContainer"), new { id = "hidContainerNodeInfo" })
+    @Html.Hidden("hidExperienceNodeInfo", this.InfoPanelResources("AcctExplorerNoteTypeExperience"), new { id = "hidExperienceNodeInfo" })
+    @Html.Hidden("hidStrategyNodeInfo", this.InfoPanelResources("AcctExplorerNoteTypeStrategy"), new { id = "hidStrategyNodeInfo" })
+    <div id="mainPanelWrapper" style="position: relative; height: 100%;">
+        <div id="mainPanelGrey" class="greyedoutmodal"></div>
+        <div id="mainPanel">
+        @{
+            Html.Kendo()
+                .PanelBar()
+                .Name("PanelBar") // Specifies the "id" attribute of the widget
+                .ExpandMode(PanelBarExpandMode.Single) // Single = Only one item can be expanded; Multiple = All items can be expanded
+                .Animation(animation => animation.Expand(config =>
+                    {
+                        config.Duration(250); // Fast = 200, Normal = 400, Slow = 600                                
+                                config.Expand(ExpandDirection.Vertical);
+                    }))
+                .Events(events => events
+                                      .Select("select")
+                                      .Expand("panelBarExpand")
+                                      .Collapse("panelBarCollapse"))
+                .Items(acountItems =>
+                    {
+                        acountItems.Add()
+                                   .LinkHtmlAttributes(new { data_hotspot = this.InfoPanelResources("AccountExplorerPanelBarHdr") })
+                                   .Text("<div id='account-content'><div id='account'><span style='font-family:inherit; cursor: pointer;' class='hotspot' data-hotspot='" + this.InfoPanelResources("AccountHeader") + "'>" + this.LocalResources("AccountExplorerText") + ": </span><input type='hidden' id='hdnAccountID' value='" + Model.User.LastAccountID + "'/><label id='lblAccountID'>" + Model.User.LastAccountID + "</label>" + 
+                                        (Model.AccountList.Count() > 1 ? "<span id='ddlAccountList'>" + Html.DropDownList("ddlAccount", Model.AccountList) + "</span>" : "") +
+                                        "" + 
+                                        (Model.AccountList.Count() > 1 ? "<div id='swapaccount'></div>" : "") +
+                                        "</div></div>")
+                                   .Encoded(false)
+                                   .Expanded(Model.PanelbarStates.Contains((int)PanelBars.AccountExplorer))
+                                   .SpriteCssClasses(Model.PanelbarStates.Contains((int)PanelBars.AccountExplorer) ? "AccountExplorerselected panelbaritemselected" : "AccountExplorer")
+                                   .HtmlAttributes(new { data_panel_bar_id = (int)PanelBars.AccountExplorer })
+                                   .Content(@<text>
+                                                 <div class="collapse">
+                                                    <span id="accountExpand">@this.LocalResources("ExpandallText")</span>
+                                                    <span id="accountCollapse">@this.LocalResources("CollapseallText")</span>
+                                                    <div id="divAcctSetting" class="setting-icon" style="float:right;">
+                                                        <img src="/Images/Nav_AcctExpl_Bolt.png" alt="Account Explorer Settings" class="accountconfig" id="aconfig" />
+                                                    </div>
+                                                 </div>
+                                                 <div class="box" id="accountstatus">
+                                                     <table cellpadding="5" cellspacing="0" width="100%">
+                                                         <tr>
+                                                             <td colspan="2">
+                                                                 @this.LocalResources("DisplayStatusText")
+                                                             </td>
+                                                         </tr>
+                                                         <tr>
+                                                             <td>
+                                                                 <input type="checkbox" id="chkActive" onchange=" accountStatusChange(this) " checked="@(Model.AccountExplorerStatus.Contains("Active") ? true : false)" />
+                                                                 <label
+                                                                     class="accountStatusActive" for="chkActive">@this.LocalResources("StatusActiveText")</label>
+                                                             </td>
+                                                              <td>
+                                                                 <input type="checkbox" id="chkDeleted" onchange=" accountStatusChange(this) " checked="@(Model.AccountExplorerStatus.Contains("Deleted") ? true : false)" />
+                                                                 <label
+                                                                     class="accountStatusDeleted" for="chkDeleted">@this.LocalResources("StatusDeletedText")</label>
+                                                             </td>
+                                                         </tr>
+                                                         <tr>
+                                                             <td>
+                                                                 <input type="checkbox" id="chkInactive" onchange=" accountStatusChange(this) " checked="@(Model.AccountExplorerStatus.Contains("Inactive") ? true : false)" />
+                                                                 <label
+                                                                     class="accountStatusInactive" for="chkInactive">@this.LocalResources("StatusInactiveText")</label>
+                                                             </td>
+                                                             <td>&#160;</td>
+                                                             @*<td style="display:none;">
+                                                                 <input type="checkbox" id="chkPending" onchange=" accountStatusChange(this) " checked="@(Model.AccountExplorerStatus.Contains("Pending") ? true : false)" />
+                                                                 <label class="accountStatusPending" for="chkPending">@this.LocalResources("StatusPendingText")</label>
+                                                             </td>*@
+                                                         </tr>
+                                                     </table>
+                                                 </div>
+                                                 <div class="panelItemsActiveAsset" id="divAccountTreeView" style="overflow-y: auto; overflow-x: hidden;">
+                                                     <div id="AccountTreeView" style="overflow-x:hidden; height: 100%;"></div>
+                                                 </div>
+                                             </text>);
+                    })
+                .Items(reportItems =>
+                    {
+                        reportItems.Add()
+                                   .Text(this.LocalResources("ReportsText"))
+                                   .Expanded(Model.PanelbarStates.Contains((int) PanelBars.Reports))
+                                   .SpriteCssClasses(Model.PanelbarStates.Contains((int) PanelBars.Reports) ? "Reportsselected panelbaritemselected" : "Reports")
+                                   .HtmlAttributes(new {data_panel_bar_id = (int) PanelBars.Reports})
+                                   .Content(@<text>
+                                                 <div class="panelItems" id="divReportTreeView">
+                                                     <div id="ReportTree"></div>
+                                                 </div>
+                                             </text>
+                                       );
+                    })
+                .Items(assetItems =>
+                    {
+                        assetItems.Add()
+                                  .Text(this.LocalResources("AssetExplorerText"))
+                                  .Expanded(Model.PanelbarStates.Contains((int)PanelBars.AssetExplorer))
+                                  .SpriteCssClasses(Model.PanelbarStates.Contains((int)PanelBars.AssetExplorer) ? "AssetExplorerselected panelbaritemselected" : "AssetExplorer")
+                                  .HtmlAttributes(new {data_panel_bar_id = (int) PanelBars.AssetExplorer})
+                                  .Content(@<text>
+                                                <div class="collapse">
+                                                    <div id="divAssetSetting" class="setting-icon" style="display:none;">
+                                                        <a href="#blank" id="aplus" class="assetplus"></a>
+                                                    </div>
+                                                    <div class="collapseborder float-left">
+                                                        <a href="#blank" id="assetExpand">@this.LocalResources("ExpandallText")</a>
+                                                        <a href="#blank" id="assetCollapse">@this.LocalResources("CollapseallText")</a>
+                                                    </div>
+                                                </div>
+                                                <div class="box" id="assetstatus">
+                                                </div>
+                                                <div class="panelItemsActiveAsset"  id="divAssetTreeView">
+                                                    <div id="AssetTreeView"></div>
+                                                </div>          
+                                            </text>);
+                    })
+                // Items(toolsItems =>
+                //    {
+                //        toolsItems.Add()
+                //                  .Text(this.LocalResources("ToolsText"))
+                //                  .Expanded(Model.PanelbarStates.Contains((int)PanelBars.Tools))
+                //                  .SpriteCssClasses(Model.PanelbarStates.Contains((int)PanelBars.Tools) ? "Toolsselected panelbaritemselected" : "Tools")
+                //                  .HtmlAttributes(new {data_panel_bar_id = (int) PanelBars.Tools})
+                //                  .Content(@<div class="panelItems" id="divToolsTreeView">
+                //                                <div id="ToolTreeView"></div>
+                //                            </div>);
+                //    })
+                .Render();
+               
+            
+        }
+		
+    </div>
+    <div id="infoPanel" style="position: absolute; left: 0; bottom: 66px; width: 100%; z-index:99">
+        @{
+            Html.Kendo()
+                .PanelBar()
+                .Name("InfoPanelBar")
+                .HtmlAttributes(new { style = "border-top-width:1px; border-top-style:solid; border-top-color:#fff" })
+                .Animation(animation =>
+                    {
+                        animation.Expand(config =>
+                            {
+                                config.Duration(1);                                
+                                config.Expand(ExpandDirection.Vertical);
+                            });
+                        animation.Collapse(config =>
+                            {                                
+                                config.Fade(FadeDirection.In);                                
+                                config.Duration(1);
+                            });
+                    })
+                .Events(events => events
+                                      .Select("SetPanelBarStates")
+                                      .Expand("panelBarExpand")
+                                      .Collapse("InfoCollapse"))
+                .Items(infoItems =>
+                    {
+                        infoItems.Add()
+                                 .Text(this.LocalResources("InfoText"))
+                                 .Expanded(Model.PanelbarStates.Contains((int)PanelBars.Info))
+                                 .HtmlAttributes(new {data_panel_bar_id = (int) PanelBars.Info})
+                                 .Content(@<text>
+                                               <div class="maininfo">
+                                                   <div id="divInfo">
+                                                       Info content
+                                                   </div>
+                                               </div></text>);
+                    })
+                .Render();
+        }
+    </div>
+</div>
+}
+else
+{
+    <div id="messagecontainer">
+        <div class="errmessageicon">
+            <div id="message" class="errmessage">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td id="messagecontent">
+                                @this.LocalResources("ReloadText")
+                                <a id="aClickHere">
+                                    <span class="bold">@this.LocalResources("ClickHereText")</span>
+                                </a> @this.LocalResources("ToReloadText")
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript" src="~/Scripts/Certona/navigationpanel.js?@DateTime.Now.Ticks"> </script>
+<script id="treeview-template" type="text/kendo-ui-template">
+    <span 
+    # if (item.Status == $.inArray('Inactive', nodeStatuses)) { #
+    class="statusInactive"
+    # } else if (item.Status == $.inArray('Deleted', nodeStatuses)) { #
+    class="statusDeleted"
+    # } #
+    >#: item.DisplayValue # </span>
+</script>

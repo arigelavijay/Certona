@@ -1,0 +1,272 @@
+﻿@model Resonance.Insight3.Web.ViewModels.Reporting.ReportsViewModel
+@using Resonance.Insight3.Web.Helpers
+
+@{
+    var showallrecommendationstrategies = this.LocalResources("showallrecommendationstrategies");
+    var showallactiverecommendationstrategies = this.LocalResources("showallactiverecommendationstrategies");
+    var showallbutdeletedrecommendation = this.LocalResources("showallbutdeletedrecommendation");
+    //var allsegments = this.LocalResources("allsegments");
+    //var allrecommendationboxes = this.LocalResources("allrecommendationboxes");
+    //var allschemes = this.LocalResources("allschemes");
+}
+
+<script type="text/javascript">
+    var nodeId = $("#NodeID").val();
+    var recommendedAssets = 3;
+    var strategyComparison = 4;
+    
+    $("#Submit").click(function () {
+        refreshReport();
+    });
+
+    function refreshReport() {
+        var startDate = new Date($("#StartDate").val());
+        var endDate = new Date($("#EndDate").val());
+        //var segmentId = $("#SegmentId").val();
+        //var schemeId = $("#RecBoxId").val();
+        var yesterday = new Date();
+        var appId = $("#AppID").val();
+        var strategy = $("#Strategy").val();
+        
+        if (appId == "") {
+            appId = '@Model.ApplicationList.FirstOrDefault()';
+        }
+
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        @*
+        if (schemeId == "") {
+            schemeId = '@allschemes';
+        }
+
+        
+        if (segmentId == "") {
+            segmentId = '@allsegments';
+        }
+        *@
+
+        
+        if (strategy == "") {
+            strategy = '@showallactiverecommendationstrategies';
+        }
+        
+        
+        if (endDate > yesterday) {
+            ShowsysMessage("error", "The <i>To Date</i> must be no later than yesterday's date.");
+            return (false);
+        }
+
+        if (startDate <= endDate) {
+            var startYear = startDate.getFullYear();
+            var startMonth = startDate.getMonth() + 1; // 0 based
+            var startDay = startDate.getDate();
+
+            var endYear = endDate.getFullYear();
+            var endMonth = endDate.getMonth() + 1; // 0 based
+            var endDay = endDate.getDate();
+            
+            $.ajax({
+                url: "@Url.Action("GetReportData","Reporting")",
+                cache: false,
+                type: 'GET',
+                data: {
+                    startYear: startYear,
+                    startMonth: startMonth,
+                    startDay: startDay,
+                    endYear: endYear,
+                    endMonth: endMonth,
+                    endDay: endDay,
+                    nodeID: nodeId,
+                    appId: appId,
+                    //segmentId: segmentId,
+                    //schemeId: schemeId,
+                    strategy: strategy
+                },
+                success: function (data) {
+                    $("#ViewReport").html(data);
+                }
+            });
+        }
+    }
+
+    function startChange() {
+        var endPicker = $("#EndDate").data("kendoDatePicker"),
+            startDate = this.value();
+
+        if (startDate) {
+            startDate = new Date(startDate);
+            startDate.setDate(startDate.getDate());
+            endPicker.min(startDate);
+        }
+    }
+
+    function endChange() {
+        var startPicker = $("#StartDate").data("kendoDatePicker"),
+            endDate = this.value();
+
+        if (endDate) {
+            endDate = new Date(endDate);
+            endDate.setDate(endDate.getDate() - 1);
+            startPicker.max(endDate);
+        }
+    }
+
+    function ApplicationChange() {
+        var appId = $("#AppID").val();
+        
+        @*
+        if (nodeId == recommendedAssets || nodeId == strategyComparison) {
+            $.getJSON('@Url.Action("GetSegments","Reporting")', { applicationId: appId }, function (data) {
+                data: 
+                    var items = [];
+
+                items.push({ "Text": "@allsegments", "Value": "@allsegments" });
+                $.each(data, function () {
+                    items.push({ "Text": this, "Value": this });
+                });
+                
+                $("#SegmentId").kendoDropDownList({
+                    dataTextField: "Text",
+                    dataValueField: "Value",
+                    dataSource: items
+                });
+            });
+            
+            
+            $.getJSON('@Url.Action("GetRecommendations","Reporting")', { applicationId: appId }, function (data) {
+                data:
+                    var items = [];
+                
+                items.push({ "Text": "@allrecommendationboxes", "Value": "@allschemes" });
+                $.each(data, function () {
+                    items.push({ "Text": this, "Value": this });
+                });
+
+                $("#RecBoxId").kendoDropDownList({
+                    dataTextField: "Text",
+                    dataValueField: "Value",
+                    dataSource: items
+                });
+            });
+        }
+        *@
+    }
+
+    $(function () {
+        ApplicationChange();
+
+        $("#AppID").change(function () {
+            ApplicationChange();
+        });
+        
+        if (nodeId == recommendedAssets) {
+            $("#RecBox").css('display', 'block'); // Schemes
+            //$("#Segments").css('display', 'block');
+        }
+        else if (nodeId == strategyComparison) {
+            $("#RecBox").css('display', 'block'); // Schemes
+            $("#StrategyStatus").css('display', 'block');
+        }
+        
+        refreshReport();
+    });
+</script>
+<style type="text/css">
+#ReportingOptions {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#ReportingOptions .k-dropdown-wrap .k-state-default {
+    font-size: .8em;
+    width: 350px;
+}
+</style>
+<div id="view-report" style="height:28px; white-space: nowrap;">
+    <div id="ReportingOptions">
+        <div style="float:left; margin-left:15px; margin-top:17px;"><span class="bold">From:</span></div>
+        <div style="float:left; margin-left:5px; margin-top:10px;">
+            @(Html.Kendo().DatePicker()
+                    .Name("StartDate")
+                    .Value(Model.StartDate)
+                    .Max(DateTime.Today.AddDays(-1))
+                    .Events(e => e.Change("startChange"))
+                    .HtmlAttributes(new { style = "width:105px; height:1.75em;" })
+                    )
+        </div>
+        <div style="float:left; margin-left:10px; margin-top:17px;"><span class="bold">To:</span></div>
+        <div style="float:left; margin-left:5px; margin-top:10px;">
+            @(Html.Kendo().DatePicker()
+                  .Name("EndDate")
+                  .Value(Model.EndDate)
+                  .Min(Model.StartDate)
+                  .Max(DateTime.Today.AddDays(-1))
+                  .Events(e => e.Change("endChange"))
+                  .HtmlAttributes(new { style = "width:105px; height:1.75em;" })
+                  )
+        </div>
+        <div style="clear:both;"></div>
+
+        @Html.Hidden("NodeID", Request.QueryString["NodeID"])<br/>
+
+        <div style="float:left; margin-top: 8px;">
+            @(Html.Kendo().DropDownList()
+                  .BindTo(Model.ApplicationList)
+                  .Name("AppID")
+                  .Events(e => e.Change("ApplicationChange()"))
+                  .HtmlAttributes(new { style = "width:225px;" })
+                  .Value(Model.AppID)
+                  )
+        </div>
+    
+        @*
+        <div id="Segments" style="float:left; margin-left:25px; margin-top:8px; display:none;">
+            @(Html.Kendo().DropDownList()
+                  .Name("SegmentId")
+                  .DataTextField("Text")
+                  .DataValueField("Value")
+                  .BindTo(new List<SelectListItem>())
+                  .HtmlAttributes(new { style = "width:200px;" })
+                  )
+        </div>
+        
+        <div id="RecBox" style="float:left; margin-left:25px; margin-top:8px; display:none;">
+            @(Html.Kendo().DropDownList()
+                  .Name("RecBoxId")
+                  .DataTextField("Text")
+                  .DataValueField("Value")
+                  .BindTo(new List<SelectListItem>())
+                  .HtmlAttributes(new { style = "width:250px;" })
+                  )
+
+        </div>
+        *@
+
+        <div id="StrategyStatus" style="float:left; margin-left:15px; margin-top:8px; display:none;">
+            @(Html.Kendo().DropDownList()
+                  .Name("Strategy")
+                  .DataTextField("Text")
+                  .DataValueField("Value")
+                  .BindTo(new List<SelectListItem>() {
+                      new SelectListItem() {
+                          Text = @showallrecommendationstrategies,
+                          Value = @showallrecommendationstrategies
+                      },
+                      new SelectListItem() {
+                          Text = @showallactiverecommendationstrategies,
+                          Value = @showallactiverecommendationstrategies
+                      },
+                      new SelectListItem() {
+                          Text = @showallbutdeletedrecommendation,
+                          Value = @showallbutdeletedrecommendation
+                      }
+                  })
+                  .Value(@showallactiverecommendationstrategies)
+                  .HtmlAttributes(new { style = "width:375px;" })
+                  )
+        </div>
+        <div style="float:left; margin-left: 15px; margin-top:8px;"><button id="Submit" class="k-button btn-update">Submit</button></div>
+    </div>
+</div>
+<div style="clear:both;"></div>
+<div id="ViewReport" style="margin-left: 15px; margin-top:15px;"></div>

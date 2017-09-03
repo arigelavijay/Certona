@@ -1,0 +1,193 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@using Resonance.Insight3.Web.HtmlHelpers
+@using Resonance.Insight3.Web.ViewModels.Experience
+@using Resonance.Insight3.Web.ViewModels.Variant
+@model Resonance.Insight3.Web.ViewModels.Experience.ExperienceNodeViewModel
+<script type="text/javascript" src="~/Scripts/Certona/grid.common.js"></script>
+<script type="text/javascript" src="~/Scripts/Certona/Strategy.js?@DateTime.Now.Ticks"> </script>
+@{
+    string cpsId = Convert.ToString(ViewBag.cpsId);
+}
+<style>
+    #ExperienceStrategies .k-header, #ExperienceStrategies .k-header .k-link
+    {
+        color: #3f3f3f;   
+    }
+</style>
+
+<script id="template" type="text/x-kendo-tmpl">
+    <span   
+    # if (data == 'Inactive') { #
+          class="accountStatusInactive"
+      # } else if (data == 'Deleted') { #
+          class="accountStatusDeleted"
+      # } #
+     >#=data#</span>
+</script>
+
+@Html.Hidden("experienceID", Model.ExperienceID, new { id = "experienceID" })
+@Html.Hidden("cps-editmode-flag", "1", new { id = "cps-editmode-flag", data_cps_id = cpsId})
+
+<script type="text/javascript">
+    var statusListURL = '@Url.Action("StatusList", "Application")';
+    var variantActionChangeURL = '@Url.Action("UpdateVariantAction", "Variant")';
+</script>
+
+<div id="rules-container" style="display:none">
+@foreach (var strategyid in Model.StrategyIDList)
+{        
+    if (@Model.VariantRules.Any(x => x.VariantID == strategyid))
+    {    
+    <div id="rules-@strategyid">                
+        <table>                   
+            @foreach (var obj in Model.VariantRules.Where(x => x.VariantID == strategyid))
+            {
+                <text>
+                    <tr>
+                        <td style="width:20%; vertical-align: top">
+                            <div><span>@Html.Raw(obj.Name)</span></div>
+                        </td>
+                        <td>
+                            <div><span>@Html.Raw(obj.RuleText)</span></div>
+                        </td>
+                    </tr>
+                </text>
+            }
+        </table>
+    </div>
+    }  
+}
+</div>
+
+<div id="decision-plan-container" style="display:none">
+@foreach (var strategyid in Model.StrategyIDList)
+{
+    if (@Model.DecisionPlans.Any(x => x.StrategyID == strategyid))
+    {
+    <div id="decision-plan-@strategyid">
+        <table>
+            @foreach (var obj in Model.DecisionPlans.Where(x => x.StrategyID == strategyid))
+            {
+                <text>
+                    <tr>
+                        <td style="border: none">
+                            <div><span class="hotspot" data-hotspot="@this.InfoPanelResources("numberOfAssets")"><span class="bold">No. of Assets Requested:</span></span>&#160;@obj.NumberOfItems</div>
+                        </td>
+                        <td style="border: none">
+                            <div><span class="hotspot" data-hotspot="@this.InfoPanelResources("minRequired")"><span class="bold">Min. Required:</span></span>&#160;@obj.MinItems</div>
+                        </td>
+                        <td style="border: none">
+                            <div><span class="hotspot" data-hotspot="@this.InfoPanelResources("breakOnMin")"><span class="bold">Break on Min:</span></span>&#160;@{ Write(obj.BreakOnMinItems.HasValue && obj.BreakOnMinItems.Value ? "Y" : string.Empty); }</div>
+                        </td>
+                        <td style="border: none">
+                            <div><span class="hotspot" data-hotspot="@this.InfoPanelResources("slots")"><span class="bold">Slots:</span></span>&#160;@obj.SlotInfo</div>
+                        </td>
+                    </tr>
+                </text>
+            }
+        </table>
+    </div>
+    }
+}
+</div>
+
+
+@(Html.Kendo().Grid<ExperienceStrategy>()
+.Name("ExperienceStrategies")
+.Columns(columns =>
+{
+    columns.Bound(p => p.StrategyID).Hidden(true);
+    columns.Bound(p => p.StrategyID).Width(15).Sortable(false).Filterable(false)
+                                    .HeaderTemplate(@<text> <input type="checkbox" id="chkSelectAll" value="SelectAll"/> </text>)
+                                    .ClientTemplate("<input type='checkbox' data-id='#=StrategyID#' data-role='selectStrategy' >");
+    columns.Bound(p => p.Name).Width(200).Sortable(false).Filterable(false).ClientTemplate("<span style=\"white-space: nowrap;\">#=Name#</span>");
+    columns.Bound(p => p.Impressions).Width(90).Sortable(false).Filterable(false).HeaderTemplate(@<text> <span class="hotspot" style="white-space:nowrap;" data-hotspot="@this.InfoPanelResources("impressions")">Impressions</span> </text>);
+    columns.Bound(p => p.Catalog).Width(220).ClientTemplate("<span style=\"white-space: nowrap;\"><img src=\'/Images/AssetTypes/Small/#=CatalogImage#\' alt=\'\' /> #=Catalog#</span>").Sortable(false).Filterable(false).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("catalog")">Catalog</span> </text>);
+    columns.Bound(p => p.PersonalizationType).Width(200).ClientTemplate("<span style=\"white-space: nowrap;\">#=PersonalizationType#</span>").Sortable(false).Filterable(false).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("personalizationtype")">Personalization Type</span> </text>);
+    columns.Bound(p => p.Status)
+                                .HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("status")">Status</span> </text>)
+                                .ClientTemplate("<span style='cursor:help;' #=Status == 'Inactive' || Status == 'Deleted' ? Status == 'Inactive' ? 'class=\"accountStatusInactive\"' : 'class=\"accountStatusDeleted\"' : '' # onmouseover=\"ShowInfo('#=Status#');\" onmouseout=\"HideInfo();\">#=Status#</span>")
+                                .Sortable(false)
+                                .Filterable(filterable => filterable.Extra(false).UI("statusFilter").Operators(operators => operators.ForString(str => str.Clear().IsEqualTo("Is equal to"))));
+    columns.Bound(p => p.Priority).Sortable(false).Filterable(false).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("priority")">Priority</span> </text>);
+    columns.Bound(p => p.Rules).Sortable(false).Filterable(false).Filterable(false).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("rules")">Rules</span> </text>);
+})
+                                                    .ToolBar(toolbar => toolbar.Template(@<text>
+                                        <div style="text-align: right">
+                                            <span class="bold">Actions: </span> @Html.ShowRulesLink(Model.ShowRules) | @Html.ShowDecisionPlanLink(Model.ShowDecisionPlan)
+                                        </div>
+                                    </text>))
+                                                    .ClientDetailTemplateId("experienceStrategiesTemplate")
+                                                    .TableHtmlAttributes(new {style="height: 100%; font-size:0.9em;"})
+                                                    .Selectable(selectable => selectable.Enabled(true).Type(GridSelectionType.Row).Mode(GridSelectionMode.Single))        
+                                                    .Sortable()                                                    
+                                                    .Filterable()
+                                                    .DataSource(dataSource => dataSource
+                                                        .Ajax()
+                                                        .ServerOperation(true)
+                                                        .Read(read => read.Action("HierarchyBinding_Experiences", "Experience", new { experienceID = Model.ExperienceID }))
+                                                        .PageSize(Model.StrategyCount)
+                                                        .Sort(sort => sort.Add(o => o.Priority).Ascending())
+                                                    )
+                                                    .Events(events =>
+                                                    {
+                                                        events.DetailExpand("onStrategyGridDetailExpand");
+                                                        events.DataBound("onStrategyGridDataBound");
+                                                        events.Change("onStrategyGridChange");
+                                                    })
+                                                    )
+<div id="ExperienceStrategiesFooter" class="k-pager-wrap k-grid-pager k-widget">    
+    @(Html.Kendo().DropDownList()
+        .Name("statusAction")
+        .DataSource(ds => ds.Read("VariantActionList", "Variant"))
+        .OptionLabel("Select an Action")
+        .TemplateId("template")
+        .HtmlAttributes(new {style="width:200px;"})
+        .Events(e =>
+                    {
+                        e.DataBound("onStrategyActionDatabound");
+                        e.Change("onStrategyActionChange");
+                    })                
+       
+     )
+    <button id="updateStrategy" class="k-button btn-update" onclick="updateSelectedStrategies()">Update</button>    
+    <span id="paging-label" class="k-pager-info k-label"></span>
+</div>
+
+
+<script id="experienceStrategiesTemplate" type="text/kendo-tmpl">
+
+    <div id="variant_rules_strategy_#=StrategyID#" data-container="variant_rules_strategy" class="rules_row" ></div>
+    <div id="decision_plan_#=StrategyID#" data-container="decision_plan" class="decision_plan_row"></div>
+
+</script>
+
+<script type="text/javascript">
+    $(function () {
+        initializeExperienceStrategiesGrid();
+
+        // setup Grid events
+        GridRow_Mouseover('ExperienceStrategies');
+        GridRow_Mouseout('ExperienceStrategies');
+        
+        var cp = contentPanels.GetCurrentContentPanel();
+        var cps = cp.GetContentPanelSectionById('@cpsId');
+        if (cps) {
+            cps.SetIsDirtyOverride(checkStrategiesDirty);
+        }
+    });
+    
+    function checkStrategiesDirty() {
+        var isDirty = false;
+        var grid = $("#ExperienceStrategies").data("kendoGrid");
+        if (grid) {
+            $.each(grid.dataSource._data, function (idx, val) {
+                if (val.dirty === true) {
+                    isDirty = true;
+                    return false;
+                }
+            });
+        }
+        return isDirty;
+    }
+</script>

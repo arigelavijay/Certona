@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="587a8f02-1ca8-4e9c-886c-e6fb4896b31f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://209.118.149.87/CertonaService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CertonaService.xsd" MetadataType="Schema" ID="940815ae-e6f5-4a8e-aeec-88b47aecbb32" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd17" />
+    <MetadataFile FileName="CertonaService1.xsd" MetadataType="Schema" ID="129d9822-c826-4e4c-b716-cfdb955ae280" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd27" />
+    <MetadataFile FileName="CertonaService2.xsd" MetadataType="Schema" ID="f46124f0-8c94-4b72-993e-bd5b17ef8d2c" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd37" />
+    <MetadataFile FileName="CertonaService3.xsd" MetadataType="Schema" ID="7190afc0-e624-4d3f-811a-8690a3db597c" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CertonaService4.xsd" MetadataType="Schema" ID="0ed695e7-b238-4ff1-95cf-89666c994a8a" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CertonaService5.xsd" MetadataType="Schema" ID="3d30d256-29aa-4956-ba5f-ef571cb2df5c" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CertonaService6.xsd" MetadataType="Schema" ID="83ce6306-32a4-48bb-be72-024f72abbaa8" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CertonaService7.xsd" MetadataType="Schema" ID="54edf899-2adc-4d93-9356-3da5aece56a7" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CertonaService8.xsd" MetadataType="Schema" ID="cfc35c59-bc99-4920-84f0-27c1ee507fde" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd5" />
+    <MetadataFile FileName="CertonaService9.xsd" MetadataType="Schema" ID="299761d2-6007-42f8-a368-d15a23c2b871" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd6" />
+    <MetadataFile FileName="CertonaService10.xsd" MetadataType="Schema" ID="1f0d49df-11d4-48cd-bcad-83205a26eb88" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd7" />
+    <MetadataFile FileName="CertonaService11.xsd" MetadataType="Schema" ID="a9702d41-6e3d-4c76-a18a-236b60ea1899" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd8" />
+    <MetadataFile FileName="CertonaService12.xsd" MetadataType="Schema" ID="7fd61100-c863-44f5-9a9a-1551934c1c5f" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd9" />
+    <MetadataFile FileName="CertonaService13.xsd" MetadataType="Schema" ID="37869833-3341-43a9-a616-b1ae27a27c54" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd11" />
+    <MetadataFile FileName="CertonaService14.xsd" MetadataType="Schema" ID="90220a00-0096-49cd-9e9f-a6b1db7b7922" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd21" />
+    <MetadataFile FileName="CertonaService15.xsd" MetadataType="Schema" ID="a4f56e51-7c3d-416c-aacd-18955bb1e8cc" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd31" />
+    <MetadataFile FileName="CertonaService16.xsd" MetadataType="Schema" ID="f0c47528-a733-486f-a5d2-ce2cefe576e1" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd41" />
+    <MetadataFile FileName="CertonaService.wsdl" MetadataType="Wsdl" ID="926cd0c1-1c2b-4c40-bd3a-f661633a3a23" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?wsdl" />
+    <MetadataFile FileName="CertonaService17.xsd" MetadataType="Schema" ID="18434e33-6171-46a6-9efc-fd249bbcf8b6" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd14" />
+    <MetadataFile FileName="CertonaService18.xsd" MetadataType="Schema" ID="c0504e1c-5910-4964-a346-6e83dd126264" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd24" />
+    <MetadataFile FileName="CertonaService19.xsd" MetadataType="Schema" ID="40dee557-c7e0-4650-ab12-7671ae46fcab" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd34" />
+    <MetadataFile FileName="CertonaService20.xsd" MetadataType="Schema" ID="9c0ad833-4289-4220-ba15-c20f6b0d62dd" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd44" />
+    <MetadataFile FileName="CertonaService21.xsd" MetadataType="Schema" ID="4ebb5a8d-f6d5-4739-a4b1-9f4cf083710c" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd29" />
+    <MetadataFile FileName="CertonaService22.xsd" MetadataType="Schema" ID="94a81678-9d22-4fba-b748-7b5eb9eb7596" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd13" />
+    <MetadataFile FileName="CertonaService23.xsd" MetadataType="Schema" ID="3661e261-dce5-4688-b973-437dabebd6af" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd23" />
+    <MetadataFile FileName="CertonaService24.xsd" MetadataType="Schema" ID="f1266e05-b3b7-4002-899a-e6af90c747c8" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd33" />
+    <MetadataFile FileName="CertonaService25.xsd" MetadataType="Schema" ID="5b992f9a-f531-4cd3-8be7-97f002e06012" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd43" />
+    <MetadataFile FileName="CertonaService26.xsd" MetadataType="Schema" ID="0d2c5f60-7c93-4307-af88-2f00f02bc416" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd26" />
+    <MetadataFile FileName="CertonaService.disco" MetadataType="Disco" ID="054d0709-d762-4864-95b2-9f5cbfa22ce8" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?disco" />
+    <MetadataFile FileName="CertonaService27.xsd" MetadataType="Schema" ID="e008baa1-5a00-4b20-bb62-2e86a519a10a" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd19" />
+    <MetadataFile FileName="CertonaService28.xsd" MetadataType="Schema" ID="2ffa53c0-a31c-4375-be97-ebc073d0c8d8" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd12" />
+    <MetadataFile FileName="CertonaService29.xsd" MetadataType="Schema" ID="1f9fbde7-2d15-4cbf-8311-786b98046539" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd16" />
+    <MetadataFile FileName="CertonaService30.xsd" MetadataType="Schema" ID="7405cb56-52f5-4c9a-b0b0-3385afdb8980" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd47" />
+    <MetadataFile FileName="CertonaService31.xsd" MetadataType="Schema" ID="f63ef532-5555-41fd-af91-91d57c87e8a8" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd36" />
+    <MetadataFile FileName="CertonaService32.xsd" MetadataType="Schema" ID="a05bdcf5-45ed-44fa-b42a-e9c3c279f181" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd18" />
+    <MetadataFile FileName="CertonaService33.xsd" MetadataType="Schema" ID="447bdee9-2e03-48cf-a8f5-b48cdda21b8c" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd28" />
+    <MetadataFile FileName="CertonaService34.xsd" MetadataType="Schema" ID="8323ce1a-da95-4186-b926-08f1162468cf" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd38" />
+    <MetadataFile FileName="CertonaService35.xsd" MetadataType="Schema" ID="d1171f85-c3e1-4346-8649-0600bbd2dd89" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd48" />
+    <MetadataFile FileName="CertonaService36.xsd" MetadataType="Schema" ID="72858075-ab94-46aa-b4e8-9a3f530d4828" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd15" />
+    <MetadataFile FileName="CertonaService37.xsd" MetadataType="Schema" ID="6cf4487d-5dc5-4590-a18d-12c87f6d2e38" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd25" />
+    <MetadataFile FileName="CertonaService38.xsd" MetadataType="Schema" ID="64342c1a-d6a7-4239-a658-9d4995f9b3a2" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd35" />
+    <MetadataFile FileName="CertonaService39.xsd" MetadataType="Schema" ID="7697d1b5-54b7-44c9-bdda-e96b3876d86a" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd45" />
+    <MetadataFile FileName="CertonaService40.xsd" MetadataType="Schema" ID="d475c1c9-1bf1-4ef7-adfe-a7aadc18eb42" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd22" />
+    <MetadataFile FileName="CertonaService41.xsd" MetadataType="Schema" ID="783231fe-e2a0-4733-b2d1-7d96dc587f92" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd10" />
+    <MetadataFile FileName="CertonaService42.xsd" MetadataType="Schema" ID="f30ab80c-2c42-456c-94be-d88968d2591f" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd20" />
+    <MetadataFile FileName="CertonaService43.xsd" MetadataType="Schema" ID="542e6781-8833-4832-a81f-c6e22b77048d" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd30" />
+    <MetadataFile FileName="CertonaService44.xsd" MetadataType="Schema" ID="fb6a0b17-683d-411b-91aa-ffeb5481898d" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd40" />
+    <MetadataFile FileName="CertonaService45.xsd" MetadataType="Schema" ID="e7c2650c-12d3-4463-a9ba-a64ec595efd7" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd46" />
+    <MetadataFile FileName="CertonaService46.xsd" MetadataType="Schema" ID="db274687-8dc5-4d1a-ac05-8ecc2ec6f3b3" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd39" />
+    <MetadataFile FileName="CertonaService47.xsd" MetadataType="Schema" ID="99927512-a054-4129-8676-bd3ad7fd124e" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd32" />
+    <MetadataFile FileName="CertonaService48.xsd" MetadataType="Schema" ID="854d820b-6c2d-42dc-979c-88e96d50ef61" SourceId="1" SourceUrl="http://209.118.149.87/CertonaService.svc?xsd=xsd42" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

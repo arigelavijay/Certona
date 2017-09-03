@@ -1,0 +1,14 @@
+﻿@using Resonance.Insight3.Web.Helpers
+<div style="border: solid 1px orange; border-radius: 3px; padding-bottom: 10px; padding-top: 10px; padding-left: 25px; padding-right: 10px; background-color: white;">
+    <span style="white-space: nowrap;">
+        <img src="/Images/con_mod_cautionpause.png" alt="Caution!" style="vertical-align: middle;"/> <span class="bold">@this.LocalResources("UnsavedChanges")</span>
+    </span>
+    <br/>
+    <br/>
+    <div style="line-height: 2.2em;">
+        @this.LocalResources("Text0") <span class="bold">@this.LocalResources("Text1")</span> @this.LocalResources("Text2") <span class="bold">@this.LocalResources("Text3")</span> @this.LocalResources("Text4")
+    </div>
+</div>
+<div style="margin: 10px; text-align: right;">
+    <button class="k-button" onclick="UnsavedChangesContinue()" type="button">@this.LocalResources("Text1")</button>&#160;<button class="insight-cancel-btn" onclick="ClearDialogs(); $('#unsaved-changes-dialog').dialog('close');" type="button">@this.LocalResources("Text3")</button>
+</div>

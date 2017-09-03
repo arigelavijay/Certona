@@ -1,0 +1,43 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model List<Resonance.Insight3.Web.ViewModels.Variant.VariantRule>
+
+<div id="divVariantRules">
+@if (Model != null && Model.Count > 0)
+{
+    @(Html.Kendo().Grid(Model)
+          .Name("VariantRules")
+          .Columns(columns =>
+                       {
+                           columns.Bound(p => p.RuleID).Hidden(true);
+                           columns.Bound(p => p.Name).Width(250).HtmlAttributes(new {@style="vertical-align: top"});
+                           columns.Bound(p => p.RuleText).Encoded(false).Title("This strategy will return results");
+                       })
+          .TableHtmlAttributes(new {style="font-size:0.9em;"})
+          .Sortable()                       
+          .DataSource(dataSource => dataSource
+                                        .Ajax()
+                                        .ServerOperation(false)
+          ))
+}
+else
+{
+    <span><span class="bold"><i>No Rules Configured</i></span></span>
+}
+</div>  
+
+<script type="text/javascript">
+    var c = '@Model.Count';
+    $.each($('#Rules_TitleBar').find('.toggleAddEdit'), function (i, val) {
+        val = $(val);
+        if ($(val).attr('data-create-url')) {
+            if (c > 0) {
+                $(val).css('display', 'none');
+            }
+        }
+        else {
+            if (c == 0) {
+                $(val).css('display', 'none');
+            }
+        }
+    });
+</script> 

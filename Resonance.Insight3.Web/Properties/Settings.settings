@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Resonance.Insight3.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Resonance_Insight3_Web_ReportService_ReportExecutionService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://COLO1-VM-RPT1:80/ReportServer_SQL2008/ReportExecution2005.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

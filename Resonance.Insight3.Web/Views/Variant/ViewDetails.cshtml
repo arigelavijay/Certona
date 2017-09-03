@@ -1,0 +1,59 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Variant.VariantDetails
+
+<div style="display: block; width: 100%; overflow: auto">
+    <div style="float: left; width: 33%;">
+        <div style="min-height: 45px;">
+            <span class="bold">@this.SharedResources("name")</span><br/>
+            @Model.Name
+        </div>
+        
+        <div style="margin-top: 25px; min-height:35px;">
+            <span class="bold">@this.SharedResources("description")</span><br/>
+            @Model.Description
+        </div>
+        
+        <div style="margin-top: 25px;">
+            <span class="bold">@this.SharedResources("id")</span><br/>
+            @Model.VariantId
+        </div>
+        
+    </div>
+    <div style="float: left; width: 33%;">
+        <div style="min-height: 45px;">
+            <span class="hotspot bold" data-hotspot="@this.InfoPanelResources("containertitle")">@this.SharedResources("containertitle")</span><br/>
+            @Model.ContainerTitle
+        </div>
+
+        <div style="margin-top: 25px; min-height:35px;">
+            <span class="hotspot" data-hotspot="@this.InfoPanelResources("personalizationtype")"><span class="bold">@this.SharedResources("personalizationtype")</span></span><br/>
+            @Model.RecommendationType
+        </div>
+
+        <div style="margin-top: 25px; min-height:30px;">
+            <span class="bold">@this.SharedResources("status")</span><br/>
+            @Model.Status
+        </div>
+    </div>
+    <div style="float: left; width: 33%;">
+        <div style="min-height: 45px;">
+            <span class="hotspot" data-hotspot="@this.InfoPanelResources("catalog")"><span class="bold">@this.SharedResources("catalog")</span></span><br/>
+            @{ if (!String.IsNullOrWhiteSpace(Model.Icon_FileName)){
+                   var imgSrc = String.Format("/Images/AssetTypes/Small/{0}", Model.Icon_FileName.ToLower());
+                   <img alt="" src="@imgSrc" style="margin-bottom: 0px;" />
+               }
+            }@Model.Catalog
+        </div>
+
+        <div style="margin-top: 25px; min-height:35px;">
+            <span class="hotspot" data-hotspot="@this.InfoPanelResources("priority")"><span class="bold">@this.SharedResources("priority")</span></span><br/>
+            @Model.Priority
+        </div>
+
+        <div style="margin-top: 25px;">
+            <span class="hotspot" data-hotspot="@this.InfoPanelResources("numberofassets")"><span class="bold">@this.SharedResources("numberofassets")</span></span><br/>
+            @Model.NumberOfAssets
+        </div>
+    </div>
+    <br/>
+</div>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd39" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" />
+  <xs:complexType name="GetApplicationRemarketingCampaignsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q1:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="RemarketingCampaigns" nillable="true" type="q2:ArrayOfRemarketingCampaignSummaryDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetApplicationRemarketingCampaignsResponse" nillable="true" type="tns:GetApplicationRemarketingCampaignsResponse" />
+  <xs:complexType name="GetRemarketingCampaignDetailsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q3:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="RemarketingCampaign" nillable="true" type="q4:RemarketingCampaignDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRemarketingCampaignDetailsResponse" nillable="true" type="tns:GetRemarketingCampaignDetailsResponse" />
+  <xs:complexType name="UpdateRemarketingCampaignStatusesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q5:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateRemarketingCampaignStatusesResponse" nillable="true" type="tns:UpdateRemarketingCampaignStatusesResponse" />
+  <xs:complexType name="ActivateRemarketingCampaignResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q6:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActivateRemarketingCampaignResponse" nillable="true" type="tns:ActivateRemarketingCampaignResponse" />
+  <xs:complexType name="CreateRemarketingCampaignResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q7:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RemarketingCampaignID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateRemarketingCampaignResponse" nillable="true" type="tns:CreateRemarketingCampaignResponse" />
+  <xs:complexType name="UpdateRemarketingCampaignResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q8:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateRemarketingCampaignResponse" nillable="true" type="tns:UpdateRemarketingCampaignResponse" />
+  <xs:complexType name="GetApplicationFrequencyCapResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q9:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="FrequencyCap" nillable="true" type="q10:ApplicationFrequencyCapDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetApplicationFrequencyCapResponse" nillable="true" type="tns:GetApplicationFrequencyCapResponse" />
+  <xs:complexType name="GetAllAbandonmentTypesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q11:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="AbandonmentTypes" nillable="true" type="q12:ArrayOfRemarketingAbandonmentDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllAbandonmentTypesResponse" nillable="true" type="tns:GetAllAbandonmentTypesResponse" />
+  <xs:complexType name="GetAllAbandonmentFiltersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q13:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="AbandonmentFilters" nillable="true" type="q14:ArrayOfRemarketingAbandonmentFilterDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllAbandonmentFiltersResponse" nillable="true" type="tns:GetAllAbandonmentFiltersResponse" />
+  <xs:complexType name="GetAllAbandonmentIntervalsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q15:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="AbandonmentIntervals" nillable="true" type="q16:ArrayOfRemarketingAbandonmentIntervalDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllAbandonmentIntervalsResponse" nillable="true" type="tns:GetAllAbandonmentIntervalsResponse" />
+  <xs:complexType name="GetAllDeliveryMethodsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q17:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="DeliveryMethods" nillable="true" type="q18:ArrayOfRemarketingDeliveryMethodDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllDeliveryMethodsResponse" nillable="true" type="tns:GetAllDeliveryMethodsResponse" />
+  <xs:complexType name="GetAllServiceHeadersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q19:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="ServiceHeaders" nillable="true" type="q20:ArrayOfRemarketingServiceHeaderDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllServiceHeadersResponse" nillable="true" type="tns:GetAllServiceHeadersResponse" />
+  <xs:complexType name="GetAllServiceProtocolsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q21:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="ServiceProtocols" nillable="true" type="q22:ArrayOfRemarketingServiceProtocolDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllServiceProtocolsResponse" nillable="true" type="tns:GetAllServiceProtocolsResponse" />
+  <xs:complexType name="GetAllServiceProtocolsAvailableResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q23="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q23:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="ServiceProtocolsAvailable" nillable="true" type="q24:ArrayOfRemarketingServiceProtocolAvailableDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllServiceProtocolsAvailableResponse" nillable="true" type="tns:GetAllServiceProtocolsAvailableResponse" />
+  <xs:complexType name="GetAllServiceTypesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q25="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q25:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="ServiceTypes" nillable="true" type="q26:ArrayOfRemarketingServiceTypeDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAllServiceTypesResponse" nillable="true" type="tns:GetAllServiceTypesResponse" />
+  <xs:complexType name="GetCatalogsForApplicationResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q27:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="Catalogs" nillable="true" type="q28:ArrayOfRemarketingCatalogDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogsForApplicationResponse" nillable="true" type="tns:GetCatalogsForApplicationResponse" />
+  <xs:complexType name="GetCatalogCurrencyFieldsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q29="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q29:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" minOccurs="0" name="CurrencyFields" nillable="true" type="q30:ArrayOfCatalogCurrencyFieldDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogCurrencyFieldsResponse" nillable="true" type="tns:GetCatalogCurrencyFieldsResponse" />
+  <xs:complexType name="GetRemarketingEmailSchemesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q31="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q31:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="EmailSchemes" nillable="true" type="q32:ArrayOfRemarketingEmailSchemeDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRemarketingEmailSchemesResponse" nillable="true" type="tns:GetRemarketingEmailSchemesResponse" />
+  <xs:complexType name="GetRemarketingESPConfigInfoResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q33="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q33:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="EspConfigInfos" nillable="true" type="q34:ArrayOfRemarketingESPConfigInfoDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRemarketingESPConfigInfoResponse" nillable="true" type="tns:GetRemarketingESPConfigInfoResponse" />
+  <xs:complexType name="CheckESPCampaignIDUniquenessResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q35="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q35:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsUnique" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CheckESPCampaignIDUniquenessResponse" nillable="true" type="tns:CheckESPCampaignIDUniquenessResponse" />
+  <xs:complexType name="CheckCampaignNameUniquenessResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q36="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q36:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsUnique" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CheckCampaignNameUniquenessResponse" nillable="true" type="tns:CheckCampaignNameUniquenessResponse" />
+  <xs:complexType name="GetCampaignVariantRuleResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q37="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q37:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="VariantRule" nillable="true" type="q38:RemarketingCampaignVariantRuleDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCampaignVariantRuleResponse" nillable="true" type="tns:GetCampaignVariantRuleResponse" />
+  <xs:complexType name="GetAccountNameByApplicationIdResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q39="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q39:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAccountNameByApplicationIdResponse" nillable="true" type="tns:GetAccountNameByApplicationIdResponse" />
+  <xs:complexType name="GetEmailServiceProviderConfigurationResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q40="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q40:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" minOccurs="0" name="EmailServiceProviderConfiguration" nillable="true" type="q41:EmailServiceProviderConfigurationDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetEmailServiceProviderConfigurationResponse" nillable="true" type="tns:GetEmailServiceProviderConfigurationResponse" />
+</xs:schema>

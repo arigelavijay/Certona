@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Catalog" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Catalog" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" />
+  <xs:complexType name="GetCatalogDetailsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q1:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" minOccurs="0" name="CatalogDetails" nillable="true" type="q2:CatalogDetailsDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogDetailsResponse" nillable="true" type="tns:GetCatalogDetailsResponse" />
+  <xs:complexType name="GetCatalogItemResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q3:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" minOccurs="0" name="CatalogItem" nillable="true" type="q4:CatalogItemDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogItemResponse" nillable="true" type="tns:GetCatalogItemResponse" />
+  <xs:complexType name="GetCatalogItemsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q5:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" minOccurs="0" name="Items" nillable="true" type="q6:ArrayOfCatalogItemInfoDTO" />
+          <xs:element minOccurs="0" name="Total" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogItemsResponse" nillable="true" type="tns:GetCatalogItemsResponse" />
+  <xs:complexType name="GetCatalogRuleContextsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q7:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" minOccurs="0" name="Details" nillable="true" type="q8:ArrayOfCatalogRuleContextsDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogRuleContextsResponse" nillable="true" type="tns:GetCatalogRuleContextsResponse" />
+  <xs:complexType name="GetCatalogByRuleResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q9:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" minOccurs="0" name="Details" nillable="true" type="q10:ArrayOfCatalogByRuleDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogByRuleResponse" nillable="true" type="tns:GetCatalogByRuleResponse" />
+  <xs:complexType name="GetCatalogMappingFromResonanceFieldResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q11:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CatalogMapping" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCatalogMappingFromResonanceFieldResponse" nillable="true" type="tns:GetCatalogMappingFromResonanceFieldResponse" />
+  <xs:complexType name="GetRecommendationTypesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q12:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" minOccurs="0" name="RecommendationTypes" nillable="true" type="q13:ArrayOfRecommendationTypeDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRecommendationTypesResponse" nillable="true" type="tns:GetRecommendationTypesResponse" />
+</xs:schema>

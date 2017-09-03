@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd26" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.BusinessRule" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd18" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="CreateRuleResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q1:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RuleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateRuleResponse" nillable="true" type="tns:CreateRuleResponse" />
+  <xs:complexType name="UpdateRuleResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q2:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateRuleResponse" nillable="true" type="tns:UpdateRuleResponse" />
+  <xs:complexType name="SaveExpressionResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q3:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ConditionID" type="xs:int" />
+          <xs:element minOccurs="0" name="ExpressionID" type="xs:int" />
+          <xs:element minOccurs="0" name="RuleID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveExpressionResponse" nillable="true" type="tns:SaveExpressionResponse" />
+  <xs:complexType name="GetControlSetResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q4:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.BusinessRule" minOccurs="0" name="ControlSet" nillable="true" type="q5:ControlSet" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetControlSetResponse" nillable="true" type="tns:GetControlSetResponse" />
+  <xs:complexType name="DeleteRuleResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q6:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteRuleResponse" nillable="true" type="tns:DeleteRuleResponse" />
+  <xs:complexType name="DeleteExpressionResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q7:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.BusinessRule" minOccurs="0" name="Details" nillable="true" type="q8:ExpressionDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteExpressionResponse" nillable="true" type="tns:DeleteExpressionResponse" />
+  <xs:complexType name="GetContextsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q9:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.BusinessRule" minOccurs="0" name="Contexts" nillable="true" type="q10:ArrayOfContextDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetContextsResponse" nillable="true" type="tns:GetContextsResponse" />
+  <xs:complexType name="GetRuleOperatorsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q11:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.BusinessRule" minOccurs="0" name="RuleOperators" nillable="true" type="q12:ArrayOfRuleOperatorDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRuleOperatorsResponse" nillable="true" type="tns:GetRuleOperatorsResponse" />
+  <xs:complexType name="GetFilterAttributesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q13:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.BusinessRule" minOccurs="0" name="CatalogFields" nillable="true" type="q14:ArrayOfCatalogMappingFieldDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFilterAttributesResponse" nillable="true" type="tns:GetFilterAttributesResponse" />
+  <xs:complexType name="GetConditionAttributesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q15:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.BusinessRule" minOccurs="0" name="CatalogFields" nillable="true" type="q16:ArrayOfCatalogMappingFieldDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetConditionAttributesResponse" nillable="true" type="tns:GetConditionAttributesResponse" />
+  <xs:complexType name="GetNavigationMappingResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q17:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CustomerFields" nillable="true" type="q18:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetNavigationMappingResponse" nillable="true" type="tns:GetNavigationMappingResponse" />
+  <xs:complexType name="GetUserMappingResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q19="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q19:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CustomerFields" nillable="true" type="q20:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserMappingResponse" nillable="true" type="tns:GetUserMappingResponse" />
+</xs:schema>

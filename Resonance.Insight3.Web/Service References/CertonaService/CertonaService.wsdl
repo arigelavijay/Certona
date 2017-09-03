@@ -1,0 +1,2056 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CertonaService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_ICertonaService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Scheme" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Administration" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Application" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Scheme" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Domain" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Scheme" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Framework" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Framework" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Tools" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Variant" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd15" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Variant" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd18" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd19" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Experience" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd20" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Experience" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Application" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd22" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Application" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd23" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Catalog" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd24" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.BusinessRule" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd25" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.BusinessRule" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd26" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.BusinessRule" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd27" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Framework" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd28" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Model" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd29" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Model" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd30" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Model" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd31" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Segment" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd32" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Segment" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd33" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Segment" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd34" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Package" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd35" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Package" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd36" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Package" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd37" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Remarketing" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd38" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Remarketing" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd39" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Remarketing" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd40" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Reporting" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd41" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Reporting" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd42" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Reporting" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd43" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Administration" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd44" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Administration" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd45" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.RequestObjects.Catalog" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd46" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Catalog" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd47" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Experience" />
+      <xsd:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd48" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums.Framework" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICertonaService_GetSchemeExperiences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchemeExperiences" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetSchemeExperiences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchemeExperiencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetSchemeNumberOfItemsByExperience_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchemeNumberOfItemsByExperience" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetSchemeNumberOfItemsByExperience_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchemeNumberOfItemsByExperienceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetToolsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetToolsList" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetToolsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetToolsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetVariantDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVariantDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetVariantDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVariantDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetVariantRules_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVariantRules" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetVariantRules_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVariantRulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetVariantBoosts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVariantBoosts" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetVariantBoosts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVariantBoostsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetVariantSlots_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVariantSlots" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetVariantSlots_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVariantSlotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateVariantStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVariantStatus" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateVariantStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVariantStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateVariantPriority_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVariantPriority" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateVariantPriority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVariantPriorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateVariantDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVariantDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateVariantDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVariantDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CreateVariant_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateVariant" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CreateVariant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateVariantResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetLastVariantPriorityByExperience_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastVariantPriorityByExperience" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetLastVariantPriorityByExperience_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastVariantPriorityByExperienceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationCatalogsByExperience_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationCatalogsByExperience" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationCatalogsByExperience_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationCatalogsByExperienceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CreateRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRule" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CreateRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRule" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SaveExpression_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveExpression" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SaveExpression_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveExpressionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetControlSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetControlSet" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetControlSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetControlSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_DeleteRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRule" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_DeleteRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_DeleteExpression_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExpression" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_DeleteExpression_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteExpressionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetContexts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContexts" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetContexts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContextsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetStatusList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusList" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetStatusList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetModel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModel" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetModel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetModels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModels" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetModels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetSegmentItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSegmentItems" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetSegmentItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSegmentItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetPackageDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetPackageDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetPackageSchemes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageSchemes" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetPackageSchemes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPackageSchemesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationRemarketingCampaigns_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationRemarketingCampaigns" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationRemarketingCampaigns_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationRemarketingCampaignsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetRemarketingCampaignDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRemarketingCampaignDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetRemarketingCampaignDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRemarketingCampaignDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateRemarketingCampaignStatuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRemarketingCampaignStatuses" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateRemarketingCampaignStatuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRemarketingCampaignStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_ActivateRemarketingCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateRemarketingCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_ActivateRemarketingCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateRemarketingCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CreateRemarketingCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRemarketingCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CreateRemarketingCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRemarketingCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateRemarketingCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRemarketingCampaign" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateRemarketingCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRemarketingCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationFrequencyCap_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationFrequencyCap" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationFrequencyCap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationFrequencyCapResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetApplicationFrequencyCap_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetApplicationFrequencyCap" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetApplicationFrequencyCap_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetApplicationFrequencyCapResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllAbandonmentTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAbandonmentTypes" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllAbandonmentTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAbandonmentTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllAbandonmentFilters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAbandonmentFilters" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllAbandonmentFilters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAbandonmentFiltersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAbandonmentFiltersByAbandonmentID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAbandonmentFiltersByAbandonmentID" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAbandonmentFiltersByAbandonmentID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAbandonmentFiltersByAbandonmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllAbandonmentIntervals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAbandonmentIntervals" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllAbandonmentIntervals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllAbandonmentIntervalsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllDeliveryMethods_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDeliveryMethods" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllDeliveryMethods_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDeliveryMethodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllServiceHeaders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceHeaders" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllServiceHeaders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceHeadersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllServiceProtocols_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceProtocols" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllServiceProtocols_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceProtocolsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllServiceProtocolsAvailable_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceProtocolsAvailable" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllServiceProtocolsAvailable_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceProtocolsAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllServiceTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceTypes" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAllServiceTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllServiceTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogsForApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogsForApplication" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogsForApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogsForApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogCurrencyFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogCurrencyFields" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogCurrencyFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogCurrencyFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetRemarketingEmailSchemes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRemarketingEmailSchemes" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetRemarketingEmailSchemes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRemarketingEmailSchemesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetRemarketingESPConfigInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRemarketingESPConfigInfo" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetRemarketingESPConfigInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRemarketingESPConfigInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CheckESPCampaignIDUniqueness_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckESPCampaignIDUniqueness" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CheckESPCampaignIDUniqueness_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckESPCampaignIDUniquenessResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CheckCampaignNameUniqueness_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCampaignNameUniqueness" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CheckCampaignNameUniqueness_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckCampaignNameUniquenessResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCampaignVariantRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignVariantRule" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCampaignVariantRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignVariantRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAccountNameByApplicationId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountNameByApplicationId" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAccountNameByApplicationId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountNameByApplicationIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetEmailServiceProviderConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailServiceProviderConfiguration" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetEmailServiceProviderConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailServiceProviderConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetReportsList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportsList" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetReportsList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportsListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetReportingDataLastUpdated_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportingDataLastUpdated" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetReportingDataLastUpdated_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportingDataLastUpdatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetTrendsDataApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrendsDataApplication" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetTrendsDataApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrendsDataApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetTrendsDataPackage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrendsDataPackage" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetTrendsDataPackage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrendsDataPackageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetTrendsDataScheme_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrendsDataScheme" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetTrendsDataScheme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrendsDataSchemeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetTrendsDataExperience_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrendsDataExperience" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetTrendsDataExperience_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrendsDataExperienceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetTrendsDataVariant_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrendsDataVariant" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetTrendsDataVariant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrendsDataVariantResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetSchemeDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchemeDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetSchemeDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchemeDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetSchemeContext_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchemeContext" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetSchemeContext_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchemeContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetSchemeEventContext_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchemeEventContext" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetSchemeEventContext_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSchemeEventContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetRuleOperators_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRuleOperators" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetRuleOperators_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRuleOperatorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_AuthenticateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_AuthenticateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetUserAccountApplicationFeatures_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAccountApplicationFeatures" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetUserAccountApplicationFeatures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserAccountApplicationFeaturesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetUserSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserSettings" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetUserSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetContentPanel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContentPanel" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetContentPanel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContentPanelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetContentPanelSectionState_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetContentPanelSectionState" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetContentPanelSectionState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetContentPanelSectionStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAccountsByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsByUser" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAccountsByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountsByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationPackages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationPackages" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationPackages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationPackagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationCatalogs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationCatalogs" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationCatalogs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationCatalogsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationSchemes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationSchemes" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationSchemes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationSchemesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationSegments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationSegments" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetApplicationSegments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationSegmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetFilterAttributes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilterAttributes" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetFilterAttributes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilterAttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetConditionAttributes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConditionAttributes" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetConditionAttributes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConditionAttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetNavigationMapping_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNavigationMapping" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetNavigationMapping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNavigationMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetUserMapping_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMapping" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetUserMapping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogItem" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogItems" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogRuleContexts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogRuleContexts" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogRuleContexts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogRuleContextsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogByRule_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogByRule" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogByRule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogByRuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogMappingFromResonanceField_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogMappingFromResonanceField" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetCatalogMappingFromResonanceField_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogMappingFromResonanceFieldResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetRecommendationTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecommendationTypes" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetRecommendationTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecommendationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetExperienceBoosts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceBoosts" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetExperienceBoosts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceBoostsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetExperienceVariants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceVariants" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetExperienceVariants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceVariantsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetExperienceDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetExperienceDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExperienceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateExperienceDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExperienceDetails" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateExperienceDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExperienceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateExperienceModifiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExperienceModifiers" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateExperienceModifiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExperienceModifiersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateVariantModifiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVariantModifiers" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateVariantModifiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateVariantModifiersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateExperienceTraffic_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExperienceTraffic" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_UpdateExperienceTraffic_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExperienceTrafficResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CreateExperience_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateExperience" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_CreateExperience_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateExperienceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAccountExplorerStatusList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountExplorerStatusList" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAccountExplorerStatusList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountExplorerStatusListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetPanelBarStates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPanelBarStates" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetPanelBarStates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPanelBarStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAccountExplorerTree_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountExplorerTree" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAccountExplorerTree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountExplorerTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAssetExplorerTree_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssetExplorerTree" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetAssetExplorerTree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssetExplorerTreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetPanelBarWidth_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetPanelBarWidth" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetPanelBarWidth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetPanelBarWidthResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetSelectedNode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSelectedNode" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetSelectedNode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSelectedNodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetAccountExplorerStatusList_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAccountExplorerStatusList" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetAccountExplorerStatusList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAccountExplorerStatusListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetPanelBarWidth_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPanelBarWidth" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_GetPanelBarWidth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPanelBarWidthResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetAccountExplorerNodeState_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAccountExplorerNodeState" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetAccountExplorerNodeState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAccountExplorerNodeStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetAssetExplorerNodeState_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAssetExplorerNodeState" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetAssetExplorerNodeState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAssetExplorerNodeStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetPanelBarStates_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetPanelBarStates" />
+  </wsdl:message>
+  <wsdl:message name="ICertonaService_SetPanelBarStates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetPanelBarStatesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICertonaService">
+    <wsdl:operation name="GetSchemeExperiences">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetSchemeExperiences" message="tns:ICertonaService_GetSchemeExperiences_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetSchemeExperiencesResponse" message="tns:ICertonaService_GetSchemeExperiences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchemeNumberOfItemsByExperience">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetSchemeNumberOfItemsByExperience" message="tns:ICertonaService_GetSchemeNumberOfItemsByExperience_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetSchemeNumberOfItemsByExperienceResponse" message="tns:ICertonaService_GetSchemeNumberOfItemsByExperience_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetToolsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetToolsList" message="tns:ICertonaService_GetToolsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetToolsListResponse" message="tns:ICertonaService_GetToolsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVariantDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetVariantDetails" message="tns:ICertonaService_GetVariantDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetVariantDetailsResponse" message="tns:ICertonaService_GetVariantDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVariantRules">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetVariantRules" message="tns:ICertonaService_GetVariantRules_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetVariantRulesResponse" message="tns:ICertonaService_GetVariantRules_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVariantBoosts">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetVariantBoosts" message="tns:ICertonaService_GetVariantBoosts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetVariantBoostsResponse" message="tns:ICertonaService_GetVariantBoosts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVariantSlots">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetVariantSlots" message="tns:ICertonaService_GetVariantSlots_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetVariantSlotsResponse" message="tns:ICertonaService_GetVariantSlots_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVariantStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/UpdateVariantStatus" message="tns:ICertonaService_UpdateVariantStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/UpdateVariantStatusResponse" message="tns:ICertonaService_UpdateVariantStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVariantPriority">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/UpdateVariantPriority" message="tns:ICertonaService_UpdateVariantPriority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/UpdateVariantPriorityResponse" message="tns:ICertonaService_UpdateVariantPriority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVariantDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/UpdateVariantDetails" message="tns:ICertonaService_UpdateVariantDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/UpdateVariantDetailsResponse" message="tns:ICertonaService_UpdateVariantDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVariant">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/CreateVariant" message="tns:ICertonaService_CreateVariant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/CreateVariantResponse" message="tns:ICertonaService_CreateVariant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastVariantPriorityByExperience">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetLastVariantPriorityByExperience" message="tns:ICertonaService_GetLastVariantPriorityByExperience_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetLastVariantPriorityByExperienceResponse" message="tns:ICertonaService_GetLastVariantPriorityByExperience_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationCatalogsByExperience">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationCatalogsByExperience" message="tns:ICertonaService_GetApplicationCatalogsByExperience_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationCatalogsByExperienceResponse" message="tns:ICertonaService_GetApplicationCatalogsByExperience_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/CreateRule" message="tns:ICertonaService_CreateRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/CreateRuleResponse" message="tns:ICertonaService_CreateRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/UpdateRule" message="tns:ICertonaService_UpdateRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/UpdateRuleResponse" message="tns:ICertonaService_UpdateRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveExpression">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/SaveExpression" message="tns:ICertonaService_SaveExpression_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/SaveExpressionResponse" message="tns:ICertonaService_SaveExpression_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetControlSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetControlSet" message="tns:ICertonaService_GetControlSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetControlSetResponse" message="tns:ICertonaService_GetControlSet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/DeleteRule" message="tns:ICertonaService_DeleteRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/DeleteRuleResponse" message="tns:ICertonaService_DeleteRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExpression">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/DeleteExpression" message="tns:ICertonaService_DeleteExpression_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/DeleteExpressionResponse" message="tns:ICertonaService_DeleteExpression_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContexts">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetContexts" message="tns:ICertonaService_GetContexts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetContextsResponse" message="tns:ICertonaService_GetContexts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetStatusList" message="tns:ICertonaService_GetStatusList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetStatusListResponse" message="tns:ICertonaService_GetStatusList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModel">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetModel" message="tns:ICertonaService_GetModel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetModelResponse" message="tns:ICertonaService_GetModel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModels">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetModels" message="tns:ICertonaService_GetModels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetModelsResponse" message="tns:ICertonaService_GetModels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSegmentItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetSegmentItems" message="tns:ICertonaService_GetSegmentItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetSegmentItemsResponse" message="tns:ICertonaService_GetSegmentItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetPackageDetails" message="tns:ICertonaService_GetPackageDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetPackageDetailsResponse" message="tns:ICertonaService_GetPackageDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageSchemes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetPackageSchemes" message="tns:ICertonaService_GetPackageSchemes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetPackageSchemesResponse" message="tns:ICertonaService_GetPackageSchemes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationRemarketingCampaigns">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationRemarketingCampaigns" message="tns:ICertonaService_GetApplicationRemarketingCampaigns_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationRemarketingCampaignsResponse" message="tns:ICertonaService_GetApplicationRemarketingCampaigns_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarketingCampaignDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetRemarketingCampaignDetails" message="tns:ICertonaService_GetRemarketingCampaignDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetRemarketingCampaignDetailsResponse" message="tns:ICertonaService_GetRemarketingCampaignDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRemarketingCampaignStatuses">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/UpdateRemarketingCampaignStatuses" message="tns:ICertonaService_UpdateRemarketingCampaignStatuses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/UpdateRemarketingCampaignStatusesResponse" message="tns:ICertonaService_UpdateRemarketingCampaignStatuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateRemarketingCampaign">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/ActivateRemarketingCampaign" message="tns:ICertonaService_ActivateRemarketingCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/ActivateRemarketingCampaignResponse" message="tns:ICertonaService_ActivateRemarketingCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRemarketingCampaign">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/CreateRemarketingCampaign" message="tns:ICertonaService_CreateRemarketingCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/CreateRemarketingCampaignResponse" message="tns:ICertonaService_CreateRemarketingCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRemarketingCampaign">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/UpdateRemarketingCampaign" message="tns:ICertonaService_UpdateRemarketingCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/UpdateRemarketingCampaignResponse" message="tns:ICertonaService_UpdateRemarketingCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationFrequencyCap">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationFrequencyCap" message="tns:ICertonaService_GetApplicationFrequencyCap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationFrequencyCapResponse" message="tns:ICertonaService_GetApplicationFrequencyCap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetApplicationFrequencyCap">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/SetApplicationFrequencyCap" message="tns:ICertonaService_SetApplicationFrequencyCap_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/SetApplicationFrequencyCapResponse" message="tns:ICertonaService_SetApplicationFrequencyCap_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAbandonmentTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAllAbandonmentTypes" message="tns:ICertonaService_GetAllAbandonmentTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAllAbandonmentTypesResponse" message="tns:ICertonaService_GetAllAbandonmentTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAbandonmentFilters">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAllAbandonmentFilters" message="tns:ICertonaService_GetAllAbandonmentFilters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAllAbandonmentFiltersResponse" message="tns:ICertonaService_GetAllAbandonmentFilters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAbandonmentFiltersByAbandonmentID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAbandonmentFiltersByAbandonmentID" message="tns:ICertonaService_GetAbandonmentFiltersByAbandonmentID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAbandonmentFiltersByAbandonmentIDResponse" message="tns:ICertonaService_GetAbandonmentFiltersByAbandonmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAbandonmentIntervals">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAllAbandonmentIntervals" message="tns:ICertonaService_GetAllAbandonmentIntervals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAllAbandonmentIntervalsResponse" message="tns:ICertonaService_GetAllAbandonmentIntervals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDeliveryMethods">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAllDeliveryMethods" message="tns:ICertonaService_GetAllDeliveryMethods_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAllDeliveryMethodsResponse" message="tns:ICertonaService_GetAllDeliveryMethods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceHeaders">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAllServiceHeaders" message="tns:ICertonaService_GetAllServiceHeaders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAllServiceHeadersResponse" message="tns:ICertonaService_GetAllServiceHeaders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceProtocols">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAllServiceProtocols" message="tns:ICertonaService_GetAllServiceProtocols_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAllServiceProtocolsResponse" message="tns:ICertonaService_GetAllServiceProtocols_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceProtocolsAvailable">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAllServiceProtocolsAvailable" message="tns:ICertonaService_GetAllServiceProtocolsAvailable_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAllServiceProtocolsAvailableResponse" message="tns:ICertonaService_GetAllServiceProtocolsAvailable_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAllServiceTypes" message="tns:ICertonaService_GetAllServiceTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAllServiceTypesResponse" message="tns:ICertonaService_GetAllServiceTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogsForApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogsForApplication" message="tns:ICertonaService_GetCatalogsForApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogsForApplicationResponse" message="tns:ICertonaService_GetCatalogsForApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogCurrencyFields">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogCurrencyFields" message="tns:ICertonaService_GetCatalogCurrencyFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogCurrencyFieldsResponse" message="tns:ICertonaService_GetCatalogCurrencyFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarketingEmailSchemes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetRemarketingEmailSchemes" message="tns:ICertonaService_GetRemarketingEmailSchemes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetRemarketingEmailSchemesResponse" message="tns:ICertonaService_GetRemarketingEmailSchemes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarketingESPConfigInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetRemarketingESPConfigInfo" message="tns:ICertonaService_GetRemarketingESPConfigInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetRemarketingESPConfigInfoResponse" message="tns:ICertonaService_GetRemarketingESPConfigInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckESPCampaignIDUniqueness">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/CheckESPCampaignIDUniqueness" message="tns:ICertonaService_CheckESPCampaignIDUniqueness_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/CheckESPCampaignIDUniquenessResponse" message="tns:ICertonaService_CheckESPCampaignIDUniqueness_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckCampaignNameUniqueness">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/CheckCampaignNameUniqueness" message="tns:ICertonaService_CheckCampaignNameUniqueness_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/CheckCampaignNameUniquenessResponse" message="tns:ICertonaService_CheckCampaignNameUniqueness_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignVariantRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetCampaignVariantRule" message="tns:ICertonaService_GetCampaignVariantRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetCampaignVariantRuleResponse" message="tns:ICertonaService_GetCampaignVariantRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountNameByApplicationId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAccountNameByApplicationId" message="tns:ICertonaService_GetAccountNameByApplicationId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAccountNameByApplicationIdResponse" message="tns:ICertonaService_GetAccountNameByApplicationId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailServiceProviderConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetEmailServiceProviderConfiguration" message="tns:ICertonaService_GetEmailServiceProviderConfiguration_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetEmailServiceProviderConfigurationResponse" message="tns:ICertonaService_GetEmailServiceProviderConfiguration_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportsList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetReportsList" message="tns:ICertonaService_GetReportsList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetReportsListResponse" message="tns:ICertonaService_GetReportsList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportingDataLastUpdated">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetReportingDataLastUpdated" message="tns:ICertonaService_GetReportingDataLastUpdated_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetReportingDataLastUpdatedResponse" message="tns:ICertonaService_GetReportingDataLastUpdated_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrendsDataApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetTrendsDataApplication" message="tns:ICertonaService_GetTrendsDataApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetTrendsDataApplicationResponse" message="tns:ICertonaService_GetTrendsDataApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrendsDataPackage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetTrendsDataPackage" message="tns:ICertonaService_GetTrendsDataPackage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetTrendsDataPackageResponse" message="tns:ICertonaService_GetTrendsDataPackage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrendsDataScheme">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetTrendsDataScheme" message="tns:ICertonaService_GetTrendsDataScheme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetTrendsDataSchemeResponse" message="tns:ICertonaService_GetTrendsDataScheme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrendsDataExperience">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetTrendsDataExperience" message="tns:ICertonaService_GetTrendsDataExperience_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetTrendsDataExperienceResponse" message="tns:ICertonaService_GetTrendsDataExperience_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrendsDataVariant">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetTrendsDataVariant" message="tns:ICertonaService_GetTrendsDataVariant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetTrendsDataVariantResponse" message="tns:ICertonaService_GetTrendsDataVariant_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchemeDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetSchemeDetails" message="tns:ICertonaService_GetSchemeDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetSchemeDetailsResponse" message="tns:ICertonaService_GetSchemeDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchemeContext">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetSchemeContext" message="tns:ICertonaService_GetSchemeContext_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetSchemeContextResponse" message="tns:ICertonaService_GetSchemeContext_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchemeEventContext">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetSchemeEventContext" message="tns:ICertonaService_GetSchemeEventContext_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetSchemeEventContextResponse" message="tns:ICertonaService_GetSchemeEventContext_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleOperators">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetRuleOperators" message="tns:ICertonaService_GetRuleOperators_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetRuleOperatorsResponse" message="tns:ICertonaService_GetRuleOperators_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/AuthenticateUser" message="tns:ICertonaService_AuthenticateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/AuthenticateUserResponse" message="tns:ICertonaService_AuthenticateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAccountApplicationFeatures">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetUserAccountApplicationFeatures" message="tns:ICertonaService_GetUserAccountApplicationFeatures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetUserAccountApplicationFeaturesResponse" message="tns:ICertonaService_GetUserAccountApplicationFeatures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetUserSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/SetUserSettings" message="tns:ICertonaService_SetUserSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/SetUserSettingsResponse" message="tns:ICertonaService_SetUserSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentPanel">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetContentPanel" message="tns:ICertonaService_GetContentPanel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetContentPanelResponse" message="tns:ICertonaService_GetContentPanel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetContentPanelSectionState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/SetContentPanelSectionState" message="tns:ICertonaService_SetContentPanelSectionState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/SetContentPanelSectionStateResponse" message="tns:ICertonaService_SetContentPanelSectionState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAccountsByUser" message="tns:ICertonaService_GetAccountsByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAccountsByUserResponse" message="tns:ICertonaService_GetAccountsByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationDetails" message="tns:ICertonaService_GetApplicationDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationDetailsResponse" message="tns:ICertonaService_GetApplicationDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationPackages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationPackages" message="tns:ICertonaService_GetApplicationPackages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationPackagesResponse" message="tns:ICertonaService_GetApplicationPackages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationCatalogs">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationCatalogs" message="tns:ICertonaService_GetApplicationCatalogs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationCatalogsResponse" message="tns:ICertonaService_GetApplicationCatalogs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationSchemes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationSchemes" message="tns:ICertonaService_GetApplicationSchemes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationSchemesResponse" message="tns:ICertonaService_GetApplicationSchemes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationSegments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationSegments" message="tns:ICertonaService_GetApplicationSegments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetApplicationSegmentsResponse" message="tns:ICertonaService_GetApplicationSegments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFilterAttributes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetFilterAttributes" message="tns:ICertonaService_GetFilterAttributes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetFilterAttributesResponse" message="tns:ICertonaService_GetFilterAttributes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConditionAttributes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetConditionAttributes" message="tns:ICertonaService_GetConditionAttributes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetConditionAttributesResponse" message="tns:ICertonaService_GetConditionAttributes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNavigationMapping">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetNavigationMapping" message="tns:ICertonaService_GetNavigationMapping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetNavigationMappingResponse" message="tns:ICertonaService_GetNavigationMapping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMapping">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetUserMapping" message="tns:ICertonaService_GetUserMapping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetUserMappingResponse" message="tns:ICertonaService_GetUserMapping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogDetails" message="tns:ICertonaService_GetCatalogDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogDetailsResponse" message="tns:ICertonaService_GetCatalogDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogItem" message="tns:ICertonaService_GetCatalogItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogItemResponse" message="tns:ICertonaService_GetCatalogItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogItems" message="tns:ICertonaService_GetCatalogItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogItemsResponse" message="tns:ICertonaService_GetCatalogItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogRuleContexts">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogRuleContexts" message="tns:ICertonaService_GetCatalogRuleContexts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogRuleContextsResponse" message="tns:ICertonaService_GetCatalogRuleContexts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogByRule">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogByRule" message="tns:ICertonaService_GetCatalogByRule_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogByRuleResponse" message="tns:ICertonaService_GetCatalogByRule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogMappingFromResonanceField">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogMappingFromResonanceField" message="tns:ICertonaService_GetCatalogMappingFromResonanceField_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetCatalogMappingFromResonanceFieldResponse" message="tns:ICertonaService_GetCatalogMappingFromResonanceField_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendationTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetRecommendationTypes" message="tns:ICertonaService_GetRecommendationTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetRecommendationTypesResponse" message="tns:ICertonaService_GetRecommendationTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceBoosts">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetExperienceBoosts" message="tns:ICertonaService_GetExperienceBoosts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetExperienceBoostsResponse" message="tns:ICertonaService_GetExperienceBoosts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceVariants">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetExperienceVariants" message="tns:ICertonaService_GetExperienceVariants_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetExperienceVariantsResponse" message="tns:ICertonaService_GetExperienceVariants_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetExperienceDetails" message="tns:ICertonaService_GetExperienceDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetExperienceDetailsResponse" message="tns:ICertonaService_GetExperienceDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExperienceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/UpdateExperienceDetails" message="tns:ICertonaService_UpdateExperienceDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/UpdateExperienceDetailsResponse" message="tns:ICertonaService_UpdateExperienceDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExperienceModifiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/UpdateExperienceModifiers" message="tns:ICertonaService_UpdateExperienceModifiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/UpdateExperienceModifiersResponse" message="tns:ICertonaService_UpdateExperienceModifiers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVariantModifiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/UpdateVariantModifiers" message="tns:ICertonaService_UpdateVariantModifiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/UpdateVariantModifiersResponse" message="tns:ICertonaService_UpdateVariantModifiers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExperienceTraffic">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/UpdateExperienceTraffic" message="tns:ICertonaService_UpdateExperienceTraffic_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/UpdateExperienceTrafficResponse" message="tns:ICertonaService_UpdateExperienceTraffic_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateExperience">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/CreateExperience" message="tns:ICertonaService_CreateExperience_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/CreateExperienceResponse" message="tns:ICertonaService_CreateExperience_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountExplorerStatusList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAccountExplorerStatusList" message="tns:ICertonaService_GetAccountExplorerStatusList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAccountExplorerStatusListResponse" message="tns:ICertonaService_GetAccountExplorerStatusList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPanelBarStates">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetPanelBarStates" message="tns:ICertonaService_GetPanelBarStates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetPanelBarStatesResponse" message="tns:ICertonaService_GetPanelBarStates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountExplorerTree">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAccountExplorerTree" message="tns:ICertonaService_GetAccountExplorerTree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAccountExplorerTreeResponse" message="tns:ICertonaService_GetAccountExplorerTree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetExplorerTree">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetAssetExplorerTree" message="tns:ICertonaService_GetAssetExplorerTree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetAssetExplorerTreeResponse" message="tns:ICertonaService_GetAssetExplorerTree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPanelBarWidth">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/SetPanelBarWidth" message="tns:ICertonaService_SetPanelBarWidth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/SetPanelBarWidthResponse" message="tns:ICertonaService_SetPanelBarWidth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSelectedNode">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/SetSelectedNode" message="tns:ICertonaService_SetSelectedNode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/SetSelectedNodeResponse" message="tns:ICertonaService_SetSelectedNode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAccountExplorerStatusList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/SetAccountExplorerStatusList" message="tns:ICertonaService_SetAccountExplorerStatusList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/SetAccountExplorerStatusListResponse" message="tns:ICertonaService_SetAccountExplorerStatusList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPanelBarWidth">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/GetPanelBarWidth" message="tns:ICertonaService_GetPanelBarWidth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/GetPanelBarWidthResponse" message="tns:ICertonaService_GetPanelBarWidth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAccountExplorerNodeState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/SetAccountExplorerNodeState" message="tns:ICertonaService_SetAccountExplorerNodeState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/SetAccountExplorerNodeStateResponse" message="tns:ICertonaService_SetAccountExplorerNodeState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAssetExplorerNodeState">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/SetAssetExplorerNodeState" message="tns:ICertonaService_SetAssetExplorerNodeState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/SetAssetExplorerNodeStateResponse" message="tns:ICertonaService_SetAssetExplorerNodeState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPanelBarStates">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICertonaService/SetPanelBarStates" message="tns:ICertonaService_SetPanelBarStates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICertonaService/SetPanelBarStatesResponse" message="tns:ICertonaService_SetPanelBarStates_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_ICertonaService" type="tns:ICertonaService">
+    <wsp:PolicyReference URI="#WSHttpBinding_ICertonaService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSchemeExperiences">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetSchemeExperiences" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchemeNumberOfItemsByExperience">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetSchemeNumberOfItemsByExperience" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetToolsList">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetToolsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVariantDetails">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetVariantDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVariantRules">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetVariantRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVariantBoosts">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetVariantBoosts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVariantSlots">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetVariantSlots" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVariantStatus">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/UpdateVariantStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVariantPriority">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/UpdateVariantPriority" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVariantDetails">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/UpdateVariantDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVariant">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/CreateVariant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastVariantPriorityByExperience">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetLastVariantPriorityByExperience" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationCatalogsByExperience">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetApplicationCatalogsByExperience" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRule">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/CreateRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRule">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/UpdateRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveExpression">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/SaveExpression" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetControlSet">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetControlSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRule">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/DeleteRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteExpression">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/DeleteExpression" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContexts">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetContexts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusList">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetStatusList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModel">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetModel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModels">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetModels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSegmentItems">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetSegmentItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageDetails">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetPackageDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageSchemes">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetPackageSchemes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationRemarketingCampaigns">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetApplicationRemarketingCampaigns" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarketingCampaignDetails">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetRemarketingCampaignDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRemarketingCampaignStatuses">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/UpdateRemarketingCampaignStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateRemarketingCampaign">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/ActivateRemarketingCampaign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRemarketingCampaign">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/CreateRemarketingCampaign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRemarketingCampaign">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/UpdateRemarketingCampaign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationFrequencyCap">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetApplicationFrequencyCap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetApplicationFrequencyCap">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/SetApplicationFrequencyCap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAbandonmentTypes">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAllAbandonmentTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAbandonmentFilters">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAllAbandonmentFilters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAbandonmentFiltersByAbandonmentID">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAbandonmentFiltersByAbandonmentID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAbandonmentIntervals">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAllAbandonmentIntervals" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDeliveryMethods">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAllDeliveryMethods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceHeaders">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAllServiceHeaders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceProtocols">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAllServiceProtocols" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceProtocolsAvailable">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAllServiceProtocolsAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllServiceTypes">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAllServiceTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogsForApplication">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetCatalogsForApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogCurrencyFields">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetCatalogCurrencyFields" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarketingEmailSchemes">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetRemarketingEmailSchemes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRemarketingESPConfigInfo">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetRemarketingESPConfigInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckESPCampaignIDUniqueness">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/CheckESPCampaignIDUniqueness" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckCampaignNameUniqueness">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/CheckCampaignNameUniqueness" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignVariantRule">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetCampaignVariantRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountNameByApplicationId">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAccountNameByApplicationId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmailServiceProviderConfiguration">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetEmailServiceProviderConfiguration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportsList">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetReportsList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportingDataLastUpdated">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetReportingDataLastUpdated" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrendsDataApplication">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetTrendsDataApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrendsDataPackage">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetTrendsDataPackage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrendsDataScheme">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetTrendsDataScheme" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrendsDataExperience">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetTrendsDataExperience" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrendsDataVariant">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetTrendsDataVariant" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchemeDetails">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetSchemeDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchemeContext">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetSchemeContext" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchemeEventContext">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetSchemeEventContext" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRuleOperators">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetRuleOperators" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAccountApplicationFeatures">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetUserAccountApplicationFeatures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserSettings">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/SetUserSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentPanel">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetContentPanel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetContentPanelSectionState">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/SetContentPanelSectionState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountsByUser">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAccountsByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationDetails">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetApplicationDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationPackages">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetApplicationPackages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationCatalogs">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetApplicationCatalogs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationSchemes">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetApplicationSchemes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationSegments">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetApplicationSegments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilterAttributes">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetFilterAttributes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConditionAttributes">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetConditionAttributes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNavigationMapping">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetNavigationMapping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserMapping">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetUserMapping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogDetails">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetCatalogDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogItem">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetCatalogItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogItems">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetCatalogItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogRuleContexts">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetCatalogRuleContexts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogByRule">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetCatalogByRule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogMappingFromResonanceField">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetCatalogMappingFromResonanceField" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendationTypes">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetRecommendationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceBoosts">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetExperienceBoosts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceVariants">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetExperienceVariants" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExperienceDetails">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetExperienceDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExperienceDetails">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/UpdateExperienceDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExperienceModifiers">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/UpdateExperienceModifiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVariantModifiers">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/UpdateVariantModifiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExperienceTraffic">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/UpdateExperienceTraffic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateExperience">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/CreateExperience" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountExplorerStatusList">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAccountExplorerStatusList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPanelBarStates">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetPanelBarStates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountExplorerTree">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAccountExplorerTree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssetExplorerTree">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetAssetExplorerTree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPanelBarWidth">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/SetPanelBarWidth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSelectedNode">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/SetSelectedNode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAccountExplorerStatusList">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/SetAccountExplorerStatusList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPanelBarWidth">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/GetPanelBarWidth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAccountExplorerNodeState">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/SetAccountExplorerNodeState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAssetExplorerNodeState">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/SetAssetExplorerNodeState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPanelBarStates">
+      <soap12:operation soapAction="http://tempuri.org/ICertonaService/SetPanelBarStates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CertonaService">
+    <wsdl:port name="WSHttpBinding_ICertonaService" binding="tns:WSHttpBinding_ICertonaService">
+      <soap12:address location="http://209.118.149.87/CertonaService.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://209.118.149.87/CertonaService.svc</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

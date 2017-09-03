@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Administration" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Administration" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Application" />
+  <xs:complexType name="UserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCertonaEmployee" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastAccountID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Accounts" nillable="true" type="tns:ArrayOfAccountDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDTO" nillable="true" type="tns:UserDTO" />
+  <xs:complexType name="ArrayOfAccountDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccountDTO" nillable="true" type="tns:AccountDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccountDTO" nillable="true" type="tns:ArrayOfAccountDTO" />
+  <xs:complexType name="AccountDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Application" minOccurs="0" name="Applications" nillable="true" type="q1:ArrayOfApplicationDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccountDTO" nillable="true" type="tns:AccountDTO" />
+  <xs:complexType name="ArrayOfFeatureDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FeatureDTO" nillable="true" type="tns:FeatureDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFeatureDTO" nillable="true" type="tns:ArrayOfFeatureDTO" />
+  <xs:complexType name="FeatureDTO">
+    <xs:sequence>
+      <xs:element name="FeatureCode" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element name="IsReadOnly" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FeatureDTO" nillable="true" type="tns:FeatureDTO" />
+</xs:schema>

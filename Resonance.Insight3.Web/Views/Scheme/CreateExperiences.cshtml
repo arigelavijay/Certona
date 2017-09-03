@@ -1,0 +1,100 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@using Resonance.Insight3.Web.HtmlHelpers
+@model Resonance.Insight3.Web.ViewModels.Experience.ExperienceNodeViewModel
+
+@{
+    const string formName = "frmCreateExperiences";
+    const string createContainer = "#insight-create-dialog";
+    string updateTargetId = ViewBag.UpdateTargetId;
+}
+
+@using (Ajax.BeginForm("CreateNewExperience", "Scheme",
+    new AjaxOptions { HttpMethod = "Post", UpdateTargetId = @updateTargetId, OnBegin = "return additionalValidation()", OnSuccess = "onAjaxPostSuccess", OnFailure = "onAjaxPostFailure", }, new { id = @formName }))
+{
+
+    @Html.HiddenFor(m => m.SchemeID, Model.SchemeID)
+    
+<div style="position:relative; height: 100%">
+    @*    
+    <fieldset>
+        <legend><span class="hotspot" data-hotspot="test"><input type="radio" name="groupAddExperience"  id="addExisting" onclick="toggleMode(this)"/><span class="bold">Select an existing Experience</span></span></legend>
+        <div class="div-context-item" id="existing">
+            @(Html.Kendo().Grid(Model.Experiences)
+                  .Name("ActiveSchemeExperiences")
+                  .Columns(columns =>
+                               {
+                                   columns.Bound(p => p.ExperienceID).Title("").ClientTemplate("<input type='radio' name='groupSelectedExperience' value='#=ExperienceID#'>");
+                                   columns.Bound(p => p.Name).ClientTemplate("<span style='cursor:pointer;' onclick=\"alert('#=Name#');\"><u>#=Name#</u></span>");
+                                   columns.Bound(p => p.Description);
+                                   columns.Bound(p => p.Traffic).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="test">Traffic</span> </text>).Format("{0}%"); ;
+                                   columns.Bound(p => p.Status).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="test">Status</span> </text>)
+                                       .ClientTemplate("<span style='cursor:help;' #=Status == 'Inactive' || Status == 'Deleted' ? Status == 'Inactive' ? 'class=\"accountStatusInactive\"' : 'class=\"accountStatusDeleted\"' : '' # onmouseover=\"ShowInfo('#=Status#');\" onmouseout=\"HideInfo();\">#=Status#</span>");
+                               })
+                  .TableHtmlAttributes(new {style="font-size:0.9em;"})
+                  .Sortable()
+                  .Selectable(selectable => selectable.Enabled(true).Type(GridSelectionType.Row).Mode(GridSelectionMode.Single))
+                  .Navigatable()                  
+                  .DataSource(dataSource => dataSource
+                                                .Ajax()
+                                                .ServerOperation(false)
+                                                .Sort(sort => sort.Add(o => o.Name).Ascending()))
+                  .Events(events => events.Change("onChange")))                  
+        </div>
+    </fieldset>
+    *@
+    
+    <div style="clear: both;"></div>
+
+    <fieldset style="background-color: #fff;">
+        <legend><input type="radio" name="groupAddExperience" checked="checked" id="addNew" onclick="toggleMode(this)"/><span class="bold">@this.SharedResources("CreateNewExperience")</span></legend>
+        <div class="div-context-item" id="new" style="padding-top: 15px; padding-bottom: 15px;">
+            <span class="hotspot" data-hotspot="@this.InfoPanelResources("name")">
+                <span class="bold">@Html.RequiredAsterik(this) @this.SharedResources("name")</span>
+            </span><br/>
+            @Html.TextBoxForWithDefault(m => m.Name, Model.Name, 403)<br/>
+            @Html.ValidationMessageFor(m => m.Name)
+            <br/><br/>
+            <span class="bold">@this.SharedResources("description")<br/></span>
+            @Html.TextAreaForWithDefault(m => m.Description, Model.Description, 5, 45)<br/>
+            @Html.ValidationMessageFor(m => m.Description)
+        </div>
+    </fieldset>
+    <div style="clear: both; height:30px;">&#160;</div>
+    <div style="width:100%;">
+        <div id="buttonBar" style="text-align: right;">        
+        <span id="saveNewExperienceHotspot" class="hotspot" data-hotspot="@this.InfoPanelResources("save")">
+            <input type="submit" class="insight-submit-btn" value="Save" id="btnCreateExperience" disabled="disabled" />
+        <span></span>&nbsp
+            <button onclick="cancelJqueryDialog('Experiences','@createContainer')" class="insight-cancel-btn" type="button" value="Cancel">Cancel</button>
+        </div>
+    </div>
+</div>       
+}
+
+<script type="text/javascript">
+    function onAjaxPostSuccess(response) {
+        ShowsysMessage('success', 'Experience added successfully');
+        cancelJqueryDialogContinue('@createContainer');
+    }
+
+    function onAjaxPostFailure(response) {
+        ShowsysMessage('error', 'An error occured during the save process');
+    }
+    
+    var cp = contentPanels.GetCurrentContentPanel();
+    var cps = cp.GetContentPanelSection("Experiences");
+    cps.SetDirtyContainer('@formName');
+    
+    $('#@formName :input').change(function () { toggleSaveButton('@formName'); });
+    $('#@formName :input').on('keypress', function () { toggleSaveButton('@formName'); });
+   
+    // Example of adding additional client side validation (called from OnBegin - ajax options on form)
+    function additionalValidation() {
+        return;
+    }
+</script>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+
+

@@ -1,0 +1,72 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Experience.ExperienceBoosts
+@{
+    string cpsId = Convert.ToString(ViewBag.cpsId);
+}
+<script type="text/javascript" src="~/Scripts/jquery.knob.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".dial").dial({
+            /* Place holder options
+            change: function (value) {},
+            release: function (value) {},
+            cancel: function () {}
+            */
+        });
+
+        // A lower process overrides any inline-css attribute on the input tag which is why jQuery is used to execute these stylings
+        $(".dial").css('margin-top', '-60px').css('margin-left', '12px').css('border', '1px solid #FFC30B');
+
+        $("#btnSaveModifiers").click(function () {
+            $.ajax({
+                url: '@Url.Action("UpdateExperienceModifiers", "Experience")',
+                type: 'POST',
+                data: { experienceId: $("#ExperienceID").val(), pool: $("#Pool").val(), profile: $("#Profile").val() },
+                success: function (data) {
+                    if (data == true) {
+                        ShowsysMessage('success', 'Experience Modifiers Updated Successfully');
+
+                        var cp = contentPanels.GetCurrentContentPanel();
+                        cps = cp.GetContentPanelSectionById('@cpsId');
+                        if (cps) {
+                            cps.IsEditing(false);
+                        }
+                        cancelEditCPS('@cpsId');
+                    } else {
+                        ShowsysMessage('error', 'An error occured during the save process');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    alert('an error occurred!\n\nstatus: ' + status + '\nerror: ' + error.name + '\nerror message: ' + error.message);
+                }
+            });
+        });
+    });
+
+</script>
+@Html.HiddenFor(m => m.ExperienceID)
+@Html.Hidden("cpsId", @cpsId, new { id = "cpsId" })
+@Html.Hidden("cps-editmode-flag", "1", new { id = "cps-editmode-flag", data_cps_id = cpsId})
+<div class="modifiers-container">
+    <div class="modifiers-header-bg" style="border-left-style: solid;"><span class="hotspot" data-hotspot="@this.InfoPanelResources("pool")">Pool</span></div>
+    <div>
+        <div class="modifiers-dial-wrapper">
+            <input id="Pool" class="dial" data-width="60" data-thickness=".3" data-fgColor="#87CEEB" data-bgColor="#C0C0C0" data-angleOffset="0" data-readOnly="false" data-min="0" data-max="10" data-original-value="@Model.ExperienceDetails.Pool" value="@Model.ExperienceDetails.Pool" />
+        </div>
+        <div class="modifiers-dial-notation">x</div>
+    </div>
+</div>
+<div class="modifiers-container" style="border-left-style:none;">
+    <div class="modifiers-header-bg"><span class="hotspot" data-hotspot="@this.InfoPanelResources("profile")">Profile</span></div>
+    <div>
+        <div class="modifiers-dial-wrapper">
+            <input id="Profile" class="dial" data-id="Profile" data-width="60" data-thickness=".3" data-fgColor="#87CEEB" data-bgColor="#C0C0C0" data-angleOffset="0" data-readOnly="false" data-min="0" data-max="100" data-original-value="@Model.ExperienceDetails.Profile" value="@Model.ExperienceDetails.Profile" />
+        </div>
+        <div class="modifiers-dial-notation">%</div>
+    </div>
+</div>
+
+<div style="clear: both; text-align: right;">
+    <input type="submit" class="insight-submit-btn" value="Save" id="btnSaveModifiers" />&#160;
+    <button onclick="cancelEditCPS('@cpsId')" class="insight-cancel-btn" type="button" value="Cancel">Cancel</button>
+</div>

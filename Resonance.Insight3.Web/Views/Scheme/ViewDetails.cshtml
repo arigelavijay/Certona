@@ -1,0 +1,41 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Scheme.SchemeDetails
+
+<div style="display: block; width: 100%; overflow: auto">
+    <div style="float: left; width: 33%;">
+        <span class="hotspot" data-hotspot="@this.InfoPanelResources("scheme")"><span class="bold">@this.SharedResources("scheme")</span></span>
+        <br/>
+        @Model.Name
+    </div>
+    <div style="float: left; width: 33%;">
+        <span class="hotspot" data-hotspot="@this.InfoPanelResources("status")"><span class="bold">@this.SharedResources("status")</span></span>
+        <br/>
+        @Model.Status
+    </div>
+    <div style="float: left; width: 33%;">
+        <span class="hotspot" data-hotspot="@this.InfoPanelResources("defaultcatalog")"><span class="bold">@this.SharedResources("defaultcatalog")</span></span>
+        <br/>
+        @{ if (!String.IsNullOrWhiteSpace(Model.Icon_Filename)){
+               var imgSrc = String.Format("/Images/AssetTypes/Small/{0}", Model.Icon_Filename.ToLower());
+               <img alt="" src="@imgSrc" />
+           }
+        }
+        @Model.DefaultCatalogID
+    </div>   
+    <div style="clear: both;">&#160;</div>
+        <div style="float: left; width: 33%;">
+        <span class="bold">@this.SharedResources("description")</span>
+        <br/>
+        @Model.Description
+    </div>
+    <div style="float: left; width: 33%;">
+        <span class="hotspot" data-hotspot="@this.InfoPanelResources("containerid")"><span class="bold">@this.SharedResources("containerid")</span></span>
+        <br/>
+        @Model.Scheme
+    </div>
+    <div style="float: left; width: 33%;">
+        <span class="bold">@this.SharedResources("numberofslots")</span>
+        <br/>
+        @Model.NumberOfItems
+    </div>   
+</div>

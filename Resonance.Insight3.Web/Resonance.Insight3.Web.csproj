@@ -1,0 +1,1457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A164F284-22D3-4140-A8C4-BC85E349ED0A}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Resonance.Insight3.Web</RootNamespace>
+    <AssemblyName>Resonance.Insight3.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LIBRARIES\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.13605.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LIBRARIES\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Kendo.Mvc, Version=2012.3.1114.340, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LIBRARIES\Kendo.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LIBRARIES\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LIBRARIES\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\LIBRARIES\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\AssetController.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\CatalogController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ExperienceController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\ModelsController.cs" />
+    <Compile Include="Controllers\NavigationController.cs" />
+    <Compile Include="Controllers\PackageController.cs" />
+    <Compile Include="Controllers\ReportingController.cs" />
+    <Compile Include="Controllers\SampleController.cs" />
+    <Compile Include="Controllers\SchemeController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\VariantController.cs" />
+    <Compile Include="FormAuthentication\FormsAuthenticationWrapper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Encryption.cs" />
+    <Compile Include="Helpers\FileLogger.cs" />
+    <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Helpers\LoggingHelper.cs" />
+    <Compile Include="Helpers\PanelBarEnum.cs" />
+    <Compile Include="Helpers\Utilities.cs" />
+    <Compile Include="HtmlHelpers\HtmlExtensions.cs" />
+    <Compile Include="HtmlHelpers\i18nHelpers.cs" />
+    <Compile Include="HtmlHelpers\ForesightHelpers.cs" />
+    <Compile Include="Models\ApplicationModel.cs" />
+    <Compile Include="Models\AssetModel.cs" />
+    <Compile Include="Models\AuthenticationModel.cs" />
+    <Compile Include="Models\CatalogModel.cs" />
+    <Compile Include="Models\ExperienceModel.cs" />
+    <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="Models\NavigationModel.cs" />
+    <Compile Include="Models\RuleModel.cs" />
+    <Compile Include="Models\SchemeModel.cs" />
+    <Compile Include="Models\ModelsModel.cs" />
+    <Compile Include="Models\PackageModel.cs" />
+    <Compile Include="Models\RemarketingModel.cs" />
+    <Compile Include="Models\ReportingModel.cs" />
+    <Compile Include="Models\SampleModel.cs" />
+    <Compile Include="Models\ContentModel.cs" />
+    <Compile Include="Models\VariantModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CertonaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Application\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\Asset\AssetAdditionalDetails.cs" />
+    <Compile Include="ViewModels\Asset\AssetDetails.cs" />
+    <Compile Include="ViewModels\Asset\AssetDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Asset\AssetEnumeration.cs" />
+    <Compile Include="ViewModels\Asset\CatalogAssetMapping.cs" />
+    <Compile Include="ViewModels\Catalog\CatalogMapping.cs" />
+    <Compile Include="ViewModels\Catalog\AssetsViewModel.cs" />
+    <Compile Include="ViewModels\Catalog\Details.cs" />
+    <Compile Include="ViewModels\Catalog\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\Catalog\HeaderViewModel.cs" />
+    <Compile Include="ViewModels\Catalog\ItemAssociatedItem.cs" />
+    <Compile Include="ViewModels\Catalog\GetAssetsModelResponse.cs" />
+    <Compile Include="ViewModels\Catalog\ItemDetails.cs" />
+    <Compile Include="ViewModels\Catalog\ItemInfo.cs" />
+    <Compile Include="ViewModels\Catalog\ItemMetaData.cs" />
+    <Compile Include="ViewModels\Catalog\ItemsViewModel.cs" />
+    <Compile Include="ViewModels\Catalog\MetaData.cs" />
+    <Compile Include="ViewModels\ContentViewModel.cs" />
+    <Compile Include="ViewModels\Rule\CatalogAttribute.cs" />
+    <Compile Include="ViewModels\Rule\RuleViewModel.cs" />
+    <Compile Include="ViewModels\Rule\ExpressionViewModel.cs" />
+    <Compile Include="ViewModels\Variant\VariantNodeViewModel.cs" />
+    <Compile Include="ViewModels\Experience\ExperienceBiases.cs" />
+    <Compile Include="ViewModels\Experience\ExperienceBoosts.cs" />
+    <Compile Include="ViewModels\Experience\ExperienceDetails.cs" />
+    <Compile Include="ViewModels\Experience\ExperienceModels.cs" />
+    <Compile Include="ViewModels\Experience\ExperienceNodeViewModel.cs" />
+    <Compile Include="ViewModels\Experience\ExperienceStrategy.cs" />
+    <Compile Include="ViewModels\Experience\ExperienceStrategyDecisionPlan.cs" />
+    <Compile Include="ViewModels\Experience\ExperienceViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\IViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Models\ModelDataViewModel.cs" />
+    <Compile Include="ViewModels\Models\SegmentItemsGridViewModel.cs" />
+    <Compile Include="ViewModels\Models\SegmentItemsViewModel.cs" />
+    <Compile Include="ViewModels\NavigationViewModel.cs" />
+    <Compile Include="ViewModels\Package\PackageViewModel.cs" />
+    <Compile Include="ViewModels\Remarketing\RemarketingCampaignViewModel.cs" />
+    <Compile Include="ViewModels\Reporting\ReportsViewModel.cs" />
+    <Compile Include="ViewModels\Reporting\TrendsViewModel.cs" />
+    <Compile Include="ViewModels\Sample\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\Scheme\SchemeContextRules.cs" />
+    <Compile Include="ViewModels\Scheme\SchemeContextViewModel.cs" />
+    <Compile Include="ViewModels\Scheme\SchemeContextExclusion.cs" />
+    <Compile Include="ViewModels\Scheme\SchemeContextInclusion.cs" />
+    <Compile Include="ViewModels\Scheme\SchemeEventContext.cs" />
+    <Compile Include="ViewModels\Scheme\SchemeExperience.cs" />
+    <Compile Include="ViewModels\Scheme\SchemeExperienceViewModel.cs" />
+    <Compile Include="ViewModels\Scheme\SchemeViewModel.cs" />
+    <Compile Include="ViewModels\Variant\Details.cs" />
+    <Compile Include="ViewModels\Variant\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\Variant\VariantBoosts.cs" />
+    <Compile Include="ViewModels\Variant\VariantBiases.cs" />
+    <Compile Include="ViewModels\Variant\Rule.cs" />
+    <Compile Include="ViewModels\Variant\VariantModels.cs" />
+    <Compile Include="ViewModels\Variant\VariantRule.cs" />
+    <Compile Include="ViewModels\WizardViewModel.cs" />
+    <Compile Include="Views\Reporting\App_LocalResources\ViewReport.cshtml.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewReport.cshtml.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ReportService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\common.v.1.0.css" />
+    <Content Include="Content\Content.css" />
+    <Content Include="Content\fonts\fonts-v.1.0.css" />
+    <Content Include="Content\fonts\lucida_grande-webfont.svg" />
+    <Content Include="Content\fonts\lucida_grande_bold-webfont.svg" />
+    <Content Include="Content\fonts\lucon-webfont.svg" />
+    <Content Include="Content\fonts\l_10646-webfont.svg" />
+    <Content Include="Content\forms.css" />
+    <Content Include="Content\grids.css" />
+    <Content Include="Content\ie6-styles.css" />
+    <Content Include="Content\ie8-styles.css" />
+    <Content Include="Content\jquery-ui-1.10.2.custom.min.css" />
+    <Content Include="Content\jquery.selectbox.css" />
+    <Content Include="Content\KendoUI\kendo.common.min.css" />
+    <Content Include="Content\KendoUI\Uniform\editor.png" />
+    <Content Include="Content\KendoUI\Uniform\imagebrowser.png" />
+    <Content Include="Content\KendoUI\Uniform\loading-image.gif" />
+    <Content Include="Content\KendoUI\Uniform\loading.gif" />
+    <Content Include="Content\KendoUI\Uniform\slider-h.gif" />
+    <Content Include="Content\KendoUI\Uniform\slider-v.gif" />
+    <Content Include="Content\KendoUI\Uniform\sprite.png" />
+    <Content Include="Content\login-styles.v.1.0.css" />
+    <Content Include="Content\Remarketing.Wizard.css" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\styles.v.1.1.css" />
+    <Content Include="Content\telerik\BlueOpal\editor.png" />
+    <Content Include="Content\telerik\BlueOpal\imagebrowser.png" />
+    <Content Include="Content\telerik\BlueOpal\loading-image.gif" />
+    <Content Include="Content\telerik\BlueOpal\loading.gif" />
+    <Content Include="Content\telerik\BlueOpal\slider-h.gif" />
+    <Content Include="Content\telerik\BlueOpal\slider-v.gif" />
+    <Content Include="Content\telerik\BlueOpal\sprite.png" />
+    <Content Include="Content\telerik\Default\editor.png" />
+    <Content Include="Content\telerik\Default\imagebrowser.png" />
+    <Content Include="Content\telerik\Default\loading-image.gif" />
+    <Content Include="Content\telerik\Default\loading.gif" />
+    <Content Include="Content\telerik\Default\slider-h.gif" />
+    <Content Include="Content\telerik\Default\slider-v.gif" />
+    <Content Include="Content\telerik\Default\sprite.png" />
+    <Content Include="Content\telerik\images\back.png" />
+    <Content Include="Content\telerik\kendo.blueopal.min.css" />
+    <Content Include="Content\KendoUI\kendo.uniform.min.css" />
+    <Content Include="Content\telerik\kendo.common.min.css" />
+    <Content Include="Content\telerik\kendo.default.min.css" />
+    <Content Include="Content\telerik\textures\brushed-metal.png" />
+    <Content Include="Content\telerik\textures\dots1.png" />
+    <Content Include="Content\telerik\textures\dots10.png" />
+    <Content Include="Content\telerik\textures\dots11.png" />
+    <Content Include="Content\telerik\textures\dots12.png" />
+    <Content Include="Content\telerik\textures\dots13.png" />
+    <Content Include="Content\telerik\textures\dots2.png" />
+    <Content Include="Content\telerik\textures\dots3.png" />
+    <Content Include="Content\telerik\textures\dots4.png" />
+    <Content Include="Content\telerik\textures\dots5.png" />
+    <Content Include="Content\telerik\textures\dots6.png" />
+    <Content Include="Content\telerik\textures\dots7.png" />
+    <Content Include="Content\telerik\textures\dots8.png" />
+    <Content Include="Content\telerik\textures\dots9.png" />
+    <Content Include="Content\telerik\textures\glass-lighter.png" />
+    <Content Include="Content\telerik\textures\glass.png" />
+    <Content Include="Content\telerik\textures\highlight.png" />
+    <Content Include="Content\telerik\textures\leather1.png" />
+    <Content Include="Content\telerik\textures\leather2.png" />
+    <Content Include="Content\telerik\textures\noise.png" />
+    <Content Include="Content\telerik\textures\stripe1.png" />
+    <Content Include="Content\telerik\textures\stripe2.png" />
+    <Content Include="Content\telerik\textures\stripe3.png" />
+    <Content Include="Content\telerik\textures\stripe4.png" />
+    <Content Include="Content\telerik\textures\stripe5.png" />
+    <Content Include="Content\telerik\textures\stripe6.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\Images\content-panel-section-title-bar-expanded.png" />
+    <Content Include="Content\themes\Images\grouping-row-bg.png" />
+    <Content Include="Content\themes\Images\k-header-background.png" />
+    <Content Include="Content\themes\Images\modifiers-header-bg.png" />
+    <Content Include="Content\views\confirm.html" />
+    <Content Include="Content\views\success.html" />
+    <Content Include="Content\Wizard.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\add-blue.png" />
+    <Content Include="Images\add-green.png" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\AssetTypes\ads.png" />
+    <Content Include="Images\AssetTypes\content.png" />
+    <Content Include="Images\AssetTypes\images.png" />
+    <Content Include="Images\AssetTypes\messaging.png" />
+    <Content Include="Images\AssetTypes\mixed.png" />
+    <Content Include="Images\AssetTypes\navigation.png" />
+    <Content Include="Images\AssetTypes\offers.png" />
+    <Content Include="Images\AssetTypes\products.png" />
+    <Content Include="Images\AssetTypes\search.png" />
+    <Content Include="Images\AssetTypes\Small\ads.png" />
+    <Content Include="Images\AssetTypes\Small\content.png" />
+    <Content Include="Images\AssetTypes\Small\images.png" />
+    <Content Include="Images\AssetTypes\Small\messaging.png" />
+    <Content Include="Images\AssetTypes\Small\mixed.png" />
+    <Content Include="Images\AssetTypes\Small\navigation.png" />
+    <Content Include="Images\AssetTypes\Small\offers.png" />
+    <Content Include="Images\AssetTypes\Small\products.png" />
+    <Content Include="Images\AssetTypes\Small\search.png" />
+    <Content Include="Images\AssetTypes\Small\unknown.png" />
+    <Content Include="Images\AssetTypes\Small\videos.png" />
+    <Content Include="Images\AssetTypes\unknown.png" />
+    <Content Include="Images\AssetTypes\videos.png" />
+    <Content Include="Images\Certona_Loading_Icon_v2.gif" />
+    <Content Include="Images\checked.gif" />
+    <Content Include="Images\checked_gray.png" />
+    <Content Include="Images\checked_highlighted.gif" />
+    <Content Include="Images\clear-x.png" />
+    <Content Include="Images\Console_CertonaLogo-small.png" />
+    <Content Include="Images\console_certonalogo.png" />
+    <Content Include="Images\con_alert_headback.png" />
+    <Content Include="Images\con_alert_successcheck.png" />
+    <Content Include="Images\con_gradient.png" />
+    <Content Include="Images\con_gradient1.png" />
+    <Content Include="Images\con_greybutton.png" />
+    <Content Include="Images\con_mod_cautionpause.png" />
+    <Content Include="Images\con_mod_closebutton.png" />
+    <Content Include="Images\con_mod_headback.png" />
+    <Content Include="Images\con_redbutton.png" />
+    <Content Include="Images\con_timed_errorstop.png" />
+    <Content Include="Images\con_timed_headback.png" />
+    <Content Include="Images\con_timed_redbutton.png" />
+    <Content Include="Images\con_user_back.png" />
+    <Content Include="Images\con_user_gradient.png" />
+    <Content Include="Images\con_user_gradient1.png" />
+    <Content Include="Images\icon-chrome.gif" />
+    <Content Include="Images\icon-firefox.gif" />
+    <Content Include="Images\icon-ie.gif" />
+    <Content Include="Images\edit-blue.png" />
+    <Content Include="Images\imgMinus.png" />
+    <Content Include="Images\imgPlus.png" />
+    <Content Include="Images\sort_asc.png" />
+    <Content Include="Images\drop-arrow.png" />
+    <Content Include="Images\ExcludedItemIcon.png" />
+    <Content Include="Images\gradient.png" />
+    <Content Include="Images\head_closebutton.png" />
+    <Content Include="Images\head_designbar.png" />
+    <Content Include="Images\head_errorstop.png" />
+    <Content Include="Images\head_resinslogo.png" />
+    <Content Include="Images\head_successcheck.png" />
+    <Content Include="Images\highlight.png" />
+    <Content Include="Images\imgCollapsed.png" />
+    <Content Include="Images\imgExpanded.png" />
+    <Content Include="Images\img_404.png" />
+    <Content Include="Images\inactive_tile_gray.png" />
+    <Content Include="Images\intermediate.gif" />
+    <Content Include="Images\intermediate_gray.png" />
+    <Content Include="Images\intermediate_highlighted.gif" />
+    <Content Include="Images\login_squares.png" />
+    <Content Include="Images\log_buttonred.png" />
+    <Content Include="Images\log_certonalogo.png" />
+    <Content Include="Images\log_designbar.png" />
+    <Content Include="Images\log_iconerror.png" />
+    <Content Include="Images\log_iconout.png" />
+    <Content Include="Images\log_resinslogo.png" />
+    <Content Include="Images\map.jpg" />
+    <Content Include="Images\nav_acctcontroldrop.png" />
+    <Content Include="Images\nav_acctexpl_bolt.png" />
+    <Content Include="Images\nav_acctexpl_boltact.png" />
+    <Content Include="Images\nav_acctexpl_checkbox.png" />
+    <Content Include="Images\nav_acctexpl_checkboxact.png" />
+    <Content Include="Images\nav_acctexpl_icon.png" />
+    <Content Include="Images\nav_acctexpl_iconr.png" />
+    <Content Include="Images\nav_acctexpl_scroll.png" />
+    <Content Include="Images\nav_arrowdown.png" />
+    <Content Include="Images\nav_arrowup.png" />
+    <Content Include="Images\nav_asstexpl_icon.png" />
+    <Content Include="Images\nav_asstexpl_iconr.png" />
+    <Content Include="Images\nav_asstexpl_plus.png" />
+    <Content Include="Images\nav_asstexpl_plusact.png" />
+    <Content Include="Images\nav_errorstop.png" />
+    <Content Include="Images\nav_help_back.png" />
+    <Content Include="Images\nav_homeicon.png" />
+    <Content Include="Images\nav_homeiconro.png" />
+    <Content Include="Images\nav_openacctcontrol.png" />
+    <Content Include="Images\nav_openacctcontrolro.png" />
+    <Content Include="Images\nav_reports_icon.png" />
+    <Content Include="Images\nav_reports_iconr.png" />
+    <Content Include="Images\nav_tools_icon.png" />
+    <Content Include="Images\nav_tools_iconr.png" />
+    <Content Include="Images\no-image.png" />
+    <Content Include="Images\PB\USRegions\albuquerque.jpg" />
+    <Content Include="Images\PB\USRegions\boise.jpg" />
+    <Content Include="Images\PB\USRegions\boston.jpg" />
+    <Content Include="Images\PB\USRegions\chicago.jpg" />
+    <Content Include="Images\PB\USRegions\dallas.jpg" />
+    <Content Include="Images\PB\USRegions\denver.jpg" />
+    <Content Include="Images\PB\USRegions\detroit.jpg" />
+    <Content Include="Images\PB\USRegions\helena.jpg" />
+    <Content Include="Images\PB\USRegions\kansas_city.jpg" />
+    <Content Include="Images\PB\USRegions\los_angeles.jpg" />
+    <Content Include="Images\PB\USRegions\miami.jpg" />
+    <Content Include="Images\PB\USRegions\new_york.jpg" />
+    <Content Include="Images\PB\USRegions\philadelphia.jpg" />
+    <Content Include="Images\PB\USRegions\phoenix.jpg" />
+    <Content Include="Images\PB\USRegions\salt_lake_city.jpg" />
+    <Content Include="Images\PB\USRegions\san_francisco.jpg" />
+    <Content Include="Images\PB\USRegions\seattle.jpg" />
+    <Content Include="Images\PB\USRegions\default.jpg" />
+    <Content Include="Images\PB\USRegions\washington_dc.jpg" />
+    <Content Include="Images\sprite.png" />
+    <Content Include="Images\treeview-line.png" />
+    <Content Include="Images\treeview-nodes.png" />
+    <Content Include="Images\unchecked.gif" />
+    <Content Include="Images\unchecked_gray.png" />
+    <Content Include="Images\unchecked_highlighted.gif" />
+    <Content Include="Images\sort_desc.png" />
+    <Content Include="Scripts\Certona\application.js" />
+    <Content Include="Scripts\Certona\common.dialog.js" />
+    <Content Include="Scripts\Certona\common.session.js" />
+    <Content Include="Scripts\Certona\Wizard\Certona.Wizard.js" />
+    <Content Include="Scripts\Certona\ContentPanels.js" />
+    <Content Include="Scripts\Certona\Wizard\Remarketing.Wizard.js" />
+    <Content Include="Scripts\Certona\Strategy.js" />
+    <Content Include="Scripts\Certona\grid.common.js" />
+    <Content Include="Scripts\jquery-ui.1.10.2.min.js" />
+    <Content Include="Scripts\jquery.color-2.1.0.js" />
+    <Content Include="Scripts\jquery.color-2.1.1.min.js" />
+    <Content Include="Scripts\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\tristate-0.9.2-min.js" />
+    <Content Include="Scripts\Certona\Wizard\WizardPOC.Wizard.js" />
+    <Content Include="Scripts\Certona\contentpanel.js" />
+    <Content Include="Scripts\Certona\content.template.js" />
+    <Content Include="Scripts\Certona\headerpanel.js" />
+    <Content Include="Scripts\Certona\home.js" />
+    <Content Include="Scripts\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery.history.js" />
+    <Content Include="Scripts\jquery.knob.js" />
+    <Content Include="Scripts\jquery.selectbox-0.2.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\kendo.all.min.js" />
+    <Content Include="Scripts\knockout-2.1.0.debug.js" />
+    <Content Include="Scripts\knockout-2.1.0.js" />
+    <Content Include="Scripts\Certona\login.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Content\fonts\lucida_grande-webfont.eot" />
+    <Content Include="Content\fonts\lucida_grande-webfont.ttf" />
+    <Content Include="Content\fonts\lucida_grande-webfont.woff" />
+    <Content Include="Content\fonts\lucida_grande_bold-webfont.eot" />
+    <Content Include="Content\fonts\lucida_grande_bold-webfont.ttf" />
+    <Content Include="Content\fonts\lucida_grande_bold-webfont.woff" />
+    <Content Include="Content\fonts\lucon-webfont.eot" />
+    <Content Include="Content\fonts\lucon-webfont.ttf" />
+    <Content Include="Content\fonts\lucon-webfont.woff" />
+    <Content Include="Content\fonts\l_10646-webfont.eot" />
+    <Content Include="Content\fonts\l_10646-webfont.ttf" />
+    <Content Include="Content\fonts\l_10646-webfont.woff" />
+    <Content Include="Scripts\Certona\navigationpanel.js" />
+    <Content Include="Scripts\selectivizr.js" />
+    <Content Include="Content\telerik\images\KendoUI.ttf" />
+    <Content Include="Content\telerik\images\KendoUI.woff" />
+    <None Include="Properties\PublishProfiles\Resonance.Insight3.Web.pubxml" />
+    <Content Include="Properties\Settings.settings" />
+    <Content Include="Scripts\Certona\common.ajax.js" />
+    <None Include="Service References\CertonaService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Arrays1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Arrays11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService.wsdl" />
+    <None Include="Service References\CertonaService\CertonaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService11.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService12.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService14.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService15.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService16.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService17.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService18.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService19.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService20.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService22.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService23.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService24.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService25.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService26.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService27.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService28.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService29.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService30.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService33.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService34.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService35.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService36.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService37.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService38.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService39.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService40.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService43.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService44.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService45.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService46.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService47.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService48.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\configuration91.svcinfo" />
+    <None Include="Service References\CertonaService\configuration.svcinfo" />
+    <None Include="Service References\CertonaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\CertonaService\CertonaService.disco" />
+    <Content Include="Views\Experience\ViewDetails.cshtml" />
+    <Content Include="Views\favicon.ico" />
+    <Content Include="Views\Variant\AddFilter.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Variant\CreateRules.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Authentication\Login.cshtml" />
+    <Content Include="Views\Home\Home.cshtml" />
+    <Content Include="Views\Home\_ContentPanel.cshtml" />
+    <Content Include="Views\Home\_NavigationPanel.cshtml" />
+    <Content Include="Views\Home\_Header.cshtml" />
+    <Content Include="Views\Session\Warning.cshtml" />
+    <Content Include="Views\Session\Timeout.cshtml" />
+    <Content Include="Views\Home\_AccountTreeView.cshtml" />
+    <Content Include="Views\Application\ViewDetails.cshtml" />
+    <Content Include="Views\Application\Header.cshtml" />
+    <Content Include="Views\Shared\_ContentTemplate.cshtml" />
+    <Content Include="Views\Shared\_WizardTemplate.cshtml" />
+    <Content Include="Views\Remarketing\Header.cshtml" />
+    <Content Include="Views\Remarketing\Wizard.cshtml" />
+    <Content Include="Views\Sample\Details.cshtml" />
+    <Content Include="Views\Sample\Header.cshtml" />
+    <Content Include="Views\Application\ViewLocations.cshtml" />
+    <Content Include="Views\Application\RemarketingCampaigns.cshtml" />
+    <Content Include="Views\Models\Header.cshtml" />
+    <Content Include="Views\Models\ViewModelData.cshtml" />
+    <Content Include="Views\Models\ViewModelVisualization.cshtml" />
+    <Content Include="Views\Models\SegmentItemsGridPartialView.cshtml" />
+    <Content Include="Views\Package\ViewDetails.cshtml" />
+    <Content Include="Views\Package\Header.cshtml" />
+    <Content Include="Views\Reporting\ViewTrends.cshtml" />
+    <Content Include="Views\Package\ViewContainers.cshtml" />
+    <Content Include="Views\Asset\ViewItemDetails.cshtml" />
+    <Content Include="Views\Catalog\ViewDetails.cshtml" />
+    <Content Include="Views\Experience\ViewModifiers.cshtml" />
+    <Content Include="Views\Experience\ViewDecisionPlan.cshtml" />
+    <Content Include="Views\Experience\ViewStrategies.cshtml" />
+    <Content Include="Views\Experience\Header.cshtml" />
+    <Content Include="Views\Catalog\Header.cshtml" />
+    <Content Include="Views\Asset\Header.cshtml" />
+    <Content Include="Views\Scheme\Header.cshtml" />
+    <Content Include="Views\Scheme\ViewVisitorHistorySettings.cshtml" />
+    <Content Include="Views\Scheme\ViewDetails.cshtml" />
+    <Content Include="Views\Variant\Header.cshtml" />
+    <Content Include="Views\Variant\ViewDetails.cshtml" />
+    <Content Include="Views\Variant\ViewModifiers.cshtml" />
+    <Content Include="Views\Variant\ViewRules.cshtml" />
+    <Content Include="Views\Scheme\ViewExperiences.cshtml" />
+    <Content Include="Views\Reporting\ViewReport.cshtml" />
+    <Content Include="Views\Shared\_AccountChanged.cshtml" />
+    <Content Include="Views\Experience\DecisionPlanFooter.cshtml" />
+    <Content Include="Views\Asset\ViewDetails.cshtml" />
+    <Content Include="Views\Asset\ViewEnumerations.cshtml" />
+    <Content Include="Views\Catalog\ViewAssets.cshtml" />
+    <Content Include="Views\Shared\_JavaScriptVariables.cshtml" />
+    <Content Include="Views\Error\General.cshtml" />
+    <Content Include="Views\Error\Http404.cshtml" />
+    <Content Include="Views\Error\Http403.cshtml" />
+    <Content Include="Views\Catalog\ManageDetails.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Content\Blank.cshtml" />
+    <Content Include="Views\Experience\ManageDetails.cshtml" />
+    <Content Include="Views\Home\UnsavedChanges.cshtml" />
+    <Content Include="Views\Scheme\ManageExperiences.cshtml" />
+    <Content Include="Views\Experience\ManageModifiers.cshtml" />
+    <Content Include="Views\Scheme\CreateExperiences.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Experience\ManageStrategies.cshtml" />
+    <Content Include="Views\Experience\CreateStrategies.cshtml" />
+    <Content Include="Views\Variant\ManageDetails.cshtml" />
+    <Content Include="Views\Variant\ManageModifiers.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.ActivateRemarketingCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.AuthenticateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.CheckCampaignNameUniquenessResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.CheckESPCampaignIDUniquenessResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.CreateExperienceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.CreateRemarketingCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.CreateVariantResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAccountExplorerStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAccountExplorerTreeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAccountNameByApplicationIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAccountsByUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAllAbandonmentFiltersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAllAbandonmentIntervalsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAllAbandonmentTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAllDeliveryMethodsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAllServiceHeadersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAllServiceProtocolsAvailableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAllServiceProtocolsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAllServiceTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetApplicationCatalogsByExperienceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetApplicationCatalogsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetApplicationDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetApplicationFrequencyCapResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetApplicationPackagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetApplicationRemarketingCampaignsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetApplicationSchemesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetApplicationSegmentsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetAssetExplorerTreeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetCampaignVariantRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetCatalogByRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetCatalogCurrencyFieldsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetCatalogDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetCatalogItemResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetCatalogItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetCatalogMappingFromResonanceFieldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetCatalogRuleContextsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetCatalogsForApplicationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetContentPanelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetEmailServiceProviderConfigurationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetExperienceBoostsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetExperienceDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetExperienceVariantsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetLastVariantPriorityByExperienceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetModelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetModelsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetNavigationMappingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetPackageDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetPackageSchemesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetPanelBarStatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetPanelBarWidthResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetRecommendationTypesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetRemarketingCampaignDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetRemarketingEmailSchemesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetRemarketingESPConfigInfoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetReportingDataLastUpdatedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetReportsListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetRuleOperatorsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetSchemeContextResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetSchemeDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetSchemeEventContextResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetSchemeExperiencesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetSchemeNumberOfItemsByExperienceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetSegmentItemsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetStatusListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetToolsListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetTrendsDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetUserAccountApplicationFeaturesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetUserMappingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetVariantBoostsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetVariantDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetVariantRulesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetVariantSlotsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.SetUserSettingsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.UpdateExperienceDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.UpdateExperienceModifiersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.UpdateExperienceTrafficResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.UpdateRemarketingCampaignResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.UpdateRemarketingCampaignStatusesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.UpdateVariantDetailsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.UpdateVariantModifiersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.UpdateVariantPriorityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.UpdateVariantStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.CreateRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.DeleteExpressionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.DeleteRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.SaveExpressionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetControlSetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.UpdateRuleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetContextsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetConditionAttributesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\CertonaService\Resonance.Insight3.Web.CertonaService.GetFilterAttributesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.Domain.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.Domain2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Administration1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Application1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.BusinessRule.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.BusinessRule1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Catalog1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Experience.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Experience2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Framework1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Model.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Model2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Package1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Remarketing1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Reporting1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Scheme.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Scheme2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Segment.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Segment2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Tools1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Variant.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.Variant2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.DTOLibrary2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.Enums.Framework1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.Enums1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Administration1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Application1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.BusinessRule.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.BusinessRule1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Catalog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Catalog2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Experience1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Framework1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Model1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Package1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Remarketing1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Reporting1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Scheme1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Segment1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects.Variant1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.RequestObjects1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Administration1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Application1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.BusinessRule.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.BusinessRule1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Catalog1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Experience1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Framework.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Framework2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Model1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Package1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Remarketing1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Reporting1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Scheme1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Segment1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects.Variant1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\Resonance.Services.Infrastructure.ResponseObjects1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\CertonaService\service1.wsdl" />
+    <None Include="Service References\CertonaService\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CertonaService\service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\Variant\SelectAttribute.cshtml" />
+    <None Include="Web References\ReportService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\ReportService\reportexecution2005.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\Resource.resx">
+      <CustomToolNamespace>Resonance.Insight3.Web</CustomToolNamespace>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Views\Authentication\App_LocalResources\Login.cshtml.resx" />
+    <Content Include="Views\Home\App_LocalResources\Home.cshtml.resx" />
+    <Content Include="Views\Home\App_LocalResources\_ContentPanel.cshtml.resx" />
+    <Content Include="Views\Home\App_LocalResources\_Header.cshtml.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Home\App_LocalResources\_NavigationPanel.cshtml.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Session\App_LocalResources\Timeout.cshtml.resx" />
+    <Content Include="Views\Session\App_LocalResources\Warning.cshtml.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Home\App_LocalResources\_AccountTreeView.resx" />
+    <Content Include="Views\Shared\App_LocalResources\_WizardTemplate.cshtml.resx" />
+    <Content Include="Views\Application\App_LocalResources\RemarketingCampaigns.cshtml.resx" />
+    <Content Include="Views\Application\App_LocalResources\Details.cshtml.resx" />
+    <Content Include="Views\Application\App_LocalResources\Details.infopanel.resx" />
+    <Content Include="Views\Application\App_LocalResources\Locations.infopanel.resx" />
+    <Content Include="Views\Package\App_LocalResources\Details.cshtml.resx" />
+    <Content Include="Views\Package\App_LocalResources\Details.infopanel.resx" />
+    <Content Include="Views\Package\App_LocalResources\Containers.infopanel.resx" />
+    <Content Include="Views\Catalog\App_LocalResources\Header.cshtml.resx" />
+    <Content Include="Views\Catalog\App_LocalResources\Details.infopanel.resx" />
+    <Content Include="Views\Catalog\App_LocalResources\Details.cshtml.resx" />
+    <Content Include="Views\Variant\App_LocalResources\Details.cshtml.resx" />
+    <Content Include="Views\Variant\App_LocalResources\Details.infopanel.resx" />
+    <Content Include="Views\Scheme\App_LocalResources\Details.cshtml.resx" />
+    <Content Include="Views\Scheme\App_LocalResources\Details.infopanel.resx" />
+    <Content Include="Views\Reporting\App_LocalResources\Trends.cshtml.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Reporting\App_LocalResources\Trends.infopanel.resx" />
+    <Content Include="Views\Experience\App_LocalResources\Modifiers.infopanel.resx" />
+    <Content Include="Views\Experience\App_LocalResources\Details.cshtml.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Experience\App_LocalResources\Strategies.infopanel.resx" />
+    <Content Include="Views\Experience\App_LocalResources\Strategies.cshtml.resx" />
+    <Content Include="Views\Asset\App_LocalResources\ViewItemDetails.resx" />
+    <Content Include="Views\Scheme\App_LocalResources\VisitorHistorySettings.cshtml.resx" />
+    <Content Include="Views\Scheme\App_LocalResources\VisitorHistorySettings.infopanel.resx" />
+    <Content Include="Views\Scheme\App_LocalResources\Experiences.infopanel.resx" />
+    <Content Include="Views\Experience\App_LocalResources\Details.infopanel.resx" />
+    <Content Include="Views\Variant\App_LocalResources\Modifiers.infopanel.resx" />
+    <Content Include="Views\Experience\App_LocalResources\DecisionPlanFooter.infopanel.resx" />
+    <Content Include="Views\Home\App_LocalResources\_NavigationPanel.infopanel.resx" />
+    <Content Include="Views\Asset\App_LocalResources\Details.cshtml.resx" />
+    <Content Include="Views\Asset\App_LocalResources\Details.infopanel.resx" />
+    <Content Include="Views\Catalog\App_LocalResources\Assets.cshtml.resx" />
+    <Content Include="Views\Catalog\App_LocalResources\Assets.infopanel.resx" />
+    <Content Include="Views\Shared\App_LocalResources\_JavaScriptVariables.cshtml.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Reporting\App_LocalResources\ViewReport.cshtml.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ViewReport.cshtml.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Variant\App_LocalResources\ManageDetails.cshtml.resx" />
+    <Content Include="Views\Scheme\App_LocalResources\CreateExperiences.infopanel.resx" />
+    <Content Include="Views\Variant\App_LocalResources\AddFilter.cshtml.resx" />
+    <Content Include="Views\Variant\App_LocalResources\CreateRules.cshtml.resx" />
+    <Content Include="Views\Variant\App_LocalResources\SelectAttribute.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://colo1-vm-rpt1/ReportServer_SQL2008/reportexecution2005.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ReportService\</RelPath>
+      <UpdateFromURL>http://colo1-vm-rpt1/ReportServer_SQL2008/reportexecution2005.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Resonance_Insight3_Web_ReportService_ReportExecutionService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <Content Include="Views\Shared\App_LocalResources\_ContentTemplate.cshtml.resx" />
+    <Content Include="Views\Home\App_LocalResources\UnsavedChanges.cshtml.resx" />
+    <Content Include="Views\Experience\App_LocalResources\CreateStrategies.cshtml.resx" />
+    <Content Include="Views\Scheme\App_LocalResources\CreateExperiences.cshtml.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CertonaService\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v11.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53697</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

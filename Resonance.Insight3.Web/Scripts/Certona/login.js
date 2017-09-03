@@ -1,0 +1,3 @@
+﻿(function($) {
+    $('#UserName').focus();
+})(jQuery);

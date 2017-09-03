@@ -1,0 +1,125 @@
+﻿@using System.Collections
+@using Resonance.Insight3.Web.Helpers
+@using Resonance.Insight3.Web.HtmlHelpers
+@model Resonance.Insight3.Web.ViewModels.Rule.RuleViewModel
+@{ 
+    const string formName = "frmCreateRules";
+    const string createContainer = "#insight-create-dialog";
+    string updateTargetId = ViewBag.UpdateTargetId;
+    
+}
+
+@using (Ajax.BeginForm("CreateRules", "Variant",
+    new AjaxOptions { HttpMethod = "Post", UpdateTargetId = @updateTargetId, OnSuccess = "onAjaxPostSuccess", OnFailure = "onAjaxPostFailure" }, new { id = @formName }))
+{
+    @Html.HiddenFor(m => m.VariantID, Model.VariantID)
+    @Html.Hidden("RuleID");
+    <div>
+        <fieldset>
+            <legend>@Html.RadioButton("rbtnSelect", false, new { disabled = "disabled" })@this.SharedResources("ExistingRoleTitle")</legend>
+        </fieldset>
+    </div>
+    <div style="margin-top: 10px">
+        <fieldset>
+            <legend>@Html.RadioButton("rbtnSelect", true, true)@this.SharedResources("NewRoleCreateTitle")</legend>
+            <strong>@Html.RequiredAsterik(this) @this.SharedResources("name")</strong><br />
+            @Html.TextBoxForWithDefault(m => m.Name, string.Empty, 200)<br />
+            @Html.ValidationMessageFor(m => m.Name)<br />
+            <br />
+            <div class="k-widget k-grid" id="summarygrid">
+                <table style="height: 100%; font-size: 0.9em;">
+                    <thead class="k-grid-header">
+                        <tr>
+                            <th class="k-header" style="width: 40%"><a class="k-link" href="#">Summary</a></th>
+                            <th class="k-header" style="width: 30%"><a class="k-link" href="#">Conditions</a></th>
+                            <th class="k-header" style="width: 30%"><a class="k-link" href="#">Filters</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="min-height: 40px">This strategy will return results ...</td>
+                            <td>
+                                <div id="addCondition">
+                                    <img id="imgAddCondition" alt="Add Condition" src="~/Images/add-green.png" />&nbsp;Add Condition
+                                </div>
+                            </td>
+                            <td>
+                                <div id="addFilter">
+                                    <img id="imgAddFilter" alt="Add Filter" src="~/Images/add-green.png" />&nbsp;Add Filter
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+    <div style="clear: both; text-align: right; margin-top: 10px">
+        <input type="submit" class="insight-submit-btn" value="Save" id="btnCreateRule" disabled="disabled" />&nbsp;
+        <button onclick="deleteRule();" class="insight-cancel-btn" type="button" value="Cancel" id="cancel">Cancel</button>
+    </div>
+}
+<script type="text/javascript">
+    function onAjaxPostSuccess(response) {
+        ShowsysMessage('success', 'Rule added successful');
+        cancelJqueryDialogContinue('@createContainer');
+    }
+
+    function onAjaxPostFailure(response) {
+        ShowsysMessage('error', 'An error occured during the save process');
+    }
+    $("#addCondition").hide();
+    $("#addFilter").hide();
+
+    // TODO Save Method 
+    $("#Name").bind("blur", function (e) {
+        var rulename = $("#Name").val();
+        var variantID = $("#VariantID").val();
+        if (rulename != "") {
+            $("#addCondition").show();
+            $("#addFilter").show();
+            $.post('/Variant/CreateRules', { "variantID": variantID, "ruleID": $("#RuleID").val() == "" ? 0 : $("#RuleID").val(), "rulename": rulename }, function (data) {
+                $("#RuleID").val(data.id);
+            });
+        }
+        else {
+            $("#addCondition").hide();
+            $("#addFilter").hide();
+        }
+    });
+
+    $('#@formName :input').change(function () { toggleSaveButton('@formName'); });
+    $('#@formName :input').on('keypress', function () { toggleSaveButton('@formName'); });
+
+    $('#imgAddFilter').click(function (event) {
+        var rulename = $("#Name").val();
+        var variantID = $("#VariantID").val();
+        var ruleID = $("#RuleID").val() == "" ? 0 : $("#RuleID").val();
+        var data = {
+            variantID: variantID,
+            ruleName: rulename,
+            ruleID: ruleID
+        };
+        PopupJqueryMultiDialog("Add Filter", "/Variant/AddFilter", data, "#insight-create-dialog2", true, '#insight-create-dialog', event, 750, 400);
+    });
+
+    $('#imgAddCondition').click(function (event) {
+        alert('In progress');
+        //PopupJqueryMultiDialog("Add Condition", "Variant/AddCondition", false, "#insight-create-dialog2", true, event);
+    });
+
+    SetGrayedOutLayer();
+
+    // TODO : Move this to common js file
+    function SetGrayedOutLayer() {
+        $('#insight-create-dialog').closest('.ui-dialog').append('<div id="model-grey" class="greyedoutparentmodal"></div>');
+    }
+
+    function deleteRule() {
+        $.post('/Variant/DeleteRules', { "ruleID": $("#RuleID").val() }, function (data) {
+            cancelJqueryDialog('Rules', '@createContainer');
+        });
+    }
+</script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>

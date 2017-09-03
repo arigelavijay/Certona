@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Variant" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Variant" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums" />
+  <xs:complexType name="VariantDetailsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Catalog" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CatalogID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContainerTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Icon_FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MethodID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberOfAssets" type="xs:int" />
+      <xs:element minOccurs="0" name="PersonalizationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PoolFactor" type="xs:int" />
+      <xs:element minOccurs="0" name="Priority" type="xs:int" />
+      <xs:element minOccurs="0" name="RecommendationType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubjectWeight" type="xs:int" />
+      <xs:element minOccurs="0" name="VariantId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VariantDetailsDTO" nillable="true" type="tns:VariantDetailsDTO" />
+  <xs:complexType name="ArrayOfVariantRuleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VariantRuleDTO" nillable="true" type="tns:VariantRuleDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVariantRuleDTO" nillable="true" type="tns:ArrayOfVariantRuleDTO" />
+  <xs:complexType name="VariantRuleDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ExpressionText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Expressions" nillable="true" type="tns:ArrayOfVariantRuleExpressionDTO" />
+      <xs:element minOccurs="0" name="RuleID" type="xs:int" />
+      <xs:element minOccurs="0" name="RuleName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VariantRuleDTO" nillable="true" type="tns:VariantRuleDTO" />
+  <xs:complexType name="ArrayOfVariantRuleExpressionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VariantRuleExpressionDTO" nillable="true" type="tns:VariantRuleExpressionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVariantRuleExpressionDTO" nillable="true" type="tns:ArrayOfVariantRuleExpressionDTO" />
+  <xs:complexType name="VariantRuleExpressionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Conditions" nillable="true" type="tns:ArrayOfVariantRuleConditionDTO" />
+      <xs:element minOccurs="0" name="ExecutionOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="ExpressionID" type="xs:int" />
+      <xs:element minOccurs="0" name="ExpressionText" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VariantRuleExpressionDTO" nillable="true" type="tns:VariantRuleExpressionDTO" />
+  <xs:complexType name="ArrayOfVariantRuleConditionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VariantRuleConditionDTO" nillable="true" type="tns:VariantRuleConditionDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVariantRuleConditionDTO" nillable="true" type="tns:ArrayOfVariantRuleConditionDTO" />
+  <xs:complexType name="VariantRuleConditionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConditionID" type="xs:int" />
+      <xs:element minOccurs="0" name="RuleText" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.Enums" minOccurs="0" name="Type" type="q1:ExpressionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VariantRuleConditionDTO" nillable="true" type="tns:VariantRuleConditionDTO" />
+</xs:schema>

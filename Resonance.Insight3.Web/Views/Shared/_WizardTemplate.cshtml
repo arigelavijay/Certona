@@ -1,0 +1,51 @@
+﻿@using Resonance.Insight3.Web.FormAuthentication
+@using Resonance.Insight3.Web.HtmlHelpers
+@model Resonance.Insight3.Web.ViewModels.WizardViewModel
+
+<link rel="stylesheet" href="@Url.Content("~/Content/Wizard.css")" type="text/css"/>
+<script src="~/Scripts/Certona/Wizard/Certona.Wizard.js"> </script>
+
+<script type="text/javascript">
+    var wizardMode = '@Model.WizardMode';
+</script>
+
+@{
+    Html.RenderAction("Header", Model.NodeType, new { id = Model.NodeID });
+}
+<div style="height: auto; padding: 0px 5px 0px 5px;">
+    @{
+        var user = FormsAuthenticationWrapper.User;
+        var cps = Model.ContentPanelSections.First();
+        var hasAccess = false;
+        var hasFullAccess = false;
+        var hasReadAccess = false;
+        var action = cps.PartialViewName;
+        if (cps.FeatureCode.HasValue)
+        {
+            foreach (var feature in user.Accounts.FirstOrDefault(ac => ac.AccountID == user.LastAccountID).Applications.Where(ap => Model.ApplicationID.Split('|').Contains(ap.ApplicationID)).Select(app => app.Features.FirstOrDefault(f => f.FeatureCode == cps.FeatureCode)).Where(feature => feature != null))
+            {
+                hasAccess = true;
+                hasReadAccess = true;
+                hasFullAccess = !feature.IsReadOnly;
+            }
+
+            if (hasFullAccess || hasReadAccess)
+            {
+                action = hasFullAccess ? "Manage" : "View" + action;
+            }
+        }
+        else
+        {
+            hasAccess = true;
+            action = string.Format("View{0}", action);
+        }
+
+        if (hasAccess)
+        {
+            {Html.RenderAction(action, Model.NodeType, new { id = Model.NodeID });}
+        }
+    }
+</div>
+
+<input type="hidden" id="previousButtonText" value="@this.LocalResources("PreviousButtonText")"/>
+<input type="hidden" id="nextButtonText" value="@this.LocalResources("NextButtonText")"/>

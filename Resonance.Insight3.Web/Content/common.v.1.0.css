@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body { height: 100%; }
+/*html, body, form, #wrapper {height: 100%;}*/
+
+li { list-style: none; }
+
+button.k-button, button.k-button:hover, .insight-submit-btn, .insight-submit-btn:hover
+{
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid #78CA9E;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: -1px;
+    font-size: 14px;
+    border-radius: 5px 5px 5px 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    font-family: inherit;
+    line-height: 1.66em;
+    /* fallback */
+    background-color: #ccffcc;
+    background-image: url(/Images/gradient.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+button.insight-cancel-btn {
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid #C7C7C7;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 4px;
+    font-size: 12px;
+    font-family: inherit;
+    line-height: 1.66em;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+button.k-button[disabled] {
+    cursor: default;
+}
+
+#wrapper {
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+    min-height: 100%;
+    right: 0;
+    /*position: absolute;*/
+    top: 0;
+    width: 100%;
+}
+
+/**
+ * Base Styles
+ */
+
+html { overflow: hidden; }
+
+body {
+    font: normal normal normal 100% 'Lucida Grande', Helvetica, Arial;
+    color: #3f3f3f;
+}
+
+@media screen and (max-height: 800px)
+{
+	body
+	{
+		 font-size:0.85em;
+	}
+
+    input.date,
+    input[type=text],
+    input[type=password],
+    input[type=url],
+    input[type=email],
+    input[type=date],
+    input[type=time],
+    textarea,
+    .uploader span.filename {
+        border: 1px solid #b9b8b8;
+        color: #3f3f3f;
+        font-size: 0.875em;
+        font-weight: normal;
+        line-height: 20px;
+        padding-left: 4px;
+        padding-right: 4px;
+	    margin-top: 4px;
+		margin-bottom: 4px;
+    }
+
+    input.date,
+    input[type=text],
+    input[type=password],
+    input[type=url],
+    input[type=email],
+    input[type=date],
+    input[type=time],
+    .uploader span.filename {
+        height: 20px;
+    }
+}
+
+/*Opera Fix
+body:before {
+content:"";
+height:100%;
+float:left;
+width:0;
+margin-top:-32767px;
+}
+*/
+
+/**
+ * form elements
+ */
+
+input, select, textarea, button, .button, .pagination li a, .toolbar li a {
+    /* useful if you don't want a bg color from leaking outside the border: */
+    -moz-background-clip: padding;
+    -moz-box-sizing: border-box;
+    -webkit-background-clip: padding-box;
+    -webkit-box-sizing: border-box;
+    background-clip: padding-box;
+    box-sizing: border-box;
+}
+textarea { overflow-y: auto; }
+
+/**
+ * Inputs
+ */
+
+input.date,
+input[type=text],
+input[type=password],
+input[type=url],
+input[type=email],
+input[type=date],
+input[type=time],
+textarea,
+.uploader span.filename {
+    border: 1px solid #b9b8b8;
+    color: #3f3f3f;
+    font-size: 0.875em;
+    font-weight: normal;
+    line-height: 25px;
+    padding-left: 4px;
+    padding-right: 4px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+input.date,
+input[type=text],
+input[type=password],
+input[type=url],
+input[type=email],
+input[type=date],
+input[type=time],
+.uploader span.filename
+{
+    height: 25px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+#txtFreqCapEmail, #txtFreqCapDays {
+    width: 30px
+}
+
+.freqCapSaveButton {
+    background-color: #BFBFBF;
+    border: solid 1px #BFBFBF;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 5px;
+    padding: 4px 8px;
+    width: 100px;
+}
+
+.freqCapResetButton {
+    background-color: #F2F2F2;
+    border: solid 1px #BFBFBF;
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 2px 4px;
+    width: 100px;
+}
+
+.spinnerContainer {
+    display:none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0.6)";
+    filter: alpha(opacity=0.6);
+    opacity:0.6;
+    background-color: #fff;
+}
+
+.spinner {
+	width:200px;
+	height:200px;
+	position:fixed;
+	top:50%;
+	left:50%;
+	background:url(/Images/Certona_Loading_Icon_v2.gif) no-repeat center;
+	text-align:center;
+    margin-top: -100px;
+	z-index:2;
+}
+
+/* Added button styling overrides for initial release - can refactor styling after.*/
+.btn-update
+{
+	color: #3f3f3f !important;
+	border-color: #e6e6e6 !important;
+	background-color: #d8d8d8 !important;
+	line-height: 1.3em !important;
+}
+.btn-update:hover {
+  color: #3f3f3f !important;
+  border-color: #e6e6e6 !important;
+  background-color: #E3F7FF !important;
+}
+
+input[disabled=disabled] {
+    color: #878787;
+}
+
+.dialogClass {
+    background-color: #F2F2F2 !important;
+    border: solid 5px #5A5A5A !important;
+    border-radius: 5px;
+}
+
+.ui-dialog, .ui-dialog-title, .ui-dialog-titlebar, .ui-dialog-content {
+    background-color: #F2F2F2 !important;
+}
+
+.ui-widget-header {
+  color: #558B9D;
+  background-color: #f2f2f2;
+}
+
+.help-title-bar {
+    cursor:pointer;
+    height:17px;
+    width:15px;
+    float:right;
+    margin-right:7px;
+    margin-top:-1px;
+    font-size:13px;
+    font-weight:bold;
+    color:#000000;
+    text-align: center;
+}
+
+span.grid-link {
+    text-decoration: none;
+    cursor: pointer;
+    color: #0000ff;
+}

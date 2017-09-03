@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects.Variant" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Variant" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary" />
+  <xs:import schemaLocation="http://209.118.149.87/CertonaService.svc?xsd=xsd18" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="GetVariantDetailsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q1:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Variant" minOccurs="0" name="VariantDetails" nillable="true" type="q2:VariantDetailsDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetVariantDetailsResponse" nillable="true" type="tns:GetVariantDetailsResponse" />
+  <xs:complexType name="GetVariantRulesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q3:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Variant" minOccurs="0" name="Rules" nillable="true" type="q4:ArrayOfVariantRuleDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetVariantRulesResponse" nillable="true" type="tns:GetVariantRulesResponse" />
+  <xs:complexType name="GetVariantBoostsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q5:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary" minOccurs="0" name="VariantBiases" nillable="true" type="q6:ArrayOfVariantBiasDTO" />
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary.Variant" minOccurs="0" name="VariantDetails" nillable="true" type="q7:VariantDetailsDTO" />
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.DTOLibrary" minOccurs="0" name="VariantModels" nillable="true" type="q8:ArrayOfVariantModelDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetVariantBoostsResponse" nillable="true" type="tns:GetVariantBoostsResponse" />
+  <xs:complexType name="GetVariantSlotsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q9:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Slots" nillable="true" type="q10:ArrayOfint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetVariantSlotsResponse" nillable="true" type="tns:GetVariantSlotsResponse" />
+  <xs:complexType name="UpdateVariantStatusResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q11:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateVariantStatusResponse" nillable="true" type="tns:UpdateVariantStatusResponse" />
+  <xs:complexType name="UpdateVariantPriorityResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q12="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q12:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateVariantPriorityResponse" nillable="true" type="tns:UpdateVariantPriorityResponse" />
+  <xs:complexType name="UpdateVariantDetailsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q13="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q13:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateVariantDetailsResponse" nillable="true" type="tns:UpdateVariantDetailsResponse" />
+  <xs:complexType name="CreateVariantResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q14="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q14:ResponseBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="VariantID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CreateVariantResponse" nillable="true" type="tns:CreateVariantResponse" />
+  <xs:complexType name="UpdateVariantModifiersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q15="http://schemas.datacontract.org/2004/07/Resonance.Services.Infrastructure.ResponseObjects" base="q15:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UpdateVariantModifiersResponse" nillable="true" type="tns:UpdateVariantModifiersResponse" />
+</xs:schema>

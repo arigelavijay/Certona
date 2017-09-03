@@ -1,0 +1,77 @@
+﻿@using Resonance.Insight3.Web.Helpers
+@model Resonance.Insight3.Web.ViewModels.Scheme.SchemeExperienceViewModel
+<script type="text/javascript" src="~/Scripts/Certona/grid.common.js"></script>
+@Html.HiddenFor(m => m.CreatedExperienceId)
+@Html.HiddenFor(m => m.CreatedExperienceName)
+<script id="template" type="text/x-kendo-tmpl">
+    <span   
+    # if (data == 'Inactive') { #
+          class="accountStatusInactive"
+      # } else if (data == 'Deleted') { #
+          class="accountStatusDeleted"
+      # } #
+     >#=data#</span>
+ </script>
+
+<script type="text/javascript">
+    function trafficDefault(data) {
+        var template = "<span data-id='" + data.ExperienceID + "' data-role='traffic-display'>" + (data.Traffic == null ? '--' : data.Traffic) +
+            (data.Traffic == null ? '' : ' %') + "</span>";
+        return template;
+    }
+    
+    function containerID() {
+        return { containerID: '@Model.ContainerID' };
+    }
+
+    function onExperienceGridViewDataBound(e) {
+        //alert('TODO: execute function to highlight treeview and grid for ExperienceId: ' + createdExperienceId);               
+        var createdExperienceId = $('#CreatedExperienceId').val();
+        if (createdExperienceId !== '' && createdExperienceId !== 0) {
+            HighlightGridRow("SchemeExperiences", "ExperienceID", Number(createdExperienceId));
+        }
+    }
+</script>
+
+@(Html.Kendo().Grid<Resonance.Insight3.Web.ViewModels.Scheme.SchemeExperience>()
+.Name("SchemeExperiences")
+.Columns(columns =>
+{
+    columns.Bound(p => p.Name).ClientTemplate("<span class='grid-link' onclick=\"GoExperienceContent(#=ExperienceID#, '#=Name#');\">#=Name#</span>");
+    columns.Bound(p => p.Description).Sortable(false).HeaderHtmlAttributes(new { @class = "remove-k-link" });
+    columns.Bound(p => p.Traffic).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("traffic")">Traffic</span> </text>).Sortable(false).HeaderHtmlAttributes(new { @class = "remove-k-link" }).Format("{0:n} %")
+                                 .ClientTemplate("#= trafficDefault(data) #"); 
+    columns.Bound(p => p.Status).HeaderTemplate(@<text> <span class="hotspot" data-hotspot="@this.InfoPanelResources("status")">Status</span> </text>).Sortable(false).HeaderHtmlAttributes(new {@class = "remove-k-link"})
+                                .ClientTemplate("<span style='cursor:help;' #=Status == 'Inactive' || Status == 'Deleted' ? Status == 'Inactive' ? 'class=\"accountStatusInactive\"' : 'class=\"accountStatusDeleted\"' : '' # onmouseover=\"ShowInfo('#=Status#');\" onmouseout=\"HideInfo();\">#=Status#</span>");
+})
+.TableHtmlAttributes(new {style="font-size:0.9em;"})
+.Sortable()
+.DataSource(dataSource => dataSource
+    .Ajax()
+    .ServerOperation(false)
+    .Sort(sort => sort.Add(o => o.Name).Ascending())
+    .Read(read => read.Action("GetExperiences", "Experience").Data("containerID")))
+.Events(events =>
+                {
+                    events.DataBound("onExperienceGridViewDataBound");                    
+                })        
+    )
+
+<script type="text/javascript">
+    $(function () {
+        // removing k-link css class b/c k-link color is set to red in /Content/styles.v.1.1.css
+        $(".remove-k-link > span").removeClass('k-link');
+        $(".remove-k-link > span").addClass('unsortable-gridheader');        
+        
+        var createdExperienceId = $('#CreatedExperienceId').val();
+        if (createdExperienceId !== '' && createdExperienceId !== 0) {
+            highlightTreeItem = {
+                nodeType: 'Experience',
+                nodeId: Number(createdExperienceId)
+            };
+            // Refresh treeview
+            var treeview = $("#AccountTreeView").data("kendoTreeView");
+            treeview.dataSource.read();
+        }
+    });
+</script>
